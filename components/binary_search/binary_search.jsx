@@ -1,4 +1,5 @@
 import React from 'react';
+import BinarySearchSolution from '../solutions/binary_search/binary_search';
 
 export default class BinarySearch extends React.Component{
   constructor(props){
@@ -95,9 +96,8 @@ export default class BinarySearch extends React.Component{
           </span>
           <span>]</span>
         </div>
-
         <div>target: {this.state.target}</div>
-
+        <div className="solution-container"><BinarySearchSolution /></div>
       </div>
     );
   }

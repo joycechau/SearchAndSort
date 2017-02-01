@@ -1,0 +1,40 @@
+.solution-container {
+  border: 1px solid blue;
+  max-width: 500px;
+  padding: 10px;
+}
+
+.solution {
+  border: 1px solid red;
+}
+
+.button-div {
+  display: flex;
+  justify-content: space-between;
+}
+
+.javascript-button,
+.ruby-button,
+.python-button {
+  border: 1px solid orange;
+  font-size: 25px;
+}
+
+.solution-div {
+  padding: 30px;
+  font-size: 14px;
+}
+
+.indent0, .indent1, .indent2 {
+  padding: 5px;
+}
+
+.indent1 {
+  border: 1px solid purple;
+  margin-left: 25px;
+}
+
+.indent2 {
+  border: 1px solid pink;
+  margin-left: 50px;
+}
