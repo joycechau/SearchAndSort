@@ -1,5 +1,5 @@
 module.exports = {
-  entry: './frontend/search_and_sort.jsx',
+  entry: './search_and_sort.jsx',
   output: {
     path: 'app/assets/javascripts',
     filename: 'bundle.js',
