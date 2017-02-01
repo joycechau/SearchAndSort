@@ -6,7 +6,9 @@ export default class BinarySearch extends React.Component{
     this.state ={
       userInputArray: "",
       target: "",
-      answer: []
+      answer: [],
+      index: 0,
+      toggle: false
     };
 
     this.handleSubmit = this.handleSubmit.bind(this);
@@ -32,22 +34,41 @@ export default class BinarySearch extends React.Component{
     let target = parseInt(this.state.target);
 
     this.setState({
-      answer: array
+      userInputArray: array,
+      answer: array,
+      index: 0,
+      toggle: false
     });
 
-      this.bsearch(array, target);
+    this.interval = setInterval( () => {
+      this.bsearch(this.state.answer, target);
+    }, 2000);
   }
 
   bsearch(array, target) {
-    this.interval = setInterval( () => {
-      let midIdx = Math.floor(array.length / 2);
-      let midNum = array[midIdx];
+    let midIdx = Math.floor(array.length / 2);
+    let midNum = array[midIdx];
+    if (array.length !== 0) {
+      let el = document.getElementById(midIdx);
+      el.className = 'blue';
+    }
 
+    setTimeout( () => {
+      if (array.length !== 0) {
+        let el = document.getElementById(midIdx);
+        el.className = '';
+      }
       if (midNum === target) {
-        clearInterval(this.interval);
         this.setState({
-          answer: [target]
+          answer: [target],
+          index: this.state.index += midIdx
         });
+        clearInterval(this.interval);
+        setTimeout( () => {
+          this.setState({
+            toggle: true
+          });
+        }, 1000);
       } else if (target < midNum) {
         array = array.slice(0, midIdx);
         this.setState({
@@ -56,21 +77,39 @@ export default class BinarySearch extends React.Component{
       } else if (target > midNum) {
         array = array.slice(midIdx + 1);
         this.setState({
-          answer: array
+          answer: array,
+          index: this.state.index += (midIdx + 1)
         });
       } else {
         clearInterval(this.interval);
+        setTimeout( () => {
+          this.setState({
+            toggle: true,
+            index: "not found"
+          });
+        }, 1000);
       }
     }, 1000);
   }
 
-  // componentDidMount() {
-  //   this.interval = setInterval(this.changeState.bind(this), 1000);
-  // }
-
-  // componentWillUnmount() {
-  //   clearInterval(this.interval);
-  // }
+  showFinal() {
+    if (this.state.toggle) {
+      return(
+        <div>
+          <span className='array'>original array:
+            <span>[</span>
+            <span>
+              {this.state.userInputArray.map((num, id) => (
+                <span key={id} id={`${id}`}> {num} </span>
+              ))}
+            </span>
+            <span>]</span>
+          </span>
+          <div>index: {this.state.index}</div>
+        </div>
+      );
+    }
+  }
 
   render(){
     return (
@@ -86,17 +125,19 @@ export default class BinarySearch extends React.Component{
 
           <button type="submit" value="submit">Submit</button>
         </form>
-        <div className='array'>
+
+        <div>
           <span>[</span>
           <span>
             {this.state.answer.map((num, id) => (
-              <span key={id}> {num} </span>
+              <span key={id} id={`${id}`}> {num} </span>
             ))}
           </span>
           <span>]</span>
         </div>
 
         <div>target: {this.state.target}</div>
+        <div>{this.showFinal()}</div>
 
       </div>
     );
