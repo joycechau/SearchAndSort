@@ -1,8 +1,7 @@
 module.exports = {
-  entry: './frontend/search_and_sort.jsx',
+  entry: './search_and_sort.js',
   output: {
-    path: 'app/assets/javascripts',
-    filename: 'bundle.js',
+    filename: './bundle.js',
   },
   module: {
     loaders: [
