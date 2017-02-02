@@ -28,8 +28,3 @@ export default class QuickSortSolve {
     return this.solution
   }
 }
-
-// var x = new QuickSortSolve
-// var array = [7,2,12,5,6,8,9,10]
-// x.quickSort(array)
-// x.result()

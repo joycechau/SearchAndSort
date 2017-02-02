@@ -18,7 +18,7 @@ export default class QuickSort extends React.Component {
     this.renderQuickSortChange = this.renderQuickSortChange.bind(this)
     this.handleClickStart = this.handleClickStart.bind(this);
     this.classClear = this.classClear.bind(this)
-    this.startArray = [28,34,180, 85,65,12, 40, 30, 45,7,12,3,8,18,10,9,13,16, 5]
+    this.startArray = [30,6,23,1,60,,22,40,3,4,21,24,8,5, 31,18]
     var newQuickSort = new QuickSortSolve
     this.sorting = newQuickSort.quickSort(this.startArray)
     this.result = newQuickSort.result()
@@ -73,7 +73,7 @@ export default class QuickSort extends React.Component {
     var indexSet = this.findIndexes()
     var sortedSet = this.result[this.state.iterationCounter][2]
     .concat(this.result[this.state.iterationCounter][3])
-    .concat(this.result[this.state.iterationCounter][1]).sort((a, b) => a-b)
+    .concat(this.result[this.state.iterationCounter][1])
     for(let i = 0; i< indexSet.length; i++){
       this.startArray[indexSet[i]] = sortedSet[i]
     }
@@ -188,21 +188,24 @@ export default class QuickSort extends React.Component {
             }
           })
         case 3:
-          // var nums = document.getElementsByClassName("hidden")
-          // var pivotNum = this.result[this.state.iterationCounter][3][0].toString()
-          // while (nums.length){
-          //   if (nums[0].getAttribute("name") === pivotNum){
-          //     nums[0].className="sorted"
-          //   }
-          // }
+          var nums = document.getElementsByClassName("hidden")
+          var pivotNum = this.result[this.state.iterationCounter][3][0].toString()
+          var activeArray = this.result[this.state.iterationCounter][0]
+            if (activeArray.length < 4){
+              var sorted = document.getElementsByClassName("active")
+              while (nums[0]){
+                  nums[0].className = "sorted"
+              }
+            }
           clearInterval(this.clearSubArray)
-          console.log(this.result[this.state.iterationCounter][0]);
-          this.setState({iterationCounter: this.state.iterationCounter += 1})
-          if (this.result[this.state.iterationCounter][0].length < 1){
-            this.setState({solved: true})
-          }
         case 4:
-        this.setNewActiveElements()
+        console.log(this.result[this.state.iterationCounter + 1][0]);
+        if (this.result[this.state.iterationCounter + 1][0].length < 1){
+          this.setState({solved: true})
+        } else {
+          this.setState({iterationCounter: this.state.iterationCounter += 1})
+          this.setNewActiveElements()
+        }
       }
       counter += 1
     }, this.clearSubArraySpeed)
@@ -210,15 +213,13 @@ export default class QuickSort extends React.Component {
 
   setNewActiveElements(){
     var currentArray = this.result[this.state.iterationCounter][0];
-    var pivotNum = this.result[this.state.iterationCounter][3];
+    var pivotNum = this.result[this.state.iterationCounter - 1][3][0];
     for (let x=0; x < 20; x++){
       ["hidden","active", "unfocused"].forEach( (el) => {
-        console.log(el);
         var j = document.getElementsByClassName(el);
         for (let i=0; i < j.length; i++){
           var num = parseInt((j[i].getAttribute("name")));
           var test = currentArray.includes(num);
-          console.log(currentArray);
           if (num === pivotNum){
             j[i].className="sorted"
           }
@@ -230,7 +231,7 @@ export default class QuickSort extends React.Component {
         }
       })
     }
-    return
+    this.addClassName()
   }
 
   showDeconsctructedArray(){
