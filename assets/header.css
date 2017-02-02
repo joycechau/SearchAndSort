@@ -43,3 +43,24 @@
 	height: 20px;
 	margin-left: 5px;
 }
+
+.header-nav {
+	background-color: #93D1FF;
+	padding-top: 10px;
+	padding-bottom: 10px;
+}
+
+.header-nav button {
+	padding: 5px;
+	margin-left: 20px;
+	border-radius: 2px;
+	border: 1px solid black;
+	width: 150px;
+	align-self: auto;
+	text-align: center;
+	margin-right: 10px;
+}
+
+.selected-button {
+  background-color: white;
+}

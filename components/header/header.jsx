@@ -1,8 +1,37 @@
 import React from 'react';
+import { hashHistory } from 'react-router';
+
 
 export default class Header extends React.Component{
   constructor(props) {
     super(props);
+    this.handleBinarySearchButton = this.handleBinarySearchButton.bind(this);
+    this.handleQuickSortButton = this.handleQuickSortButton.bind(this);
+    this.handleMergeSortButton = this.handleMergeSortButton.bind(this);
+  }
+
+  handleBinarySearchButton(e) {
+    e.preventDefault();
+    $(".bsearch-button").addClass("selected-button");
+    $(".quicksort-button").removeClass("selected-button");
+    $(".mergesort-button").removeClass("selected-button");
+    hashHistory.push('/bsearch');
+  }
+
+  handleQuickSortButton(e) {
+    e.preventDefault();
+    $(".quicksort-button").addClass("selected-button");
+    $(".bsearch-button").removeClass("selected-button");
+    $(".mergesort-button").removeClass("selected-button");
+    hashHistory.push('/quicksort');
+  }
+
+  handleMergeSortButton(e) {
+    e.preventDefault();
+    $(".mergesort-button").addClass("selected-button");
+    $(".bsearch-button").removeClass("selected-button");
+    $(".quicksort-button").removeClass("selected-button");
+    hashHistory.push('/mergesort');
   }
 
   render() {
@@ -78,7 +107,21 @@ export default class Header extends React.Component{
           </div>
         </div>
         <div className="header-nav">
-          Testing 
+          <button
+            onClick={this.handleBinarySearchButton}
+            className="bsearch-button selected-button">
+            Binary Search
+          </button>
+          <button
+            onClick={this.handleQuickSortButton}
+            className="quicksort-button">
+            Quick Sort
+          </button>
+          <button
+            onClick={this.handleMergeSortButton}
+            className="mergesort-button">
+            Merge Sort
+          </button>
         </div>
       </div>
     );
