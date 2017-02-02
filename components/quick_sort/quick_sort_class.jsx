@@ -14,7 +14,7 @@ export default class QuickSortSolve {
     var larger = array.filter( x => x > pivot )
     var smaller = array.filter( x => x <= pivot )
     this.solution[this.iteration] = [
-      smaller.concat([pivot]).concat(larger),
+      [pivot].concat(smaller).concat(larger),
       larger,
       smaller,
       [pivot]

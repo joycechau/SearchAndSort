@@ -13,15 +13,12 @@ export default class QuickSort extends React.Component {
     this.resetIterationIntervalSpeed = 100
     this.switchArrayToSubarraySpeed =100
     this.clearSubArraySpeed = 100
-    this.solutionSequence = this.solutionSequence.bind(this);
-    this.counterIncrement = this.counterIncrement.bind(this);
     this.pivot = this.pivot.bind(this);
     this.addClassName = this.addClassName.bind(this)
     this.renderQuickSortChange = this.renderQuickSortChange.bind(this)
     this.handleClickStart = this.handleClickStart.bind(this);
-    this.clearMainArray = this.clearMainArray.bind(this);
     this.classClear = this.classClear.bind(this)
-    this.startArray = [7,12,3,8,18,10,9,13,16, 5]
+    this.startArray = [28,34,180, 85,65,12, 40, 30, 45,7,12,3,8,18,10,9,13,16, 5]
     var newQuickSort = new QuickSortSolve
     this.sorting = newQuickSort.quickSort(this.startArray)
     this.result = newQuickSort.result()
@@ -30,31 +27,6 @@ export default class QuickSort extends React.Component {
   update(input){
     return e => this.setState({
       [input]: e.currentTarget.value
-    })
-  }
-  renderSolution(){
-    setInterval( ()=> {
-      this.setState({rendered: false})
-      this.setState({counter: this.state.counter += 1})
-    }, 3000)
-  }
-  componentDidMount(){
-    this.renderSolution()
-  }
-  solutionSequence(){
-    return this.renderSolution();
-  }
-
-  counterIncrement(){
-    this.setState({counter: this.state.counter += 1})
-  }
-
-  clearMainArray(){
-    ["pivot", "larger", "smaller"].forEach((el) => {
-      var i = document.getElementsByClassName(el)
-      while (i.length){
-        i[0].className=`hidden`
-      }
     })
   }
 
