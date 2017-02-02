@@ -1,11 +1,10 @@
 import React from 'react';
 
 export default class BinarySearchSolution extends React.Component{
-
   constructor(props) {
     super(props);
     this.state = {
-      showJavaScriptSolution: false,
+      showJavaScriptSolution: true,
       showRubySolution: false,
       showPythonSolution: false
     };
@@ -16,6 +15,9 @@ export default class BinarySearchSolution extends React.Component{
 
   handleJavaScriptButton(e) {
     e.preventDefault();
+    $(".javascript-button").addClass("selected-solution-button");
+    $(".ruby-button").removeClass("selected-solution-button");
+    $(".python-button").removeClass("selected-solution-button");
     this.setState({
       showJavaScriptSolution: true,
       showRubySolution: false,
@@ -23,24 +25,58 @@ export default class BinarySearchSolution extends React.Component{
     });
   }
 
+  handleRubyButton(e) {
+    e.preventDefault();
+    $(".ruby-button").addClass("selected-solution-button");
+    $(".javascript-button").removeClass("selected-solution-button");
+    $(".python-button").removeClass("selected-solution-button");
+    this.setState({
+      showJavaScriptSolution: false,
+      showRubySolution: true,
+      showPythonSolution: false
+    });
+  }
+
+  handlePythonButton(e) {
+    e.preventDefault();
+    $(".python-button").addClass("selected-solution-button");
+    $(".javascript-button").removeClass("selected-solution-button");
+    $(".ruby-button").removeClass("selected-solution-button");
+    this.setState({
+      showJavaScriptSolution: false,
+      showRubySolution: false,
+      showPythonSolution: true
+    });
+  }
+
   javaScriptSolution() {
     if (this.state.showJavaScriptSolution) {
       return (
         <div>
-          <img src="https://res.cloudinary.com/joycechau/image/upload/c_scale,w_450/v1485977357/bsearch_js.png" alt="javascript-solution"/>
+          <img src="https://res.cloudinary.com/joycechau/image/upload/c_scale,w_450/v1485979449/bsearch_js.png" alt="javascript-solution"/>
         </div>
       );
     }
   }
 
-  handleRubyButton(e) {
-    e.preventDefault(e);
-    alert("Ruby");
+  rubySolution() {
+    if (this.state.showRubySolution) {
+      return (
+        <div>
+          <img src="https://res.cloudinary.com/joycechau/image/upload/c_scale,w_450/v1485979562/bsearch_ruby.png" alt="ruby-solution"/>
+        </div>
+      );
+    }
   }
 
-  handlePythonButton(e) {
-    e.preventDefault(e);
-    alert("Python");
+  pythonSolution() {
+    if (this.state.showPythonSolution) {
+      return (
+        <div>
+          <img src="https://res.cloudinary.com/joycechau/image/upload/c_scale,w_450/v1485988171/bsearch_python.png" alt="python-solution"/>
+        </div>
+      );
+    }
   }
 
   render() {
@@ -49,7 +85,7 @@ export default class BinarySearchSolution extends React.Component{
         <div className="button-div">
           <button
             onClick={this.handleJavaScriptButton}
-            className="javascript-button">
+            className="javascript-button selected-solution-button">
             JavaScript
           </button>
           <button
@@ -65,6 +101,8 @@ export default class BinarySearchSolution extends React.Component{
         </div>
         <div className="solution-div">
           {this.javaScriptSolution()}
+          {this.rubySolution()}
+          {this.pythonSolution()}
         </div>
       </div>
     );

@@ -1,15 +1,19 @@
 
-function binarySearch(array, target, low, high) {
-  if (high < low) { return null; }
-
-  var midpoint = Math.floor((low + high) / 2);
-
-  if (array[midpoint] > target) {
-    return binarySearch(array, target, low, midpoint - 1);
-  }
-  if (array[midpoint] < target) {
-    return binarySearch(array, target, midpoint + 1, high);
+function binarySearch(numbers, target) {
+  if (numbers.length === 0) {
+    return -1;
   }
 
-  return midpoint;
+  const midpoint = Math.floor(numbers.length / 2);
+
+  if (target === numbers[midpoint]) {
+    return midpoint;
+  } else if (target < numbers[midpoint]) {
+    const left = numbers.slice(0, midpoint);
+    return binarySearch(left, target);
+  } else {
+    const right = numbers.slice(midpoint + 1);
+    const subanswer = binarySearch(right, target);
+    return subanswer === -1 ? -1 : subanswer + (midpoint + 1);
+  }
 }
