@@ -1,5 +1,6 @@
 .solution-container {
-  max-width: 500px;
+  max-width: 600px;
+  width: 100%;
   padding: 10px;
   height: auto;
 }
@@ -18,7 +19,7 @@
 .javascript-button,
 .ruby-button,
 .python-button {
-  width: 150px;
+  width: 33%;
   display: flex;
   justify-content: center;
   font-size: 25px;
@@ -29,7 +30,7 @@
 
 .selected-solution-button {
   background-color: #91C9FF;
-  color: white;
+  color: black;
 }
 
 .solution-div {
