@@ -1,4 +1,5 @@
 import React from 'react';
+import BinarySearchSolution from '../solutions/binary_search/binary_search';
 
 export default class BinarySearch extends React.Component{
   constructor(props){
@@ -24,7 +25,7 @@ export default class BinarySearch extends React.Component{
     e.preventDefault();
     let array = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
 
-    let target = parseInt(this.state.target);
+    let target = parseFloat(this.state.target);
 
     this.setState({
       showArray: array,
@@ -102,7 +103,7 @@ export default class BinarySearch extends React.Component{
           original array: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
         </span>
         <form onSubmit={this.handleSubmit}>
-          <label>target: 
+          <label>target:
             <input type="text" onChange={this.update('target')} />
           </label>
 
@@ -118,9 +119,9 @@ export default class BinarySearch extends React.Component{
           </span>
           <span>]</span>
         </div>
-
+        <div>target: {this.state.target}</div>
         <div>{this.showFinal()}</div>
-
+        <div className="solution-container"><BinarySearchSolution /></div>
       </div>
     );
   }
