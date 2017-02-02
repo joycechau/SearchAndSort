@@ -4,7 +4,7 @@ import App from './app';
 
 import BinarySearch from './binary_search/binary_search';
 import BubbleSort from './bubble_sort/bubble_sort';
-import MergeSort from './merge_sort/merge_sort';
+import MergeSort from './merge_sort/merge_sort_class';
 import QuickSort from './quick_sort/quick_sort';
 
 const Root =() => {

@@ -4,9 +4,8 @@ export default class BinarySearch extends React.Component{
   constructor(props){
     super(props);
     this.state ={
-      userInputArray: "",
       target: "",
-      answer: [],
+      showArray: [],
       index: 0,
       toggle: false
     };
@@ -23,25 +22,18 @@ export default class BinarySearch extends React.Component{
 
   handleSubmit(e) {
     e.preventDefault();
-    let input = this.state.userInputArray.split(',');
-    let array = [];
-    input.map(num => {
-      array.push(parseInt(num));
-    });
-    array.sort( (a,b) => {
-      return a - b;
-    });
+    let array = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+
     let target = parseInt(this.state.target);
 
     this.setState({
-      userInputArray: array,
-      answer: array,
+      showArray: array,
       index: 0,
       toggle: false
     });
 
     this.interval = setInterval( () => {
-      this.bsearch(this.state.answer, target);
+      this.bsearch(this.state.showArray, target);
     }, 2000);
   }
 
@@ -60,7 +52,7 @@ export default class BinarySearch extends React.Component{
       }
       if (midNum === target) {
         this.setState({
-          answer: [target],
+          showArray: [target],
           index: this.state.index += midIdx
         });
         clearInterval(this.interval);
@@ -72,12 +64,12 @@ export default class BinarySearch extends React.Component{
       } else if (target < midNum) {
         array = array.slice(0, midIdx);
         this.setState({
-          answer: array
+          showArray: array
         });
       } else if (target > midNum) {
         array = array.slice(midIdx + 1);
         this.setState({
-          answer: array,
+          showArray: array,
           index: this.state.index += (midIdx + 1)
         });
       } else {
@@ -96,15 +88,6 @@ export default class BinarySearch extends React.Component{
     if (this.state.toggle) {
       return(
         <div>
-          <span className='array'>original array:
-            <span>[</span>
-            <span>
-              {this.state.userInputArray.map((num, id) => (
-                <span key={id} id={`${id}`}> {num} </span>
-              ))}
-            </span>
-            <span>]</span>
-          </span>
           <div>index: {this.state.index}</div>
         </div>
       );
@@ -115,11 +98,11 @@ export default class BinarySearch extends React.Component{
     return (
       <div>
         <div>Binary Search</div>
+        <span className='array'>
+          original array: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+        </span>
         <form onSubmit={this.handleSubmit}>
-          <label>array
-            <input type="text" onChange={this.update('userInputArray')} />
-          </label>
-          <label>target
+          <label>target: 
             <input type="text" onChange={this.update('target')} />
           </label>
 
@@ -129,14 +112,13 @@ export default class BinarySearch extends React.Component{
         <div>
           <span>[</span>
           <span>
-            {this.state.answer.map((num, id) => (
+            {this.state.showArray.map((num, id) => (
               <span key={id} id={`${id}`}> {num} </span>
             ))}
           </span>
           <span>]</span>
         </div>
 
-        <div>target: {this.state.target}</div>
         <div>{this.showFinal()}</div>
 
       </div>
