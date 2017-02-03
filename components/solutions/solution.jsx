@@ -1,12 +1,17 @@
 import React from 'react';
 
-export default class BinarySearchSolution extends React.Component{
+export default class Solution extends React.Component{
   constructor(props) {
     super(props);
     this.state = {
       showJavaScriptSolution: true,
       showRubySolution: false,
-      showPythonSolution: false
+      showPythonSolution: false,
+      bsearch: {
+        javascript: "https://res.cloudinary.com/joycechau/image/upload/v1485979449/bsearch_js.png",
+        ruby: "https://res.cloudinary.com/joycechau/image/upload/v1485979562/bsearch_ruby.png",
+        python: "https://res.cloudinary.com/joycechau/image/upload/v1485988171/bsearch_python.png"
+      }
     };
     this.handleJavaScriptButton = this.handleJavaScriptButton.bind(this);
     this.handleRubyButton = this.handleRubyButton.bind(this);
@@ -14,6 +19,8 @@ export default class BinarySearchSolution extends React.Component{
   }
 
   handleJavaScriptButton(e) {
+
+    console.log(this.props);
     e.preventDefault();
     $(".javascript-button").addClass("selected-solution-button");
     $(".ruby-button").removeClass("selected-solution-button");
@@ -51,9 +58,10 @@ export default class BinarySearchSolution extends React.Component{
 
   javaScriptSolution() {
     if (this.state.showJavaScriptSolution) {
+      let src = this.state[this.props.algorithm].javascript;
       return (
         <div>
-          <img src="https://res.cloudinary.com/joycechau/image/upload/c_scale,w_450/v1485979449/bsearch_js.png" alt="javascript-solution"/>
+          <img src={src} alt="javascript-solution"/>
         </div>
       );
     }
@@ -61,9 +69,10 @@ export default class BinarySearchSolution extends React.Component{
 
   rubySolution() {
     if (this.state.showRubySolution) {
+      let src = this.state[this.props.algorithm].ruby;
       return (
         <div>
-          <img src="https://res.cloudinary.com/joycechau/image/upload/c_scale,w_450/v1485979562/bsearch_ruby.png" alt="ruby-solution"/>
+          <img src={src} alt="ruby-solution"/>
         </div>
       );
     }
@@ -71,9 +80,10 @@ export default class BinarySearchSolution extends React.Component{
 
   pythonSolution() {
     if (this.state.showPythonSolution) {
+      let src = this.state[this.props.algorithm].python;
       return (
         <div>
-          <img src="https://res.cloudinary.com/joycechau/image/upload/c_scale,w_450/v1485988171/bsearch_python.png" alt="python-solution"/>
+          <img src={src} alt="python-solution"/>
         </div>
       );
     }
@@ -82,7 +92,7 @@ export default class BinarySearchSolution extends React.Component{
   render() {
     return (
       <div className="solution">
-        <div className="button-div">
+        <div className="solution-button-div">
           <button
             onClick={this.handleJavaScriptButton}
             className="javascript-button selected-solution-button">
