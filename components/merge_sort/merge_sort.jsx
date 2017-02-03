@@ -1,41 +1,49 @@
 import React from 'react';
+import merge from 'lodash/merge';
 
 export default class MergeSort extends React.Component {
   constructor(props){
     super(props);
     this.state = {
-      userInputArray: "",
+      userInputArray: "1, 2, 3, 4, 5, 6, 7, 8",
       topShowArray: [[]],
       botShowArray: []
     };
 
     this.handleSubmit = this.handleSubmit.bind(this);
-    this.update = this.update.bind(this);
     this.moveBotToTop = this.moveBotToTop.bind(this);
-  }
-
-  update(input){
-    return e => this.setState({
-      [input]: e.currentTarget.value
-    });
+    this.mergeSortSplit = this.mergeSortSplit.bind(this);
+    this.mergeSortMerge = this.mergeSortMerge.bind(this);
   }
 
   handleSubmit(e) {
+    if (this.interval) {
+      clearInterval(this.interval);
+      this.setState({
+        userInputArray: "1, 2, 3, 4, 5, 6, 7, 8",
+        topShowArray: [[]],
+        botShowArray: []
+      });
+    }
     e.preventDefault();
     let input = this.state.userInputArray.split(',');
     let array = [];
     input.map(num => {
       array.push(parseInt(num));
     });
+    this.shuffle(array);
 
     this.setState({
       topShowArray: [array],
       botShowArray: []
     });
+
     let count = 0;
     this.interval = setInterval( () => {
       if (this.state.topShowArray.every(subArray => subArray.length === 1)) {
         clearInterval(this.interval);
+        count = 0;
+        this.mergeSortMerge();
       } else {
         if (count % 2 === 0) {
           this.state.topShowArray.map( subArray => {
@@ -57,7 +65,7 @@ export default class MergeSort extends React.Component {
     let botShowArray = [];
     botShowArray.push(leftArray);
     botShowArray.push(rightArray);
-    // this.state.botShowArray.push(botShowArray)
+
     botShowArray.map( subArray => {
       if (subArray.length !== 0) {
         this.state.botShowArray.push(subArray);
@@ -75,21 +83,71 @@ export default class MergeSort extends React.Component {
     });
   }
 
-  sleep(miliseconds) {
-     let currentTime = new Date().getTime();
+  mergeSortMerge() {
+    let that = this;
 
-     while (currentTime + miliseconds >= new Date().getTime()) {
-      console.log('hi');
-     }
+    let topArray = this.state.topShowArray.slice(0);
+
+    this.interval2 = setInterval( () => {
+      let that2 = that;
+      let futureBotShowArray = that.state.botShowArray;
+
+      if (this.state.topShowArray.length === 1) {
+        clearInterval(this.interval2);
+      } else {
+        if (!that.state.topShowArray.every( arr => arr.length === 0)) {
+          let currentArray = topArray.splice(0,2);
+          let sortedSubArray = [];
+
+          while ((currentArray[0].length > 0) || (currentArray[1].length > 0)) {
+            if (currentArray[0].length === 0) {
+              sortedSubArray.push(currentArray[1].splice(0,1)[0]);
+            } else if (currentArray[1].length === 0) {
+              sortedSubArray.push(currentArray[0].splice(0,1)[0]);
+            } else if (currentArray[0][0] < currentArray[1][0]) {
+              sortedSubArray.push(currentArray[0].splice(0,1)[0]);
+            } else {
+              sortedSubArray.push(currentArray[1].splice(0,1)[0]);
+            }
+          }
+          futureBotShowArray.push(sortedSubArray);
+
+          this.setState({
+            botShowArray: futureBotShowArray
+          });
+        } else {
+          this.moveBotToTop();
+          topArray = this.state.topShowArray.slice(0);
+        }
+      }
+
+    }, 2000);
+
+  }
+
+
+  // if (this.state.topShowArray.length === 1) {
+  //   clearInterval(this.interval2);
+
+  shuffle(array) {
+    let currentIndex = array.length, temporaryValue, randomIndex;
+
+    while (currentIndex !== 0) {
+      randomIndex = Math.floor(Math.random() * currentIndex);
+      currentIndex -= 1;
+
+      temporaryValue = array[currentIndex];
+      array[currentIndex] = array[randomIndex];
+      array[randomIndex] = temporaryValue;
+    }
+
+    return array;
   }
 
   render(){
     return(
       <div>
-        <form onSubmit={this.handleSubmit}>
-          <input autoFocus type='text' onChange={this.update("userInputArray")}/>
-          <button type="Submit" value="Submit">Submit</button>
-        </form>
+        <button onClick={this.handleSubmit}>Start</button>
 
         <div>
           {this.state.topShowArray.map( (subArray, idx1) => (
