@@ -1,5 +1,6 @@
 import React from 'react';
 import Solution from '../solutions/solution';
+import BinarySearchExercise from './binary_search_exercise';
 
 export default class BinarySearch extends React.Component{
   constructor(props){
@@ -122,7 +123,9 @@ export default class BinarySearch extends React.Component{
             </div>
             <div>{this.showFinal()}</div>
           </div>
-          <div className="exercise">Exercise</div>
+          <div className="exercise">
+            <BinarySearchExercise />
+          </div>
         </div>
         <div className="solution-container"><Solution algorithm="bsearch"/></div>
       </div>
