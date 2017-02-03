@@ -1,5 +1,5 @@
 import React from 'react';
-import BinarySearchSolution from '../solutions/binary_search/binary_search';
+import Solution from '../solutions/solution';
 
 export default class BinarySearch extends React.Component{
   constructor(props){
@@ -43,7 +43,7 @@ export default class BinarySearch extends React.Component{
     let midNum = array[midIdx];
     if (array.length !== 0) {
       let el = document.getElementById(midIdx);
-      el.className = 'blue';
+      el.className = 'midpoint';
     }
 
     setTimeout( () => {
@@ -89,7 +89,7 @@ export default class BinarySearch extends React.Component{
     if (this.state.toggle) {
       return(
         <div>
-          <div>index: {this.state.index}</div>
+          <div>Target Index: {this.state.index}</div>
         </div>
       );
     }
@@ -97,31 +97,34 @@ export default class BinarySearch extends React.Component{
 
   render(){
     return (
-      <div>
-        <div>Binary Search</div>
-        <span className='array'>
-          original array: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
-        </span>
-        <form onSubmit={this.handleSubmit}>
-          <label>target:
-            <input type="text" onChange={this.update('target')} />
-          </label>
+      <div className="main-container">
+        <div className="demo-and-exercise">
+          <div className="demo">
+            <div>Binary Search</div>
+            <span className='array'>
+              Numbers: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+            </span>
+            <form onSubmit={this.handleSubmit}>
+              <label>Target:
+                <input type="text" onChange={this.update('target')} />
+              </label>
 
-          <button type="submit" value="submit">Submit</button>
-        </form>
-
-        <div>
-          <span>[</span>
-          <span>
-            {this.state.showArray.map((num, id) => (
-              <span key={id} id={`${id}`}> {num} </span>
-            ))}
-          </span>
-          <span>]</span>
+              <button type="submit" value="submit">Submit</button>
+            </form>
+            <div>
+              <span>[</span>
+              <span>
+                {this.state.showArray.map((num, id) => (
+                  <span key={id} id={`${id}`}> {num} </span>
+                ))}
+              </span>
+              <span>]</span>
+            </div>
+            <div>{this.showFinal()}</div>
+          </div>
+          <div className="exercise">Exercise</div>
         </div>
-        <div>target: {this.state.target}</div>
-        <div>{this.showFinal()}</div>
-        <div className="solution-container"><BinarySearchSolution /></div>
+        <div className="solution-container"><Solution algorithm="bsearch"/></div>
       </div>
     );
   }
