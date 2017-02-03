@@ -1,0 +1,53 @@
+span {
+  font-size: 30px;
+  font-weight: bold;
+}
+
+.hidden {
+  color:transparent;
+}
+
+.unfocused {
+  color:gray;
+}
+
+
+.smaller {
+  color: purple;
+}
+
+.larger {
+  color: red;
+}
+
+.sorted {
+  color:green;
+}
+
+.pivot {
+  color: blue;
+}
+
+.pivotShow {
+  color:black;
+}
+
+.smallerShow{
+  color: black;
+}
+
+.largerShow{
+  color: black;
+}
+
+.pivotHidden {
+  color: transparent;
+}
+
+.smallerHidden {
+  color: transparent;
+}
+
+.largerHidden {
+  color: transparent;
+}
