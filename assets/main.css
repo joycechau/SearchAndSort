@@ -1,0 +1,67 @@
+.main-container {
+	margin: auto;
+	display: flex;
+	background-color: aliceblue;
+	height: 100vh;
+}
+
+.demo-and-exercise {
+	margin: 30px;
+	width: 50%;
+	height: 75%;
+	background-color: red;
+	margin-right: 0px;
+}
+
+.demo {
+	height: 50%;
+}
+
+.midpoint {
+
+}
+
+.exercise {
+	margin-top: 20px;
+	border: 1px solid green;
+	height: 50%;
+}
+
+.solution-container {
+  width: 50%;
+	height: 100%;
+  padding: 30px;
+  margin: auto;
+}
+
+.solution {
+  background-color: #91C9FF;
+  border: 2px solid black;
+}
+
+.solution-button-div {
+  display: flex;
+  justify-content: space-between;
+  background-color: #417BB2;
+}
+
+.javascript-button,
+.ruby-button,
+.python-button {
+  width: 33%;
+  display: flex;
+  justify-content: center;
+  padding: 10px;
+  border-radius: 1px;
+  color: black;
+}
+
+.selected-solution-button {
+  background-color: #91C9FF;
+  color: black;
+}
+
+.solution-div {
+  padding: 30px;
+  font-size: 14px;
+}

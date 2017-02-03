@@ -1,0 +1,66 @@
+.header-main {
+	padding: 20px;
+ 	display: flex;
+	justify-content: space-between;
+	background-color: #417BB2;
+	color: white;
+}
+
+.header-title {
+  font-size: 36px;
+}
+
+.collaborators {
+	display: flex;
+	align-items: center;
+}
+
+.collaborators-title {
+ font-size: 20px;
+}
+
+.authors {
+}
+
+.andrew, .jeffrey, .joyce {
+	display: flex;
+	float: left;
+	margin-left: 15px;
+	margin-right: 15px;
+}
+
+.links {
+	display: flex;
+	justify-content: space-around;
+}
+
+.linkedin-link, .github-link {
+}
+
+.linkedin-image, .github-image {
+	float: left;
+	width: 20px;
+	height: 20px;
+	margin-left: 5px;
+}
+
+.header-nav {
+	background-color: #93D1FF;
+	padding-top: 10px;
+	padding-bottom: 10px;
+}
+
+.header-nav button {
+	padding: 5px;
+	margin-left: 20px;
+	border-radius: 2px;
+	border: 1px solid black;
+	width: 150px;
+	align-self: auto;
+	text-align: center;
+	margin-right: 10px;
+}
+
+.selected-button {
+  background-color: white;
+}
