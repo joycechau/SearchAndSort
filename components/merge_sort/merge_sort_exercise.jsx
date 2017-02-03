@@ -6,7 +6,7 @@ export default class MergeSortExercise extends React.Component {
   }
 
   render() {
-
+    
   }
 
 }
