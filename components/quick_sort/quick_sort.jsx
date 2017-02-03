@@ -9,11 +9,13 @@ export default class QuickSort extends React.Component {
       solved: false,
       update: false
     };
-    this.addClassIntervalSpeed = 35
-    this.showDeconsctructedArraySpeed = 35
-    this.resetIterationIntervalSpeed = 35
-    this.switchArrayToSubarraySpeed =35
-    this.clearSubArraySpeed = 35
+
+    this.addClassIntervalSpeed = 100
+    this.showDeconsctructedArraySpeed = 100
+    this.resetIterationIntervalSpeed = 100
+    this.switchArrayToSubarraySpeed =100
+    this.clearSubArraySpeed = 100
+
     this.pivot = this.pivot.bind(this);
     this.handleArrayShuffle = this.handleArrayShuffle.bind(this)
     this.addClassName = this.addClassName.bind(this)
@@ -206,30 +208,42 @@ export default class QuickSort extends React.Component {
           var nums = document.getElementsByClassName("hidden")
           var pivotNum = this.result[this.state.iterationCounter][3][0].toString()
           var activeArray = this.result[this.state.iterationCounter][0]
+          var pivot = this.result[this.state.iterationCounter][3]
+          var smaller = this.result[this.state.iterationCounter][2]
+          var larger = this.result[this.state.iterationCounter][3]
           var smallPivot = this.result[this.state.iterationCounter][2].concat(this.result[this.state.iterationCounter][3])
           var pivotLarge = this.result[this.state.iterationCounter][3].concat(this.result[this.state.iterationCounter][1])
+
             if (activeArray.length < 3){
               var sorted = document.getElementsByClassName("active")
               while (nums[0]){
                   nums[0].className = "sorted"
               }
             }
+
             else if (smallPivot.length < 3){
               var sorted = document.getElementsByClassName("hidden")
               for (let i = 0; i < sorted.length; i++){
-                if ( smallPivot.includes(parseInt(sorted[i].getAttribute("name")))){
-                  sorted[i].className= "sorted"
+                if (sorted[i]){
+                  if ( smallPivot.includes(parseInt(sorted[i].getAttribute("name")))){
+                    sorted[i].className= "sorted"
+                  }
                 }
               }
             }
 
             else if (pivotLarge.length < 3){
-              var sorted = document.getElementsByClassName("hidden")
-              for (let i = 0; i <= sorted.length; i++){
-                if ( pivotLarge.includes(parseInt(sorted[i].getAttribute("name")))){
-                  sorted[i].className= "sorted"
+              // for (let j=0; j < 3; j++){
+                var sorted = document.getElementsByClassName("hidden")
+                for (let i = 0; i <= sorted.length; i++){
+
+                  // if (sorted[i].getAttribute("name")){
+                    if ( pivotLarge.includes(parseInt(sorted[i].getAttribute("name")))){
+                      sorted[i].className= "sorted"
+                    }
+                  // }
                 }
-              }
+              // }
             }
           clearInterval(this.clearSubArray)
         case 4:
@@ -401,6 +415,7 @@ export default class QuickSort extends React.Component {
       }
     })
   }
+
   render(){
     return (
       <div>
