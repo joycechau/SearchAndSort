@@ -9,19 +9,20 @@ export default class QuickSort extends React.Component {
       solved: false,
       update: false
     };
-    this.addClassIntervalSpeed = 250
-    this.showDeconsctructedArraySpeed = 250
-    this.resetIterationIntervalSpeed = 250
-    this.switchArrayToSubarraySpeed =250
-    this.clearSubArraySpeed = 250
+    this.addClassIntervalSpeed = 35
+    this.showDeconsctructedArraySpeed = 35
+    this.resetIterationIntervalSpeed = 35
+    this.switchArrayToSubarraySpeed =35
+    this.clearSubArraySpeed = 35
     this.pivot = this.pivot.bind(this);
     this.handleArrayShuffle = this.handleArrayShuffle.bind(this)
     this.addClassName = this.addClassName.bind(this)
     this.renderQuickSortChange = this.renderQuickSortChange.bind(this)
     this.handleClickStart = this.handleClickStart.bind(this);
     this.classClear = this.classClear.bind(this)
-    this.startArray = [2, 0, 18, 11, 4, 19, 12, 14, 9, 8]
-    // this.startArray = this.randomArray()
+    // this.startArray = [3, 8, 12, 6, 5, 18, 17, 19, 9]
+
+    this.startArray = this.randomArray()
     var newQuickSort = new QuickSortSolve
     this.sorting = newQuickSort.quickSort(this.startArray)
     this.result = newQuickSort.result()
@@ -60,7 +61,6 @@ export default class QuickSort extends React.Component {
       let j =0
       while (j < nums.length && nums.length > 0) {
         var currArray = this.result[this.state.iterationCounter][0]
-        console.log(currArray);
         var num = parseInt((nums[j].getAttribute("name")))
         if (currArray.includes(num)){
           nums[j].className="active"
@@ -115,7 +115,6 @@ export default class QuickSort extends React.Component {
           x[0].className = "smaller"
         }
         counter += 1
-        console.log(this.result);
       }, this.addClassIntervalSpeed)
   }
 
@@ -207,27 +206,33 @@ export default class QuickSort extends React.Component {
           var nums = document.getElementsByClassName("hidden")
           var pivotNum = this.result[this.state.iterationCounter][3][0].toString()
           var activeArray = this.result[this.state.iterationCounter][0]
-          var smallLarge = this.result[this.state.iterationCounter][2].concat(this.result[this.state.iterationCounter][3])
+          var smallPivot = this.result[this.state.iterationCounter][2].concat(this.result[this.state.iterationCounter][3])
+          var pivotLarge = this.result[this.state.iterationCounter][3].concat(this.result[this.state.iterationCounter][1])
             if (activeArray.length < 3){
               var sorted = document.getElementsByClassName("active")
               while (nums[0]){
                   nums[0].className = "sorted"
               }
             }
-            else if (smallLarge.length < 3){
-              debugger
+            else if (smallPivot.length < 3){
               var sorted = document.getElementsByClassName("hidden")
               for (let i = 0; i < sorted.length; i++){
-                if ( smallLarge.includes(parseInt(sorted[i].getAttribute("name")))){
+                if ( smallPivot.includes(parseInt(sorted[i].getAttribute("name")))){
                   sorted[i].className= "sorted"
                 }
               }
             }
 
-
+            else if (pivotLarge.length < 3){
+              var sorted = document.getElementsByClassName("hidden")
+              for (let i = 0; i <= sorted.length; i++){
+                if ( pivotLarge.includes(parseInt(sorted[i].getAttribute("name")))){
+                  sorted[i].className= "sorted"
+                }
+              }
+            }
           clearInterval(this.clearSubArray)
         case 4:
-        console.log(this.result[this.state.iterationCounter + 1][0]);
         if (this.result[this.state.iterationCounter + 1][0].length < 1){
           this.setState({solved: true})
         } else {
@@ -373,15 +378,12 @@ export default class QuickSort extends React.Component {
     this.shuffleArray = setInterval( () => {
       switch(counter) {
         case 1:
-        console.log("ok");
           this.setState({iterationCounter: 0, solved: false})
           this.startArray = this.randomArray()
           var newQuickSort = new QuickSortSolve
           this.sorting = newQuickSort.quickSort(this.startArray)
           this.result = newQuickSort.result()
-          console.log(this.result);
         case 2:
-        console.log(this.result);
           this.resetArray();
         case 3:
           clearInterval(this.shuffleArray)
