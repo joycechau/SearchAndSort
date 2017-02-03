@@ -441,7 +441,7 @@ export default class QuickSort extends React.Component {
               </button>
             </div>
           </div>
-          <div className="exercise"></div>
+          <div className="exercise">Quick Sort Exercise</div>
         </div>
         <div className="solution-container"><Solution algorithm="quicksort"/></div>
       </div>

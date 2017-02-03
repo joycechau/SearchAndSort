@@ -122,7 +122,7 @@ export default class BinarySearch extends React.Component{
             </div>
             <div>{this.showFinal()}</div>
           </div>
-          <div className="exercise">Exercise</div>
+          <div className="exercise">Binary Search Exercise</div>
         </div>
         <div className="solution-container"><Solution algorithm="bsearch"/></div>
       </div>
