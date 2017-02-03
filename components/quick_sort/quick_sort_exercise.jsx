@@ -24,7 +24,7 @@ export default class QuickSortExercise extends React.Component{
 
   randomArray(){
     const newArr = []
-    const arrLength = Math.floor(Math.random()*10 + 10)
+    const arrLength = Math.floor(Math.random()*5 + 3)
     for (let i = 0; i < arrLength; i++){
       let newNum = Math.floor(Math.random()*20)
       if (!newArr.includes(newNum)){
@@ -70,6 +70,13 @@ export default class QuickSortExercise extends React.Component{
         )
       })
     )
+  }
+
+  hideAllActive(){
+    var pivot = document.getElementsByClassName("active")
+    while (pivot.length){
+      pivot[0].className="hidden"
+    }
   }
 
   showPivot(){
@@ -189,21 +196,165 @@ export default class QuickSortExercise extends React.Component{
     }
   }
 
+
+    renderHiddenSortedAndClearSubArray(){
+      var counter = 0
+      this.clearSubArray = setInterval( () => {
+        var currentArray = this.result[this.state.iterationCounter][0]
+        console.log("render hidden");
+        switch(counter){
+          case 1:
+            console.log("hit case 1 render");
+            this.insertArrayByIndex()
+            this.forceUpdate()
+          case 2:
+          console.log("hit case 2 render");
+            ["pivotShow", "largerShow", "smallerShow"].forEach((subArrayClass) => {
+              var i = document.getElementsByClassName(subArrayClass)
+              while(i.length){
+                i[0].className = subArrayClass.replace("Show", "Hidden")
+              }
+            })
+          case 3:
+            var nums = document.getElementsByClassName("hidden")
+            var pivotNum = this.result[this.state.iterationCounter][3][0].toString()
+            var activeArray = this.result[this.state.iterationCounter][0]
+            var pivot = this.result[this.state.iterationCounter][3]
+            var smaller = this.result[this.state.iterationCounter][2]
+            var larger = this.result[this.state.iterationCounter][3]
+            var smallPivot = this.result[this.state.iterationCounter][2].concat(this.result[this.state.iterationCounter][3])
+            var pivotLarge = this.result[this.state.iterationCounter][3].concat(this.result[this.state.iterationCounter][1])
+            debugger
+              if (activeArray.length < 3){
+                var sorted = document.getElementsByClassName("active")
+                while (nums[0]){
+                    nums[0].className = "sorted"
+                }
+              }
+
+              else if (smallPivot.length < 3){
+                var sorted = document.getElementsByClassName("hidden")
+                for (let i = 0; i < sorted.length; i++){
+                  if (sorted[i]){
+                    if ( smallPivot.includes(parseInt(sorted[i].getAttribute("name")))){
+                      sorted[i].className= "sorted"
+                    }
+                  }
+                }
+              }
+
+              else if (pivotLarge.length < 3){
+                // for (let j=0; j < 3; j++){
+                  var sorted = document.getElementsByClassName("hidden")
+                  for (let i = 0; i <= sorted.length; i++){
+
+                    // if (sorted[i].getAttribute("name")){
+                      if ( pivotLarge.includes(parseInt(sorted[i].getAttribute("name")))){
+                        sorted[i].className= "sorted"
+                      }
+                    // }
+                  }
+                // }
+              }
+            clearInterval(this.clearSubArray)
+          case 4:
+          debugger
+          if (this.result[this.state.iterationCounter + 1][0].length < 1){
+            this.setState({solved: true})
+          } else {
+            this.setState({iterationCounter: this.state.iterationCounter += 1})
+            this.setNewActiveElements()
+          }
+        }
+        counter += 1
+      }, this.clearSubArraySpeed)
+    }
+
+    setNewActiveElements(){
+      debugger
+      var currentArray = this.result[this.state.iterationCounter][0];
+      var pivotNum = this.result[this.state.iterationCounter - 1][3][0];
+      for (let x=0; x < 20; x++){
+        ["hidden","active", "unfocused"].forEach( (el) => {
+          var j = document.getElementsByClassName(el);
+          for (let i=0; i < j.length; i++){
+            var num = parseInt((j[i].getAttribute("name")));
+            var test = currentArray.includes(num);
+            if (num === pivotNum){
+              j[i].className="sorted"
+            }
+            else if (!test){
+              j[i].className="unfocused";
+            } else if (test) {
+              j[i].className="active";
+            }
+          }
+        })
+      }
+      console.log("add something here!?");
+    }
+
+    findIndexes(){
+      let newArr = []
+      var sortedSet = this.result[this.state.iterationCounter][2]
+      .concat(this.result[this.state.iterationCounter][3])
+      .concat(this.result[this.state.iterationCounter][1])
+      for (let i = 0; i < sortedSet.length; i++){
+        var idx = this.startArray.indexOf(sortedSet[i])
+        newArr.push(idx)
+      }
+      return newArr.sort((a, b) => a-b)
+    }
+
+    insertArrayByIndex(){
+      var indexSet = this.findIndexes()
+      var sortedSet = this.result[this.state.iterationCounter][2]
+      .concat(this.result[this.state.iterationCounter][3])
+      .concat(this.result[this.state.iterationCounter][1])
+      for(let i = 0; i< indexSet.length; i++){
+        this.startArray[indexSet[i]] = sortedSet[i]
+      }
+    }
+
   correctHandler(value, string){
     var button = document.querySelectorAll(`[value="${value}"]`);
     button[0].className = `${string}Show`
     this.setState({correctButtonCount: this.state.correctButtonCount += 1})
+    console.log(this.state.correctButtonCount);
+    console.log(this.smallerCount());
     switch(string){
       case "smaller":
         if (this.state.correctButtonCount >= this.smallerCount()){
+          console.log("finished smaller");
           this.setState({gameState: "selectHigher", correctButtonCount: 0})
-          var incorrectInputs = document.getElementsByClassName("incorrect")
-          while (incorrectInputs.length){
-            incorrectInputs[0].className="active"
-          }
+          var counter = 0
+
+          this.showLargerHideMain = setInterval( () =>{
+            switch(counter){
+              case 0:
+                console.log("hit case1");
+                var incorrectInputs = document.getElementsByClassName("incorrect")
+                while (incorrectInputs.length){
+                  incorrectInputs[0].className="active"
+                }
+              case 1:
+                debugger
+                this.showLarger()
+                this.hideAllActive()
+              case 2:
+                this.setState({iterationCounter: this.state.iterationCounter += 1})
+                this.renderHiddenSortedAndClearSubArray()
+                clearInterval(this.showLargerHideMain)
+
+                return
+            }
+          }, this.animationTimeout)
+          counter += 1
+          return
         }
         return
       case "larger":
+        console.log("hit larger");
         if (this.state.correctButtonCount >= this.largerCount()){
 
           this.setState({gameState: "selectLower",
@@ -211,10 +362,10 @@ export default class QuickSortExercise extends React.Component{
             iterationCounter: this.state.iterationCounter += 1
           })
           console.log(this.state.gameState);
-          this.hideLarger()
-          this.hideSmaller()
-          this.hidePivot()
-          this.showHidden()
+          // this.hideLarger()
+          // this.hideSmaller()
+          // this.hidePivot()
+          // this.showHidden()
         }
         return
       default:

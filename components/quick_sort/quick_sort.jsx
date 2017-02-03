@@ -1,5 +1,7 @@
 import React from 'react';
-import QuickSortSolve from './quick_sort_class'
+import QuickSortSolve from './quick_sort_class';
+import Solution from '../solutions/solution';
+
 
 export default class QuickSort extends React.Component {
   constructor(){
@@ -418,22 +420,30 @@ export default class QuickSort extends React.Component {
 
   render(){
     return (
-      <div>
-        <button onClick={this.handleClickStart}>
-          start
-        </button>
-        quicksort
-        <br/>
-        {this.trueArray()}
-        {this.state.solved ? this.focusAll() : null}
-        <p>
-          pivot {this.pivot()}
-          smaller {this.smallerThanPivot()}
-          larger {this.largerThanPivot()}
-        </p>
-        <button onClick={this.handleArrayShuffle}>
-          new array
-        </button>
+      <div className="main-container">
+        <div className="demo-and-exercise">
+          <div className="demo">
+            <div>
+              <button onClick={this.handleClickStart}>
+                start
+              </button>
+              quicksort
+              <br/>
+              {this.trueArray()}
+              {this.state.solved ? this.focusAll() : null}
+              <p>
+                pivot {this.pivot()}
+                smaller {this.smallerThanPivot()}
+                larger {this.largerThanPivot()}
+              </p>
+              <button onClick={this.handleArrayShuffle}>
+                new array
+              </button>
+            </div>
+          </div>
+          <div className="exercise"></div>
+        </div>
+        <div className="solution-container"><Solution algorithm="quicksort"/></div>
       </div>
     )
   }
