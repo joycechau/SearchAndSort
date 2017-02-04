@@ -6,7 +6,7 @@ import BinarySearch from './binary_search/binary_search';
 import BubbleSort from './bubble_sort/bubble_sort';
 import MergeSort from './merge_sort/merge_sort';
 import QuickSort from './quick_sort/quick_sort';
-import QuickSortExercise from './quick_sort/quick_sort_exercise';
+import QuickSortExercise from './quick_sort/quick_sort_exercise_v2';
 
 const Root =() => {
   return(
