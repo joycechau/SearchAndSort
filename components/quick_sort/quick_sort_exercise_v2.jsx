@@ -239,7 +239,7 @@ export default class QuickSortExercise extends React.Component{
     while (i.length){
       i[0].className="smallerHidden"
     }
-  },jk
+  }
 
   largerThanPivotButtonsShow(){
     var i = document.getElementsByClassName("largerHidden")
