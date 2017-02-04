@@ -6,19 +6,16 @@
 }
 
 .demo-and-exercise {
+	border: 1px solid black;
 	margin: 30px;
 	width: 50%;
 	height: 75%;
-	background-color: red;
 	margin-right: 0px;
 }
 
 .demo {
 	height: 50%;
-}
-
-.midpoint {
-
+	border: 1px solid red;
 }
 
 .exercise {
@@ -64,5 +61,15 @@
 .solution-div {
   padding: 30px;
   font-size: 14px;
-	height: 418px;
+	height: 70vh;
+}
+
+.solution-div div {
+	width: 100%;
+	height: 70vh;
+}
+
+.solution-div div img {
+	width: 100%;
+	height: auto;
 }

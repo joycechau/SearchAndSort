@@ -49,14 +49,14 @@ export default class Header extends React.Component{
               <div className="andrew">
                 <div>Andrew Yueh</div>
                 <div className="links">
-                  <a href=""
+                  <a href="https://www.linkedin.com/in/andrewyueh/"
                     target="_blank"
                     className="linkedin-link">
                     <img src="https://res.cloudinary.com/joycechau/image/upload/v1486025481/linkedin2.png"
                       alt="linkedin"
                       className="linkedin-image"/>
                   </a>
-                  <a href=""
+                  <a href="https://github.com/andrew1007"
                     target="_blank"
                     className="github-link">
                     <img src="https://res.cloudinary.com/joycechau/image/upload/c_scale,w_20/v1485282244/github.png"
@@ -68,14 +68,14 @@ export default class Header extends React.Component{
               <div className="jeffrey">
                 <div>Jeffrey Fan</div>
                 <div className="links">
-                  <a href=""
+                  <a href="https://www.linkedin.com/in/jeffrey-fan"
                     target="_blank"
                     className="linkedin-link">
                     <img src="https://res.cloudinary.com/joycechau/image/upload/v1486025481/linkedin2.png"
                       alt="linkedin"
                       className="linkedin-image"/>
                   </a>
-                  <a href=""
+                  <a href="https://github.com/jeffreyfan93"
                     target="_blank"
                     className="github-link">
                     <img src="https://res.cloudinary.com/joycechau/image/upload/c_scale,w_20/v1485282244/github.png"
@@ -87,14 +87,14 @@ export default class Header extends React.Component{
               <div className="joyce">
                 <div>Joyce Chau</div>
                 <div className="links">
-                  <a href=""
+                  <a href="https://www.linkedin.com/in/joycechau/"
                     target="_blank"
                     className="linkedin-link">
                     <img src="https://res.cloudinary.com/joycechau/image/upload/v1486025481/linkedin2.png"
                       alt="linkedin"
                       className="linkedin-image"/>
                   </a>
-                  <a href=""
+                  <a href="https://github.com/joycechau"
                     target="_blank"
                     className="github-link">
                     <img src="https://res.cloudinary.com/joycechau/image/upload/c_scale,w_20/v1485282244/github.png"
