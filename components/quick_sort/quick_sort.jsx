@@ -429,7 +429,7 @@ export default class QuickSort extends React.Component {
     return (
       <div className="main-container">
         <div className="demo-and-exercise">
-          <div className="demo">
+          <div className="quicksort-demo">
             <div>
               <button onClick={this.handleClickStart}>
                 start
@@ -448,7 +448,7 @@ export default class QuickSort extends React.Component {
               </button>
             </div>
           </div>
-          <div className="exercise">Quick Sort Exercise</div>
+          <div className="quicksort-exercise">Quick Sort Exercise</div>
         </div>
         <div className="solution-container"><Solution algorithm="quicksort"/></div>
       </div>

@@ -149,7 +149,7 @@ export default class MergeSort extends React.Component {
     return(
       <div className="main-container">
         <div className="demo-and-exercise">
-          <div className="demo">
+          <div className="mergesort-demo">
             <button onClick={this.handleSubmit}>Start</button>
             <div>
               {this.state.topShowArray.map( (subArray, idx1) => (
@@ -178,7 +178,7 @@ export default class MergeSort extends React.Component {
               ))}
             </div>
           </div>
-          <div className="exercise">Merge Sort Exercise</div>
+          <div className="mergesort-exercise">Merge Sort Exercise</div>
         </div>
         <div className="solution-container"><Solution algorithm="mergesort"/></div>
       </div>
