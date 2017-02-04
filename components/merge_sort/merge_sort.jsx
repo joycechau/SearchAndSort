@@ -25,6 +25,7 @@ export default class MergeSort extends React.Component {
         botShowArray: []
       });
     }
+    
     e.preventDefault();
     let input = this.state.userInputArray.split(',');
     let array = [];
@@ -124,10 +125,6 @@ export default class MergeSort extends React.Component {
     }, 2000);
 
   }
-
-
-  // if (this.state.topShowArray.length === 1) {
-  //   clearInterval(this.interval2);
 
   shuffle(array) {
     let currentIndex = array.length, temporaryValue, randomIndex;
