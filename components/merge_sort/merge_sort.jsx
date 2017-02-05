@@ -1,6 +1,7 @@
 import React from 'react';
 import merge from 'lodash/merge';
 import Solution from '../solutions/solution';
+import MergeSortExercise from './merge_sort_exercise';
 
 export default class MergeSort extends React.Component {
   constructor(props){
@@ -26,7 +27,7 @@ export default class MergeSort extends React.Component {
         botShowArray: []
       });
     }
-    
+
     e.preventDefault();
     let input = this.state.userInputArray.split(',');
     let array = [];
@@ -175,7 +176,7 @@ export default class MergeSort extends React.Component {
               ))}
             </div>
           </div>
-          <div className="mergesort-exercise">Merge Sort Exercise</div>
+          <div className="mergesort-exercise"><MergeSortExercise /></div>
         </div>
         <div className="solution-container"><Solution algorithm="mergesort"/></div>
       </div>
