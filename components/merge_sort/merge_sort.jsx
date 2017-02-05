@@ -181,7 +181,7 @@ export default class MergeSort extends React.Component {
                 <div key={idx1} className="mergesort-demo-array">
                     <span className="mergesort-demo-brackets">[</span>
                     {subArray.map( (num, idx2) => (
-                      <div>
+                      <div key={idx2}>
                         <span key={idx2} className="mergesort-demo-number"> {num} </span>
                       </div>
                     ))}
@@ -194,7 +194,7 @@ export default class MergeSort extends React.Component {
                 <div key={idx1} className="mergesort-demo-array">
                   <span className="mergesort-demo-brackets">[</span>
                     {subArray.map( (num, idx2) => (
-                      <div>
+                      <div key={idx2}>
                         <span key={idx2} className="mergesort-demo-number"> {num} </span>
                       </div>
                     ))}
@@ -210,45 +210,3 @@ export default class MergeSort extends React.Component {
     );
   }
 }
-
-// mergeSortMerge() {
-//   let that = this;
-//
-//   let topArray = this.state.topShowArray.slice(0);
-//
-//   this.interval2 = setInterval( () => {
-//     let that2 = that;
-//     let futureBotShowArray = that.state.botShowArray;
-//
-//     if (this.state.topShowArray.length === 1) {
-//       clearInterval(this.interval2);
-//     } else {
-      // if (!that.state.topShowArray.every( arr => arr.length === 0)) {
-//         let currentArray = topArray.splice(0,2);
-//         let sortedSubArray = [];
-//
-//         while ((currentArray[0].length > 0) || (currentArray[1].length > 0)) {
-          // if (currentArray[0].length === 0) {
-          //   sortedSubArray.push(currentArray[1].splice(0,1)[0]);
-          // } else if (currentArray[1].length === 0) {
-          //   sortedSubArray.push(currentArray[0].splice(0,1)[0]);
-          // } else if (currentArray[0][0] < currentArray[1][0]) {
-          //   sortedSubArray.push(currentArray[0].splice(0,1)[0]);
-          // } else {
-          //   sortedSubArray.push(currentArray[1].splice(0,1)[0]);
-          // }
-//         }
-//         futureBotShowArray.push(sortedSubArray);
-//
-//         this.setState({
-//           botShowArray: futureBotShowArray
-//         });
-//       } else {
-//         this.moveBotToTop();
-//         topArray = this.state.topShowArray.slice(0);
-//       }
-//     }
-//
-//   }, 2000);
-//
-// }

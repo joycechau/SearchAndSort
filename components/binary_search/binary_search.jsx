@@ -103,7 +103,7 @@ export default class BinarySearch extends React.Component{
           <div className="bsearch-demo">
             <div className='bsearch-static-array'>
               {[1, 2, 3, 4, 5, 6, 7, 8, 9, 10].map((num, id) => (
-                <div className="bsearch-circle">
+                <div className="bsearch-circle" key={num + id}>
                   <span key={num + id} className="bsearch-circle-span">{num}</span>
                 </div>
               ))}
@@ -117,7 +117,7 @@ export default class BinarySearch extends React.Component{
             </form>
             <div className="bsearch-active-array">
               {this.state.showArray.map((num, id) => (
-                <div className="bsearch-circle">
+                <div className="bsearch-circle" key={id + num}>
                   <span
                     key={id}
                     id={`${id}`}
