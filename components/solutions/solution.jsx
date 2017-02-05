@@ -16,8 +16,12 @@ export default class Solution extends React.Component{
         javascript: "https://res.cloudinary.com/joycechau/image/upload/v1486143608/quicksort_javascript.png",
         ruby: "https://res.cloudinary.com/joycechau/image/upload/v1486143675/quicksort_ruby.png",
         python: "https://res.cloudinary.com/joycechau/image/upload/v1486143886/quicksort_python.png"
+      },
+      mergesort: {
+        javascript: "https://res.cloudinary.com/joycechau/image/upload/v1486147571/mergesort_javascript.png",
+        ruby: "https://res.cloudinary.com/joycechau/image/upload/v1486147603/mergesort_ruby.png",
+        python: "https://res.cloudinary.com/joycechau/image/upload/v1486147626/mergesort_python.png"
       }
-
     };
     this.handleJavaScriptButton = this.handleJavaScriptButton.bind(this);
     this.handleRubyButton = this.handleRubyButton.bind(this);

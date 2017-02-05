@@ -20,6 +20,7 @@ export default class QuickSortExercise extends React.Component{
     this.result = newQuickSort.result()
     this.handleTrueArrayClick = this.handleTrueArrayClick.bind(this)
     this.gameStart = this.gameStart.bind(this)
+    this.hideInTrueArrayByName = this.hideInTrueArrayByName.bind(this)
   }
 
   randomArray(){
@@ -53,6 +54,7 @@ export default class QuickSortExercise extends React.Component{
       </button>
     )
   }
+
   largerThanPivot(){
     return(
       this.result[this.state.iterationCounter][1].map( (el, i) => {
@@ -79,12 +81,44 @@ export default class QuickSortExercise extends React.Component{
     }
   }
 
+  hideInTrueArrayByName(name){
+    var num = document.querySelectorAll(`[name="${name}"]`)
+    // debugger
+    for (let i=0; i < num.length; i++){
+      num[i].className="hidden"
+    }
+  }
+
+  showInTrueArrayByName(name) {
+    var num = document.querySelectorAll(`[name="${name}"]`)
+    while (num.length){
+      num[0].className="active"
+    }
+  }
+
+  activateInTrueArrayByClass(classname) {
+    var num = document.getElementsByClassName(classname)
+    while (num.length){
+      num[0].className="active"
+    }
+  }
+
+  hideAllSubarray(){
+    ["pivotShow", "largerShow", "smallerShow"].forEach((subArrayClass) => {
+      var i = document.getElementsByClassName(subArrayClass)
+      while(i.length){
+        i[0].className = subArrayClass.replace("Show", "Hidden")
+      }
+    })
+  }
+
   showPivot(){
     var pivot = document.getElementsByClassName("pivotHidden")
     while (pivot.length){
       pivot[0].className="pivotShow"
     }
   }
+
   hidePivot(){
     var pivot = document.getElementsByClassName("pivotShow")
     while (pivot.length){
@@ -153,7 +187,7 @@ export default class QuickSortExercise extends React.Component{
 
   handleTrueArrayClick(e){
     e.preventDefault();
-    e.persist()
+    e.persist();
     var value = parseInt(e.currentTarget.name);
     if (e.currentTarget.className == "hidden"){
       return
@@ -326,26 +360,30 @@ export default class QuickSortExercise extends React.Component{
       case "smaller":
         if (this.state.correctButtonCount >= this.smallerCount()){
           console.log("finished smaller");
-          this.setState({gameState: "selectHigher", correctButtonCount: 0})
-          var counter = 0
+          this.activateInTrueArrayByClass("incorrect");
+          this.setState({gameActive: "selectlarger", correctButtonCount: 0});
+          console.log(this.state.gameState);
+          this.showInTrueArrayByName("");
+          if (this.larger() < 1 ){
+            this.insertArrayByIndex();
+            this.activateInTrueArrayByClass("hidden")
+            this.hideSmaller()
+            this.hideLarger()
+            this.hidePivot()
+          }
+          var counter = 0;
 
           this.showLargerHideMain = setInterval( () =>{
             switch(counter){
               case 0:
                 console.log("hit case1");
-                var incorrectInputs = document.getElementsByClassName("incorrect")
+                var incorrectInputs = document.getElementsByClassName("incorrect");
                 while (incorrectInputs.length){
-                  incorrectInputs[0].className="active"
+                  incorrectInputs[0].className="active";
                 }
               case 1:
-                debugger
-                this.showLarger()
-                this.hideAllActive()
-              case 2:
-                this.setState({iterationCounter: this.state.iterationCounter += 1})
-                this.renderHiddenSortedAndClearSubArray()
-                clearInterval(this.showLargerHideMain)
-
+                this.setState({gameState: "selectLarger"});
+                clearInterval(this.showLargerHideMain);
                 return
             }
           }, this.animationTimeout)
@@ -361,6 +399,8 @@ export default class QuickSortExercise extends React.Component{
             correctButtonCount: 0,
             iterationCounter: this.state.iterationCounter += 1
           })
+          this.insertArrayByIndex()
+          this.activateInTrueArrayByClass("hidden")
           console.log(this.state.gameState);
           // this.hideLarger()
           // this.hideSmaller()
@@ -399,7 +439,11 @@ export default class QuickSortExercise extends React.Component{
   gameStart(){
     setTimeout( () => {
       this.setState({gameActive: true, gameState: "selectLower"})
+      if (this.smaller().length < 1){
+        this.setState({gameState: "selectLarger"})
+      }
       console.log("started");
+      this.hideInTrueArrayByName(`${this.pivotNum()}`)
       this.showPivot()
     }, 500)
   }
@@ -407,7 +451,7 @@ export default class QuickSortExercise extends React.Component{
   render(){
     return(
       <div>
-        {this.trueArray()}
+        {this.trueArray()}_va
         <button onClick={this.handleArrayShuffle}>
           new array
         </button>

@@ -6,22 +6,23 @@
 }
 
 .demo-and-exercise {
+	border: 1px solid black;
 	margin: 30px;
 	width: 50%;
 	height: 75%;
-	background-color: red;
 	margin-right: 0px;
 }
 
-.demo {
+.bsearch-demo,
+.quicksort-demo,
+.mergesort-demo {
 	height: 50%;
+	border: 1px solid red;
 }
 
-.midpoint {
-
-}
-
-.exercise {
+.bsearch-exercise,
+.quicksort-exercise,
+.mergesort-exercise {
 	margin-top: 20px;
 	border: 1px solid green;
 	height: 50%;
@@ -64,4 +65,15 @@
 .solution-div {
   padding: 30px;
   font-size: 14px;
+	height: 70vh;
+}
+
+.solution-div div {
+	width: 100%;
+	height: 70vh;
+}
+
+.solution-div div img {
+	width: 100%;
+	height: auto;
 }

@@ -1,5 +1,6 @@
 import React from 'react';
 import merge from 'lodash/merge';
+import Solution from '../solutions/solution';
 
 export default class MergeSort extends React.Component {
   constructor(props){
@@ -143,36 +144,40 @@ export default class MergeSort extends React.Component {
 
   render(){
     return(
-      <div>
-        <button onClick={this.handleSubmit}>Start</button>
-
-        <div>
-          {this.state.topShowArray.map( (subArray, idx1) => (
-            <span key={idx1}>
-              <span>[</span>
-              <span>
-                {subArray.map( (num, idx2) => (
-                  <span key={idx2}> {num} </span>
-                ))}
-              </span>
-              <span>]</span>
-            </span>
-          ))}
+      <div className="main-container">
+        <div className="demo-and-exercise">
+          <div className="mergesort-demo">
+            <button onClick={this.handleSubmit}>Start</button>
+            <div>
+              {this.state.topShowArray.map( (subArray, idx1) => (
+                <span key={idx1}>
+                  <span>[</span>
+                  <span>
+                    {subArray.map( (num, idx2) => (
+                      <span key={idx2}> {num} </span>
+                    ))}
+                  </span>
+                  <span>]</span>
+                </span>
+              ))}
+            </div>
+            <div>
+              {this.state.botShowArray.map( (subArray, idx1) => (
+                <span key={idx1}>
+                  <span>[</span>
+                  <span>
+                    {subArray.map( (num, idx2) => (
+                      <span key={idx2}> {num} </span>
+                    ))}
+                  </span>
+                  <span>]</span>
+                </span>
+              ))}
+            </div>
+          </div>
+          <div className="mergesort-exercise">Merge Sort Exercise</div>
         </div>
-
-        <div>
-          {this.state.botShowArray.map( (subArray, idx1) => (
-            <span key={idx1}>
-              <span>[</span>
-              <span>
-                {subArray.map( (num, idx2) => (
-                  <span key={idx2}> {num} </span>
-                ))}
-              </span>
-              <span>]</span>
-            </span>
-          ))}
-        </div>
+        <div className="solution-container"><Solution algorithm="mergesort"/></div>
       </div>
     );
   }

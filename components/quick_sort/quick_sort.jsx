@@ -11,13 +11,11 @@ export default class QuickSort extends React.Component {
       solved: false,
       update: false
     };
-
     this.addClassIntervalSpeed = 100
     this.showDeconsctructedArraySpeed = 100
     this.resetIterationIntervalSpeed = 100
     this.switchArrayToSubarraySpeed =100
     this.clearSubArraySpeed = 100
-
     this.pivot = this.pivot.bind(this);
     this.handleArrayShuffle = this.handleArrayShuffle.bind(this)
     this.addClassName = this.addClassName.bind(this)
@@ -222,7 +220,16 @@ export default class QuickSort extends React.Component {
                   nums[0].className = "sorted"
               }
             }
-
+            else if (pivot.length === 1 && smaller.length === 1 && larger.length === 1){
+              var sorted = document.getElementsByClassName("hidden")
+              for (let i = 0; i < sorted.length; i++){
+                if (sorted[i]){
+                  if ( smallPivot.includes(parseInt(sorted[i].getAttribute("name")))){
+                    sorted[i].className= "sorted"
+                  }
+                }
+              }
+            }
             else if (smallPivot.length < 3){
               var sorted = document.getElementsByClassName("hidden")
               for (let i = 0; i < sorted.length; i++){
@@ -237,7 +244,7 @@ export default class QuickSort extends React.Component {
             else if (pivotLarge.length < 3){
               // for (let j=0; j < 3; j++){
                 var sorted = document.getElementsByClassName("hidden")
-                for (let i = 0; i <= sorted.length; i++){
+                for (let i = 0; i < sorted.length; i++){
 
                   // if (sorted[i].getAttribute("name")){
                     if ( pivotLarge.includes(parseInt(sorted[i].getAttribute("name")))){
@@ -422,7 +429,7 @@ export default class QuickSort extends React.Component {
     return (
       <div className="main-container">
         <div className="demo-and-exercise">
-          <div className="demo">
+          <div className="quicksort-demo">
             <div>
               <button onClick={this.handleClickStart}>
                 start
@@ -441,7 +448,7 @@ export default class QuickSort extends React.Component {
               </button>
             </div>
           </div>
-          <div className="exercise"></div>
+          <div className="quicksort-exercise">Quick Sort Exercise</div>
         </div>
         <div className="solution-container"><Solution algorithm="quicksort"/></div>
       </div>

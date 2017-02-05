@@ -100,9 +100,8 @@ export default class BinarySearch extends React.Component{
     return (
       <div className="main-container">
         <div className="demo-and-exercise">
-          <div className="demo">
-            <div>Binary Search</div>
-            <span className='array'>
+          <div className="bsearch-demo">
+            <span className='bsearch-static-array'>
               Numbers: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
             </span>
             <form onSubmit={this.handleSubmit}>
@@ -110,7 +109,7 @@ export default class BinarySearch extends React.Component{
                 <input type="text" onChange={this.update('target')} />
               </label>
 
-              <button type="submit" value="submit">Submit</button>
+              <button type="submit" value="submit">Run</button>
             </form>
             <div>
               <span>[</span>
@@ -123,7 +122,7 @@ export default class BinarySearch extends React.Component{
             </div>
             <div>{this.showFinal()}</div>
           </div>
-          <div className="exercise">
+          <div className="bsearch-exercise">
             <BinarySearchExercise />
           </div>
         </div>
