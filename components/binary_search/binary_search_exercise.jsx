@@ -3,7 +3,7 @@ import React from 'react';
 export default class BinarySearchExercise extends React.Component {
   constructor(props) {
     super(props);
-    let target = Math.floor(Math.random()*14);
+    let target = Math.floor(Math.random()*10 + 1);
 
     this.state = {
       target: target,
@@ -17,10 +17,12 @@ export default class BinarySearchExercise extends React.Component {
     };
 
     this.generateNewExercise = this.generateNewExercise.bind(this);
+    this.revealNumber = this.revealNumber.bind(this);
   }
 
   generateNewExercise() {
-    let target = Math.floor(Math.random()*14);
+    let target = Math.floor(Math.random()*10 + 1);
+    document.getElementById("bsearch-found-midpoint").removeAttribute("id");
     this.setState({
       target: target,
       array: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10],
@@ -33,7 +35,9 @@ export default class BinarySearchExercise extends React.Component {
     });
   }
 
-  revealNumber(idx, state) {
+  revealNumber(e) {
+    e.preventDefault();
+    let idx = parseInt(e.target.id);
     let {
       target,
       array,
@@ -43,13 +47,14 @@ export default class BinarySearchExercise extends React.Component {
       currentBaseIdx,
       currentEndIdx,
       message
-    } = state;
+    } = this.state;
 
     if (idx === (Math.floor(currentArrayLength / 2) + currentBaseIdx)) {
       showArray[idx] = array[idx];
 
       if (target === array[idx]) {
         message = 3;
+        e.target.id = "bsearch-found-midpoint";
       } else if (target > array[idx]) {
         currentBaseIdx = idx + 1;
         currentArrayLength = currentEndIdx - (idx);
@@ -84,28 +89,37 @@ export default class BinarySearchExercise extends React.Component {
       );
     } else if (this.state.message === 2) {
       return (
-        <div>That's not the midpoint</div>
+        <div>Incorrect midpoint</div>
       );
     } else {
       return (
-        <div>You found the target!</div>
+        <div>Target found!</div>
       );
     }
   }
 
   render() {
     return (
-      <div>
-        <button onClick={this.generateNewExercise}>New Exercise</button>
-        <div>Find: {this.state.target}</div>
-        <div>
-          <span>
-            {this.state.showArray.map((num, idx) => (
-              <button key={idx} id={`${idx}`} onClick={() => this.revealNumber(idx, this.state)}> {num} </button>
-            ))}
-          </span>
+      <div className="bsearch-exercise-container">
+        Try it out yourself!
+        <button
+          onClick={this.generateNewExercise}
+          className="bsearch-new-exercise-button">
+          New Exercise
+        </button>
+        <div className="bsearch-exercise-find-target">Find: {this.state.target}</div>
+        <div className="bsearch-exercise-buttons">
+          {this.state.showArray.map((num, idx) => (
+            <button
+              key={idx}
+              id={`${idx}`}
+              className="bsearch-exercise-button"
+              onClick={this.revealNumber}>
+              {num}
+            </button>
+          ))}
         </div>
-        <div>
+        <div className="bsearch-message">
           {this.message()}
         </div>
       </div>
