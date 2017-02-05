@@ -101,26 +101,33 @@ export default class BinarySearch extends React.Component{
       <div className="main-container">
         <div className="demo-and-exercise">
           <div className="bsearch-demo">
-            <span className='bsearch-static-array'>
-              Numbers: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
-            </span>
+            <div className='bsearch-static-array'>
+              {[1, 2, 3, 4, 5, 6, 7, 8, 9, 10].map((num, id) => (
+                <div className="bsearch-circle">
+                  <span key={num + id} className="bsearch-circle-span">{num}</span>
+                </div>
+              ))}
+            </div>
             <form onSubmit={this.handleSubmit}>
-              <label>Target:
+              <label>Enter Target:
                 <input type="text" onChange={this.update('target')} />
               </label>
 
               <button type="submit" value="submit">Run</button>
             </form>
-            <div>
-              <span>[</span>
-              <span>
-                {this.state.showArray.map((num, id) => (
-                  <span key={id} id={`${id}`}> {num} </span>
-                ))}
-              </span>
-              <span>]</span>
+            <div className="bsearch-active-array">
+              {this.state.showArray.map((num, id) => (
+                <div className="bsearch-circle">
+                  <span
+                    key={id}
+                    id={`${id}`}
+                    className="bsearch-circle-span">
+                    {num}
+                  </span>
+                </div>
+              ))}
             </div>
-            <div>{this.showFinal()}</div>
+            <div className="bsearch-target-index">{this.showFinal()}</div>
           </div>
           <div className="bsearch-exercise">
             <BinarySearchExercise />
