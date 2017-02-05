@@ -10,7 +10,8 @@ export default class QuickSort extends React.Component {
       iterationCounter: 0,
       solved: false,
       update: false,
-      demoStarted: false
+      demoStarted: false,
+      exerciseStarted: false
     };
     this.addClassIntervalSpeed = 500
     this.showDeconsctructedArraySpeed = 500
@@ -22,7 +23,8 @@ export default class QuickSort extends React.Component {
     this.addClassName = this.addClassName.bind(this)
     this.renderQuickSortChange = this.renderQuickSortChange.bind(this)
     this.handleClickStart = this.handleClickStart.bind(this);
-    this.classClear = this.classClear.bind(this)
+    this.classClear = this.classClear.bind(this);
+    this.handleChildClick = this.handleChildClick.bind(this);
     // this.startArray = [3, 8, 12, 6, 5, 18, 17, 19, 9]
 
     this.startArray = this.randomArray()
@@ -267,7 +269,7 @@ export default class QuickSort extends React.Component {
           clearInterval(this.clearSubArray)
         case 4:
         if (this.result[this.state.iterationCounter + 1][0].length < 1){
-          this.setState({solved: true})
+          this.setState({solved: true, demoStarted: false})
         } else {
           this.setState({iterationCounter: this.state.iterationCounter += 1})
           this.setNewActiveElements()
@@ -383,6 +385,7 @@ export default class QuickSort extends React.Component {
   }
 
   handleClickStart(){
+
     console.log(this.result[this.state.iterationCounter + 1]);
     if (this.result[this.state.iterationCounter + 1][3].length > 0 && this.state.demoStarted){
       return
@@ -410,7 +413,7 @@ export default class QuickSort extends React.Component {
   }
 
   focusAll(){
-    for (let i=0; i < 20; i++){
+    for (let i=0; i < 8; i++){
       ["unfocused", "hidden", "smaller", "larger"].forEach( (el) => {
         var nums = document.getElementsByClassName(el)
         while (nums.length){
@@ -463,18 +466,30 @@ export default class QuickSort extends React.Component {
     })
   }
 
+  handleChildClick(){
+    if (this.state.exerciseStarted) {
+      this.setState({exerciseStarted: false})
+    } else {
+      this.setState({exerciseStarted: true})
+    }
+  }
+
   render(){
     return (
       <div className="main-container">
         <div className="demo-and-exercise">
           <div className="quicksort-demo">
             <div>
-              <button onClick={this.handleClickStart}>
-                start
-              </button>
-              <button onClick={this.handleArrayShuffle}>
-                new array
-              </button>
+              {this.state.exerciseStarted ? null :
+                <div>
+                  <button onClick={this.handleClickStart}>
+                    start
+                  </button>
+                  <button onClick={this.handleArrayShuffle}>
+                    new array
+                  </button>
+                </div>
+              }
               quicksort
               <br/>
               {this.trueArray()}
@@ -508,7 +523,7 @@ export default class QuickSort extends React.Component {
             </div>
           </div>
           <div className="quicksort-exercise">Quick Sort Exercise
-            <QuickSortExercise />
+          { this.state.demoStarted ? null : <QuickSortExercise demoState={this.handleChildClick}/> }
           </div>
         </div>
         <div className="solution-container"><Solution algorithm="quicksort"/></div>
