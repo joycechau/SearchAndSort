@@ -10,7 +10,7 @@ export default class App extends React.Component {
 
   render() {
     return(
-      <div>
+      <div className="header-all">
         <Header />
         {this.props.children}
       </div>

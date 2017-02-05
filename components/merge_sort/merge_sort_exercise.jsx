@@ -57,7 +57,7 @@ export default class MergeSortExercise extends React.Component {
           endIdx
         } = this.state;
 debugger
-    let botArray = showBotArray;
+    let botSubArray = [];
     let num = showTopArray[idx];
 
     if (idx >= startIdx && idx < endIdx) {
