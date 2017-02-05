@@ -90,7 +90,7 @@ export default class BinarySearch extends React.Component{
     if (this.state.toggle) {
       return(
         <div>
-          <div>Target Index: {this.state.index}</div>
+          <div className="bsearch-target-index">Target Index: {this.state.index}</div>
         </div>
       );
     }
@@ -127,7 +127,7 @@ export default class BinarySearch extends React.Component{
                 </div>
               ))}
             </div>
-            <div className="bsearch-target-index">{this.showFinal()}</div>
+            <div>{this.showFinal()}</div>
           </div>
           <div className="bsearch-exercise">
             <BinarySearchExercise />
