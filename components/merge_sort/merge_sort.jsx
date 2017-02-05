@@ -74,7 +74,7 @@ export default class MergeSort extends React.Component {
           count += 1;
         }
       }
-    }, 700);
+    }, 1500);
   }
 
   mergeSortSplit(array) {
@@ -149,7 +149,7 @@ export default class MergeSort extends React.Component {
           this.moveBotToTop();
         }
       }
-    }, 700);
+    }, 1000);
   }
 
   shuffle(array) {
