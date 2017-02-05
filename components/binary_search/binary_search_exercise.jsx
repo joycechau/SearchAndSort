@@ -3,7 +3,7 @@ import React from 'react';
 export default class BinarySearchExercise extends React.Component {
   constructor(props) {
     super(props);
-    let target = Math.floor(Math.random()*14);
+    let target = Math.floor(Math.random() * 10) + 1;
 
     this.state = {
       target: target,
@@ -20,7 +20,7 @@ export default class BinarySearchExercise extends React.Component {
   }
 
   generateNewExercise() {
-    let target = Math.floor(Math.random()*14);
+    let target = Math.floor(Math.random() * 10) + 1;
     this.setState({
       target: target,
       array: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10],
