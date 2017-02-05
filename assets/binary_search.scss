@@ -1,19 +1,25 @@
+
 .bsearch-demo {
-  border: 3px solid blue;
+  height: 45%;
   align-items: center;
   margin: auto;
+  border-bottom: 2px solid black;
+  padding-bottom: 20px;
+  margin-bottom: 30px;
 }
 
 .bsearch-static-array,
 .bsearch-active-array {
-  border: 3px solid red;
   padding: 20px;
   display: flex;
   justify-content: center;
 }
 
+.bsearch-active-array {
+  margin-top: 10px;
+}
+
 .bsearch-circle {
-  border: 1px solid green;
 }
 
 .bsearch-circle-span {
@@ -22,11 +28,12 @@
   -webkit-border-radius: 0.8em;
   display: inline-block;
   font-weight: bold;
-  line-height: 1.3em;
+  line-height: 1.5em;
   margin-right: 10px;
   text-align: center;
-  width: 1.3em;
-  border: 1px solid blue;
+  width: 1.5em;
+  border: 1px solid #93D1FF;
+  background-color: #93D1FF;
 }
 
 .bsearch-demo form {
@@ -36,6 +43,7 @@
 }
 
 .bsearch-demo form label {
+  font-size: 20px;
 }
 
 .bsearch-demo form label input {
@@ -45,26 +53,38 @@
   width: 20px;
   margin-left: 10px;
   border-radius: 2px;
-  margin-right: 10px;
+  margin-right: 20px;
 }
 
 .bsearch-demo form button {
-  background-color: #93D1FF;
+  // background-color: #93D1FF;
   padding: 5px;
+  font-size: 20px;
 }
 
 .bsearch-demo form button:hover {
   background-color: #91C9FF;
+  padding: 5px;
+  border-radius: 5px;
 }
 
 .midpoint {
-  background-color: blue;
+  border-radius: 0.8em;
+ -moz-border-radius: 0.8em;
+ -webkit-border-radius: 0.8em;
+ display: inline-block;
+ font-weight: bold;
+ line-height: 1.5em;
+ margin-right: 10px;
+ text-align: center;
+ width: 1.5em;
+ border: 1px solid #417BB2;
+ background-color: #417BB2;
 }
 
-
 .bsearch-target-index {
-  border: 1px solid red
-  display: flex;
-  justify-content: center;
-  // align-items: center;
+  font-size: 20px;
+  text-align: center;
+  margin-top: 10px;
+  padding-bottom: 10px;
 }

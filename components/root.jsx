@@ -18,7 +18,7 @@ const Root =() => {
         <Route path="bsearch" component={BinarySearch}/>
         <Route path="quicksort" component={QuickSort}/>
         <Route path="quickexercise" component={QuickSortExercise}/>
-        <Route path="mergesort" component={MergeSortExercise}/>
+        <Route path="mergesort" component={MergeSort}/>
       </Route>
     </Router>
   );
