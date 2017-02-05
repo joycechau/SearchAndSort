@@ -1,4 +1,11 @@
+.header-all {
+	min-width: 1120px;
+	height: 20vh;
+}
+
 .header-main {
+	box-sizing: border-box;
+	height: 62%;
 	padding: 20px;
  	display: flex;
 	justify-content: space-between;
@@ -45,6 +52,9 @@
 }
 
 .header-nav {
+	box-sizing: border-box;
+	height: 38%;
+
 	background-color: #93D1FF;
 	padding-top: 10px;
 	padding-bottom: 10px;

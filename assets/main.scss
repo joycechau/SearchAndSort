@@ -2,7 +2,7 @@
 	margin: auto;
 	display: flex;
 	background-color: aliceblue;
-	height: 100vh;
+	height: 80vh;
 }
 
 .demo-and-exercise {
@@ -30,12 +30,13 @@
 
 .solution-container {
   width: 50%;
-	height: 100%;
+	height: 90%;
   padding: 30px;
   margin: auto;
 }
 
 .solution {
+	height: 100%;
   background-color: #91C9FF;
   border: 2px solid black;
 }
@@ -65,12 +66,13 @@
 .solution-div {
   padding: 30px;
   font-size: 14px;
-	height: 70vh;
+	height: 92%;
+	overflow-y: scroll;
+	box-sizing: border-box;
 }
 
 .solution-div div {
 	width: 100%;
-	height: 70vh;
 }
 
 .solution-div div img {
