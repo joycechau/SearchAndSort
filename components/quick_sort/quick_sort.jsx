@@ -1,7 +1,7 @@
 import React from 'react';
 import QuickSortSolve from './quick_sort_class';
 import Solution from '../solutions/solution';
-
+import QuickSortExercise from './quick_sort_exercise'
 
 export default class QuickSort extends React.Component {
   constructor(){
@@ -9,19 +9,22 @@ export default class QuickSort extends React.Component {
     this.state = {
       iterationCounter: 0,
       solved: false,
-      update: false
+      update: false,
+      demoStarted: false,
+      exerciseStarted: false
     };
-    this.addClassIntervalSpeed = 100
-    this.showDeconsctructedArraySpeed = 100
-    this.resetIterationIntervalSpeed = 100
-    this.switchArrayToSubarraySpeed =100
-    this.clearSubArraySpeed = 100
+    this.addClassIntervalSpeed = 500
+    this.showDeconsctructedArraySpeed = 500
+    this.resetIterationIntervalSpeed = 500
+    this.switchArrayToSubarraySpeed =500
+    this.clearSubArraySpeed = 500
     this.pivot = this.pivot.bind(this);
     this.handleArrayShuffle = this.handleArrayShuffle.bind(this)
     this.addClassName = this.addClassName.bind(this)
     this.renderQuickSortChange = this.renderQuickSortChange.bind(this)
     this.handleClickStart = this.handleClickStart.bind(this);
-    this.classClear = this.classClear.bind(this)
+    this.classClear = this.classClear.bind(this);
+    this.handleChildClick = this.handleChildClick.bind(this);
     // this.startArray = [3, 8, 12, 6, 5, 18, 17, 19, 9]
 
     this.startArray = this.randomArray()
@@ -32,11 +35,13 @@ export default class QuickSort extends React.Component {
 
   randomArray(){
     const newArr = []
-    const arrLength = Math.floor(Math.random()*10 + 10)
+    const arrLength = Math.floor(Math.random()*4 + 8)
     for (let i = 0; i < arrLength; i++){
       let newNum = Math.floor(Math.random()*20)
       if (!newArr.includes(newNum)){
         newArr.push(newNum)
+      } else {
+        i--
       }
     }
     return newArr
@@ -131,8 +136,10 @@ export default class QuickSort extends React.Component {
         }
         case 2:
         var i = document.getElementsByClassName("smallerHidden")
-        while (i.length){
-          i[0].className="smallerShow"
+        if (this.result[this.state.iterationCounter][2].length > 0){
+          while (i.length){
+            i[0].className="smallerShow"
+          }
         }
         case 3:
         clearInterval(this.switchSmaller)
@@ -154,9 +161,9 @@ export default class QuickSort extends React.Component {
         }
         case 2:
         var i = document.getElementsByClassName("pivotHidden")
-        while (i.length){
-          i[0].className="pivotShow"
-        }
+          while (i.length){
+            i[0].className="pivotShow"
+          }
         case 3:
         clearInterval(this.switchPivot);
         this.showLarger()
@@ -177,8 +184,10 @@ export default class QuickSort extends React.Component {
         }
         case 2:
         var i = document.getElementsByClassName("largerHidden")
-        while (i.length){
-          i[0].className = "largerShow"
+        if (this.result[this.state.iterationCounter][1].length > 0){
+          while (i.length){
+            i[0].className = "largerShow"
+          }
         }
         case 3:
         clearInterval(this.switchLarger)
@@ -210,17 +219,20 @@ export default class QuickSort extends React.Component {
           var activeArray = this.result[this.state.iterationCounter][0]
           var pivot = this.result[this.state.iterationCounter][3]
           var smaller = this.result[this.state.iterationCounter][2]
-          var larger = this.result[this.state.iterationCounter][3]
+          var larger = this.result[this.state.iterationCounter][1]
           var smallPivot = this.result[this.state.iterationCounter][2].concat(this.result[this.state.iterationCounter][3])
           var pivotLarge = this.result[this.state.iterationCounter][3].concat(this.result[this.state.iterationCounter][1])
-
+            if(this.result[this.state.iterationCounter][3].length < 2 && this.result[this.state.iterationCounter][3].length > 0){
+              var largest = document.querySelectorAll(`[name="${this.result[this.state.iterationCounter][3][0]}"]`)
+              largest[0].className = "sorted"
+              }
             if (activeArray.length < 3){
               var sorted = document.getElementsByClassName("active")
               while (nums[0]){
                   nums[0].className = "sorted"
               }
             }
-            else if (pivot.length === 1 && smaller.length === 1 && larger.length === 1){
+            if (pivot.length === 1 && smaller.length === 1 && larger.length === 1){
               var sorted = document.getElementsByClassName("hidden")
               for (let i = 0; i < sorted.length; i++){
                 if (sorted[i]){
@@ -230,7 +242,7 @@ export default class QuickSort extends React.Component {
                 }
               }
             }
-            else if (smallPivot.length < 3){
+            if (smallPivot.length < 3){
               var sorted = document.getElementsByClassName("hidden")
               for (let i = 0; i < sorted.length; i++){
                 if (sorted[i]){
@@ -241,7 +253,7 @@ export default class QuickSort extends React.Component {
               }
             }
 
-            else if (pivotLarge.length < 3){
+            if (pivotLarge.length < 3){
               // for (let j=0; j < 3; j++){
                 var sorted = document.getElementsByClassName("hidden")
                 for (let i = 0; i < sorted.length; i++){
@@ -257,7 +269,7 @@ export default class QuickSort extends React.Component {
           clearInterval(this.clearSubArray)
         case 4:
         if (this.result[this.state.iterationCounter + 1][0].length < 1){
-          this.setState({solved: true})
+          this.setState({solved: true, demoStarted: false})
         } else {
           this.setState({iterationCounter: this.state.iterationCounter += 1})
           this.setNewActiveElements()
@@ -321,6 +333,7 @@ export default class QuickSort extends React.Component {
         if (this.result[this.state.iterationCounter]){
           this.addClassName()
         } else {
+          this.setState({demoStarted: false})
           return
         }
       } else if (counter === 2){
@@ -372,11 +385,35 @@ export default class QuickSort extends React.Component {
   }
 
   handleClickStart(){
-    this.addClassName()
+
+    console.log(this.result[this.state.iterationCounter + 1]);
+    if (this.result[this.state.iterationCounter + 1][3].length > 0 && this.state.demoStarted){
+      return
+    }
+    console.log(this.result[this.state.iterationCounter + 1][3]);
+    if (this.result[this.state.iterationCounter + 1][3].length > 0){
+      this.setState({demoStarted: true})
+      this.addClassName()
+    } else {
+      var counter = 0
+      this.handleArrayShuffle()
+      debugger
+      this.resetSort = setInterval( ()=> {
+        switch(counter){
+          case 1:
+          this.setState({demoStarted: true})
+          case 3:
+          this.addClassName()
+          clearInterval(this.resetSort)
+          return
+        }
+        counter += 1
+      },400 )
+    }
   }
 
   focusAll(){
-    for (let i=0; i < 20; i++){
+    for (let i=0; i < 8; i++){
       ["unfocused", "hidden", "smaller", "larger"].forEach( (el) => {
         var nums = document.getElementsByClassName(el)
         while (nums.length){
@@ -398,6 +435,9 @@ export default class QuickSort extends React.Component {
 
   handleArrayShuffle(){
     let counter = 0
+    if (this.result[this.state.iterationCounter + 1][2].length > 0 && this.state.demoStarted){
+      return
+    }
     this.shuffleArray = setInterval( () => {
       switch(counter) {
         case 1:
@@ -413,7 +453,8 @@ export default class QuickSort extends React.Component {
           this.forceUpdate()
       }
       counter += 1
-    }, this.addClassIntervalSpeed)
+    }, 1)
+    this.setState({demoStarted: false})
   }
 
   resetArray(){
@@ -425,30 +466,65 @@ export default class QuickSort extends React.Component {
     })
   }
 
+  handleChildClick(){
+    if (this.state.exerciseStarted) {
+      this.setState({exerciseStarted: false})
+    } else {
+      this.setState({exerciseStarted: true})
+    }
+  }
+
   render(){
     return (
       <div className="main-container">
         <div className="demo-and-exercise">
           <div className="quicksort-demo">
             <div>
-              <button onClick={this.handleClickStart}>
-                start
-              </button>
+              {this.state.exerciseStarted ? null :
+                <div>
+                  <button onClick={this.handleClickStart}>
+                    start
+                  </button>
+                  <button onClick={this.handleArrayShuffle}>
+                    new array
+                  </button>
+                </div>
+              }
               quicksort
               <br/>
               {this.trueArray()}
               {this.state.solved ? this.focusAll() : null}
-              <p>
-                pivot {this.pivot()}
-                smaller {this.smallerThanPivot()}
-                larger {this.largerThanPivot()}
-              </p>
-              <button onClick={this.handleArrayShuffle}>
-                new array
-              </button>
+              <div className="subarray-container">
+                <div className="subarray-output">
+                  <div className="subarray">
+                    {this.smallerThanPivot()}
+                  </div>
+                  <div className="smallerHidden">
+                    smaller
+                  </div>
+                </div>
+                <div className="subarray-output">
+                  <div className="subarray">
+                    {this.pivot()}
+                  </div>
+                  <div className="pivotHidden">
+                    pivot
+                  </div>
+                </div>
+                <div className="subarray-output">
+                  <div className="subarray">
+                    {this.largerThanPivot()}
+                  </div>
+                  <div className="largerHidden">
+                    larger
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
-          <div className="quicksort-exercise">Quick Sort Exercise</div>
+          <div className="quicksort-exercise">Quick Sort Exercise
+          { this.state.demoStarted ? null : <QuickSortExercise demoState={this.handleChildClick}/> }
+          </div>
         </div>
         <div className="solution-container"><Solution algorithm="quicksort"/></div>
       </div>
