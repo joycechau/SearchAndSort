@@ -1,10 +1,11 @@
 .bsearch-demo {
-  height: 45%;
+  align-items: center;
+  display: flex;
+  flex-direction: column;
   align-items: center;
   margin: auto;
   border-bottom: 2px solid black;
-  padding-bottom: 20px;
-  margin-bottom: 30px;
+  padding-bottom: 30px;
 }
 
 .bsearch-static-array,
@@ -23,16 +24,16 @@
 
 .bsearch-circle-span {
    border-radius: 0.8em;
-  -moz-border-radius: 0.8em;
-  -webkit-border-radius: 0.8em;
-  display: inline-block;
-  font-weight: bold;
-  line-height: 1.5em;
-  margin-right: 10px;
-  text-align: center;
-  width: 1.5em;
-  border: 1px solid #93D1FF;
-  background-color: #93D1FF;
+   -moz-border-radius: 0.8em;
+   -webkit-border-radius: 0.8em;
+   display: inline-block;
+   font-weight: bold;
+   line-height: 1.5em;
+   margin: 0px 5px;
+   text-align: center;
+   width: 1.5em;
+   border: 1px solid #93D1FF;
+   background-color: #93D1FF;
 }
 
 .bsearch-demo form {
@@ -69,16 +70,16 @@
 
 .midpoint {
   border-radius: 0.8em;
- -moz-border-radius: 0.8em;
- -webkit-border-radius: 0.8em;
- display: inline-block;
- font-weight: bold;
- line-height: 1.5em;
- margin-right: 10px;
- text-align: center;
- width: 1.5em;
- border: 1px solid #417BB2;
- background-color: #417BB2;
+  -moz-border-radius: 0.8em;
+  -webkit-border-radius: 0.8em;
+  display: inline-block;
+  font-weight: bold;
+  line-height: 1.5em;
+  margin: 0px 5px;
+  text-align: center;
+  width: 1.5em;
+  border: 1px solid #417BB2;
+  background-color: #417BB2;
 }
 
 .bsearch-target-index {
@@ -86,4 +87,80 @@
   text-align: center;
   margin-top: 10px;
   padding-bottom: 10px;
+}
+
+.bsearch-exercise-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-size: 25px;
+  font-weight: bold;
+}
+
+.bsearch-new-exercise-button {
+  align-self: center;
+  text-align: center;
+  padding: 5px;
+  font-size: 20px;
+  margin-bottom: 20px;
+  margin-top: 20px;
+}
+
+
+.bsearch-new-exercise-button:hover {
+  background-color: #91C9FF;
+  padding: 5px;
+  border-radius: 5px;
+}
+
+.bsearch-exercise-find-target {
+  font-size: 20px;
+  margin-bottom: 25px;
+}
+
+.bsearch-exercise-buttons {
+  margin-bottom: 25px;
+}
+
+.bsearch-exercise-button {
+  margin-bottom: 10px;
+  font-size: 30px;
+  background-color: red;
+  border-radius: 0.8em;
+  -moz-border-radius: 0.8em;
+  -webkit-border-radius: 0.8em;
+  display: inline-block;
+  font-weight: bold;
+  line-height: 1.5em;
+  margin: 0px 5px;
+  text-align: center;
+  width: 1.5em;
+  border: 1px solid #93D1FF;
+  background-color: #93D1FF;
+}
+
+.bsearch-exercise-button:hover {
+  margin-bottom: 10px;
+  font-size: 30px;
+  background-color: red;
+  border-radius: 0.8em;
+  -moz-border-radius: 0.8em;
+  -webkit-border-radius: 0.8em;
+  display: inline-block;
+  font-weight: bold;
+  line-height: 1.5em;
+  margin: 0px 5px;
+  text-align: center;
+  width: 1.5em;
+  border: 1px solid #417BB2;
+  background-color: #417BB2;
+}
+
+#bsearch-found-midpoint {
+  border: 1px solid #417BB2;
+  background-color: #417BB2;
+}
+
+.bsearch-message {
+  font-size: 20px;
 }
