@@ -1,60 +1,157 @@
-span {
+.quicksort-demo {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.active {
   font-size: 30px;
-  font-weight: bold;
+}
+
+.activeExercise {
+  font-size: 30px;
 }
 
 .hidden {
+  font-size: 30px;
   color:transparent;
-  background-color: gray;
+  background-color: transparent;
 }
 
-button {
+
+.hiddenExercise {
   font-size: 30px;
-  margin: 10px;
-  padding: 10px;
+  color:transparent;
+  background-color: transparent;
 }
 
 .unfocused {
+  font-size: 30px;
   color:gray;
 }
 
+.unfocusedExercise {
+  font-size: 30px;
+  color:gray;
+}
 
 .smaller {
-  color: purple;
+  font-size: 30px;
+  color: yellow;
+}
+
+.smallerExercise {
+  font-size: 30px;
+  color: yellow;
+}
+
+.subarray-container {
+  display: flex;
+  flex-direction: row;
+}
+
+.subarray {
+  display:flex;
+  justify-content: space-between;
+}
+
+.subarray-output {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.subarray {
+  display: flex;
+  flex-direction: row
 }
 
 .larger {
+  font-size: 30px;
   color: red;
 }
 
 .sorted {
+  font-size: 30px;
   color:green;
+  font-weight: bold;
+}
+
+.correct {
+  font-size: 30px;
+  color:green;
+  font-weight: bold;
+}
+
+.incorrect {
+  font-size: 30px;
+  color:red;
+  font-weight: bold;
+}
+
+.sortedExercise {
+  font-size: 30px;
+  color:green;
+  font-weight: bold;
 }
 
 .pivot {
+  font-size: 30px;
   color: blue;
 }
 
 .pivotShow {
+  font-size: 30px;
+  color:black;
+}
+.pivotShowExercise {
+  font-size: 30px;
   color:black;
 }
 
-.smallerShow{
+.smallerShow {
+  font-size: 30px;
+  color: black;
+}
+.smallerShowExercise {
+  font-size: 30px;
   color: black;
 }
 
-.largerShow{
+.largerShow {
+  font-size: 30px;
+  color: black;
+}
+.largerShowExercise {
+  font-size: 30px;
   color: black;
 }
 
 .pivotHidden {
+  font-size: 30px;
   color: transparent;
 }
-
+.pivotHiddenExercise {
+  font-size: 30px;
+  color: transparent;
+}
 .smallerHidden {
+  font-size: 30px;
   color: transparent;
 }
-
+.smallerHiddenExercise {
+  font-size: 30px;
+  color: transparent;
+}
+.smallerExercise {
+  font-size: 30px;
+  color: transparent;
+}
 .largerHidden {
+  font-size: 30px;
+  color: transparent;
+}
+.largerHiddenExercise {
+  font-size: 30px;
   color: transparent;
 }
