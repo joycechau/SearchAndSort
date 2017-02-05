@@ -1,7 +1,70 @@
-.bsearch-static-array {
+.bsearch-demo {
+  border: 3px solid blue;
+  align-items: center;
+  margin: auto;
+}
+
+.bsearch-static-array,
+.bsearch-active-array {
+  border: 3px solid red;
+  padding: 20px;
+  display: flex;
+  justify-content: center;
+}
+
+.bsearch-circle {
   border: 1px solid green;
+}
+
+.bsearch-circle-span {
+   border-radius: 0.8em;
+  -moz-border-radius: 0.8em;
+  -webkit-border-radius: 0.8em;
+  display: inline-block;
+  font-weight: bold;
+  line-height: 1.3em;
+  margin-right: 10px;
+  text-align: center;
+  width: 1.3em;
+  border: 1px solid blue;
+}
+
+.bsearch-demo form {
+  margin-top: 20px;
+  display: flex;
+  justify-content: center;
+}
+
+.bsearch-demo form label {
+}
+
+.bsearch-demo form label input {
+  border: 1px solid #403F3E;
+  margin: auto;
+  padding: 5px;
+  width: 20px;
+  margin-left: 10px;
+  border-radius: 2px;
+  margin-right: 10px;
+}
+
+.bsearch-demo form button {
+  background-color: #93D1FF;
+  padding: 5px;
+}
+
+.bsearch-demo form button:hover {
+  background-color: #91C9FF;
 }
 
 .midpoint {
   background-color: blue;
+}
+
+
+.bsearch-target-index {
+  border: 1px solid red
+  display: flex;
+  justify-content: center;
+  // align-items: center;
 }
