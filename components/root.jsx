@@ -5,6 +5,7 @@ import App from './app';
 import BinarySearch from './binary_search/binary_search';
 import BubbleSort from './bubble_sort/bubble_sort';
 import MergeSort from './merge_sort/merge_sort';
+import MergeSortExercise from './merge_sort/merge_sort_exercise';
 import QuickSort from './quick_sort/quick_sort';
 import QuickSortExercise from './quick_sort/quick_sort_exercise_v2';
 
@@ -17,7 +18,7 @@ const Root =() => {
         <Route path="bsearch" component={BinarySearch}/>
         <Route path="quicksort" component={QuickSort}/>
         <Route path="quickexercise" component={QuickSortExercise}/>
-        <Route path="mergesort" component={MergeSort}/>
+        <Route path="mergesort" component={MergeSortExercise}/>
       </Route>
     </Router>
   );
