@@ -74,7 +74,7 @@ export default class MergeSort extends React.Component {
           count += 1;
         }
       }
-    }, 20);
+    }, 700);
   }
 
   mergeSortSplit(array) {
@@ -149,7 +149,7 @@ export default class MergeSort extends React.Component {
           this.moveBotToTop();
         }
       }
-    }, 1000);
+    }, 700);
   }
 
   shuffle(array) {
@@ -172,33 +172,34 @@ export default class MergeSort extends React.Component {
       <div className="main-container">
         <div className="demo-and-exercise">
           <div className="mergesort-demo">
-            <div>Click
-              <button onClick={this.handleSubmit}> Start </button>to shuffle the array and start sorting!
+            <div className="mergesort-demo-instructions">Click
+              <button onClick={this.handleSubmit} className="mergesort-demo-start"> Start </button>
+              to shuffle the array and start sorting!
             </div>
-            <div>
+            <div className="mergesort-demo-array">
               {this.state.topShowArray.map( (subArray, idx1) => (
-                <span key={idx1}>
-                  <span>[</span>
-                  <span>
+                <div key={idx1} className="mergesort-demo-array">
+                    <span className="mergesort-demo-brackets">[</span>
                     {subArray.map( (num, idx2) => (
-                      <span key={idx2}> {num} </span>
+                      <div>
+                        <span key={idx2} className="mergesort-demo-number"> {num} </span>
+                      </div>
                     ))}
-                  </span>
-                  <span>]</span>
-                </span>
+                    <span className="mergesort-demo-brackets">]</span>
+                </div>
               ))}
             </div>
-            <div>
+            <div className="mergesort-demo-array">
               {this.state.botShowArray.map( (subArray, idx1) => (
-                <span key={idx1}>
-                  <span>[</span>
-                  <span>
+                <div key={idx1} className="mergesort-demo-array">
+                  <span className="mergesort-demo-brackets">[</span>
                     {subArray.map( (num, idx2) => (
-                      <span key={idx2}> {num} </span>
+                      <div>
+                        <span key={idx2} className="mergesort-demo-number"> {num} </span>
+                      </div>
                     ))}
-                  </span>
-                  <span>]</span>
-                </span>
+                  <span className="mergesort-demo-brackets">]</span>
+                </div>
               ))}
             </div>
           </div>
