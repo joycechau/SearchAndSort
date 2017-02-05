@@ -7,7 +7,7 @@ export default class QuickSortExercise extends React.Component{
     super()
     // this.startArray = [9,1,3,14,17,12,10,2]
     this.state = {
-      iterationCounter: 0,
+      iterationCounter1: 0,
       rounds: 0,
       gameActive: false,
       gameState: "",
@@ -44,22 +44,34 @@ export default class QuickSortExercise extends React.Component{
       this.reRender = setInterval( ()=> {
         switch(counter){
           case 1:
+          if (this.result[this.state.iterationCounter1][3].length < 1){
+            debugger
+            this.setState({gameState: ""})
+            return
+          }
           this.hideAllSubarray()
           case 2:
           this.insertArrayByIndex()
           case 3:
           this.setState({
             gameState: "selectLower",
-            iterationCounter: this.state.iterationCounter += 1
+            iterationCounter1: this.state.iterationCounter1 += 1
           })
-          console.log(this.state.iterationCounter);
+          console.log(this.state.iterationCounter1);
           case 4:
           this.reRenderAndActivateAllButtonsInFullArray()
           case 5:
           this.setSorted()
           case 6:
-          this.unfocusNotInCurrentSelection()
-          this.startGameClick()
+            this.unfocusNotInCurrentSelection()
+            if (this.result[this.state.iterationCounter1][3].length < 1){
+              debugger
+              this.setState({gameState: ""})
+              clearInterval(this.reRender)
+              return
+            } else {
+              this.startGameClick()
+            }
           clearInterval(this.reRender)
           return
         }
@@ -75,13 +87,13 @@ export default class QuickSortExercise extends React.Component{
 
   setSorted(){
     var nums = document.getElementsByClassName("activeExercise")
-    var pivotNum = this.result[this.state.iterationCounter - 1][3][0].toString()
-    var activeArray = this.result[this.state.iterationCounter - 1][0]
-    var pivot = this.result[this.state.iterationCounter - 1][3]
-    var smaller = this.result[this.state.iterationCounter - 1][2]
-    var larger = this.result[this.state.iterationCounter - 1][1]
-    var smallPivot = this.result[this.state.iterationCounter - 1][2].concat(this.result[this.state.iterationCounter - 1][3])
-    var pivotLarge = this.result[this.state.iterationCounter - 1][3].concat(this.result[this.state.iterationCounter - 1][1])
+    var pivotNum = this.result[this.state.iterationCounter1 - 1][3][0].toString()
+    var activeArray = this.result[this.state.iterationCounter1 - 1][0]
+    var pivot = this.result[this.state.iterationCounter1 - 1][3]
+    var smaller = this.result[this.state.iterationCounter1 - 1][2]
+    var larger = this.result[this.state.iterationCounter1 - 1][1]
+    var smallPivot = this.result[this.state.iterationCounter1 - 1][2].concat(this.result[this.state.iterationCounter1 - 1][3])
+    var pivotLarge = this.result[this.state.iterationCounter1 - 1][3].concat(this.result[this.state.iterationCounter1 - 1][1])
     var pivot = document.querySelectorAll(`[value="${pivotNum}"]`)
     pivot[0].className = "sortedExercise"
       if (activeArray.length < 3){
@@ -143,7 +155,7 @@ export default class QuickSortExercise extends React.Component{
 
   randomArray(){
     const newArr = []
-    const arrLength = Math.floor(Math.random()*8 + 8)
+    const arrLength = Math.floor(Math.random()*8 + 1)
     for (let i = 0; i < arrLength; i++){
       let newNum = Math.floor(Math.random()*20)
       if (!newArr.includes(newNum)){
@@ -155,9 +167,9 @@ export default class QuickSortExercise extends React.Component{
 
   findIndexes(){
     let newArr = []
-    var sortedSet = this.result[this.state.iterationCounter][2]
-    .concat(this.result[this.state.iterationCounter][3])
-    .concat(this.result[this.state.iterationCounter][1])
+    var sortedSet = this.result[this.state.iterationCounter1][2]
+    .concat(this.result[this.state.iterationCounter1][3])
+    .concat(this.result[this.state.iterationCounter1][1])
     for (let i = 0; i < sortedSet.length; i++){
       var idx = this.startArray.indexOf(sortedSet[i])
       newArr.push(idx)
@@ -166,9 +178,9 @@ export default class QuickSortExercise extends React.Component{
   }
   insertArrayByIndex(){
     var indexSet = this.findIndexes()
-    var sortedSet = this.result[this.state.iterationCounter][2]
-    .concat(this.result[this.state.iterationCounter][3])
-    .concat(this.result[this.state.iterationCounter][1])
+    var sortedSet = this.result[this.state.iterationCounter1][2]
+    .concat(this.result[this.state.iterationCounter1][3])
+    .concat(this.result[this.state.iterationCounter1][1])
     for(let i = 0; i< indexSet.length; i++){
       this.startArray[indexSet[i]] = sortedSet[i]
     }
@@ -192,16 +204,16 @@ export default class QuickSortExercise extends React.Component{
   }
 
   currentSelectionArray(){
-    return this.result[this.state.iterationCounter][0]
+    return this.result[this.state.iterationCounter1][0]
   }
   largerThanPivotArray(){
-    return this.result[this.state.iterationCounter][1]
+    return this.result[this.state.iterationCounter1][1]
   }
   smallerThanPivotArray(){
-    return this.result[this.state.iterationCounter][2]
+    return this.result[this.state.iterationCounter1][2]
   }
   pivotArray(){
-    return this.result[this.state.iterationCounter][3]
+    return this.result[this.state.iterationCounter1][3]
   }
 
   addClassNamesToArray(){
@@ -224,7 +236,7 @@ export default class QuickSortExercise extends React.Component{
   }
   largerThanPivotButtons(){
     return(
-      this.result[this.state.iterationCounter][1].map( (el, i) => {
+      this.result[this.state.iterationCounter1][1].map( (el, i) => {
         return(
           <button key={i} value={el} className="largerHiddenExercise"> {el} </button>
         )
@@ -233,7 +245,7 @@ export default class QuickSortExercise extends React.Component{
   }
   smallerThanPivotButtons(){
     return(
-      this.result[this.state.iterationCounter][2].map( (el, i) => {
+      this.result[this.state.iterationCounter1][2].map( (el, i) => {
         return(
           <button key={i} value={el} className="smallerHiddenExercise"> {el} </button>
         )
@@ -241,10 +253,10 @@ export default class QuickSortExercise extends React.Component{
     )
   }
   pivotButton(){
-    console.log(this.state.iterationCounter);
+    console.log(this.state.iterationCounter1);
     return (
-      <button value={this.result[this.state.iterationCounter][3]} className="pivotHiddenExercise">
-        {this.result[this.state.iterationCounter][3].toString()}
+      <button value={this.result[this.state.iterationCounter1][3]} className="pivotHiddenExercise">
+        {this.result[this.state.iterationCounter1][3].toString()}
       </button>
     )
   }
@@ -377,13 +389,35 @@ export default class QuickSortExercise extends React.Component{
     })
   }
 
+
   startGameClick(){
-    console.log(this.result[this.state.iterationCounter]);
-    this.pivotButtonShow()
+    console.log(this.result[this.state.iterationCounter1]);
+    if (this.state.iterationCounter1 > 1){
+      if (this.result[this.state.iterationCounter1 - 2][3].length < 1){
+        return
+      }
+    }
     var currArray = document.getElementsByClassName("activeExercise")
+    currArray[0].className = "pivotExercise"
+    // debugger
+    var counter = 0
+    var currArray = document.getElementsByClassName("pivotExercise")
     for (let i=0; i < currArray.length; i++){
+      console.log(currArray[i].value);
+      console.log(this.pivotArray()[0].toString());
       if (currArray[i].value == this.pivotArray()[0].toString()){
-        currArray[i].className = "hiddenExercise"
+        this.startPivotShow = setInterval( ()=> {
+          switch(counter){
+            case 0:
+            case 2:
+            var pivotHide = document.getElementsByClassName("pivotExercise")
+            pivotHide[0].className = "hiddenExercise"
+            this.pivotButtonShow()
+            clearInterval(this.startPivotShow)
+            return
+          }
+          counter += 1
+        }, this.animationTimeout)
       }
     }
     if (this.smallerThanPivotArray().length > 0){
@@ -394,13 +428,13 @@ export default class QuickSortExercise extends React.Component{
     }
   }
 
+
   handleClick(e){
-    if (e.currentTarget.className == "unfocused"){
-      debugger
+    if (this.result[this.state.iterationCounter1 + 1][3].length > 0 && this.state.demoStarted){
       return
     }
     console.log("picking numbers");
-    console.log(this.result[this.state.iterationCounter][0]);
+    console.log(this.result[this.state.iterationCounter1][0]);
     e.preventDefault()
     e.persist()
     this.value = parseInt(e.currentTarget.value)

@@ -3,47 +3,6 @@
   justify-content: center;
   align-items: center;
 }
-.active {
-  font-size: 30px;
-}
-
-.activeExercise {
-  font-size: 30px;
-}
-
-.hidden {
-  font-size: 30px;
-  color:transparent;
-  background-color: transparent;
-}
-
-
-.hiddenExercise {
-  font-size: 30px;
-  color:transparent;
-  background-color: transparent;
-}
-
-.unfocused {
-  font-size: 30px;
-  color:gray;
-}
-
-.unfocusedExercise {
-  font-size: 30px;
-  color:gray;
-}
-
-.smaller {
-  font-size: 30px;
-  color: yellow;
-}
-
-.smallerExercise {
-  font-size: 30px;
-  color: yellow;
-}
-
 .subarray-container {
   display: flex;
   flex-direction: row;
@@ -51,7 +10,6 @@
 
 .subarray {
   display:flex;
-  justify-content: space-between;
 }
 
 .subarray-output {
@@ -66,92 +24,423 @@
   flex-direction: row
 }
 
+.active {
+  border-radius: 0.8em;
+ -moz-border-radius: 0.8em;
+ -webkit-border-radius: 0.8em;
+ display: inline-block;
+ font-weight: bold;
+ line-height: 1.5em;
+ margin-right: 10px;
+ text-align: center;
+ width: 1.5em;
+ border: 1px solid #93D1FF;
+ background-color: #93D1FF;
+}
+
+.activeExercise {
+  border-radius: 0.8em;
+ -moz-border-radius: 0.8em;
+ -webkit-border-radius: 0.8em;
+ display: inline-block;
+ font-weight: bold;
+ line-height: 1.5em;
+ margin-right: 10px;
+ text-align: center;
+ width: 1.5em;
+ border: 1px solid #93D1FF;
+ background-color: #93D1FF;
+}
+
+.hidden {
+  border-radius: 0.8em;
+ -moz-border-radius: 0.8em;
+ -webkit-border-radius: 0.8em;
+ display: inline-block;
+ font-weight: bold;
+ line-height: 1.5em;
+ margin-right: 10px;
+ text-align: center;
+ width: 1.5em;
+  color:transparent;
+  background-color: transparent;
+}
+
+
+.hiddenExercise {
+  border-radius: 0.8em;
+ -moz-border-radius: 0.8em;
+ -webkit-border-radius: 0.8em;
+ display: inline-block;
+ font-weight: bold;
+ line-height: 1.5em;
+ margin-right: 10px;
+ text-align: center;
+ width: 1.5em;
+  color:transparent;
+  background-color: transparent;
+}
+
+.unfocused {
+  border-radius: 0.8em;
+ -moz-border-radius: 0.8em;
+ -webkit-border-radius: 0.8em;
+ display: inline-block;
+ font-weight: bold;
+ line-height: 1.5em;
+ margin-right: 10px;
+ text-align: center;
+ width: 1.5em;
+ border: 1px solid #93D1FF;
+ background-color: gray;
+}
+
+.unfocusedExercise {
+  border-radius: 0.8em;
+ -moz-border-radius: 0.8em;
+ -webkit-border-radius: 0.8em;
+ display: inline-block;
+ font-weight: bold;
+ line-height: 1.5em;
+ margin-right: 10px;
+ text-align: center;
+ width: 1.5em;
+ border: 1px solid #93D1FF;
+ background-color: gray;
+}
+
+.smaller {
+  border-radius: 0.8em;
+ -moz-border-radius: 0.8em;
+ -webkit-border-radius: 0.8em;
+ display: inline-block;
+ font-weight: bold;
+ line-height: 1.5em;
+ margin-right: 10px;
+ text-align: center;
+ width: 1.5em;
+ border: 1px solid #93D1FF;
+ background-color: purple;
+  color: white;
+}
+
+.smallerExercise {
+  border-radius: 0.8em;
+ -moz-border-radius: 0.8em;
+ -webkit-border-radius: 0.8em;
+ display: inline-block;
+ font-weight: bold;
+ line-height: 1.5em;
+ margin-right: 10px;
+ text-align: center;
+ width: 1.5em;
+ border: 1px solid #93D1FF;
+ background-color: purple;
+  color: white;
+}
+
+
 .larger {
-  font-size: 30px;
-  color: red;
+  border-radius: 0.8em;
+ -moz-border-radius: 0.8em;
+ -webkit-border-radius: 0.8em;
+ display: inline-block;
+ font-weight: bold;
+ line-height: 1.5em;
+ margin-right: 10px;
+ text-align: center;
+ width: 1.5em;
+ border: 1px solid #93D1FF;
+ background-color: red;
+  color: white;
 }
 
 .sorted {
-  font-size: 30px;
-  color:green;
-  font-weight: bold;
+  border-radius: 0.8em;
+ -moz-border-radius: 0.8em;
+ -webkit-border-radius: 0.8em;
+ display: inline-block;
+ font-weight: bold;
+ line-height: 1.5em;
+ margin-right: 10px;
+ text-align: center;
+ width: 1.5em;
+ border: 1px solid #93D1FF;
+ background-color: green;
+  color: white;
 }
 
 .correct {
-  font-size: 30px;
-  color:green;
-  font-weight: bold;
+  border-radius: 0.8em;
+ -moz-border-radius: 0.8em;
+ -webkit-border-radius: 0.8em;
+ display: inline-block;
+ font-weight: bold;
+ line-height: 1.5em;
+ margin-right: 10px;
+ text-align: center;
+ width: 1.5em;
+ border: 1px solid transparent;
+ background-color: green;
+  color: white;
+}
+
+.hiddenExercise {
+  border-radius: 0.8em;
+ -moz-border-radius: 0.8em;
+ -webkit-border-radius: 0.8em;
+ display: inline-block;
+ font-weight: bold;
+ line-height: 1.5em;
+ margin-right: 10px;
+ text-align: center;
+ width: 1.5em;
+ border: 1px solid transparent;
+ background-color: transparent;
+  color: transparent;
 }
 
 .incorrect {
-  font-size: 30px;
-  color:red;
-  font-weight: bold;
+  border-radius: 0.8em;
+ -moz-border-radius: 0.8em;
+ -webkit-border-radius: 0.8em;
+ display: inline-block;
+ font-weight: bold;
+ line-height: 1.5em;
+ margin-right: 10px;
+ text-align: center;
+ width: 1.5em;
+ border: 1px solid transparent;
+ background-color: red;
+  color: white;
 }
 
 .sortedExercise {
-  font-size: 30px;
-  color:green;
-  font-weight: bold;
+  border-radius: 0.8em;
+ -moz-border-radius: 0.8em;
+ -webkit-border-radius: 0.8em;
+ display: inline-block;
+ font-weight: bold;
+ line-height: 1.5em;
+ margin-right: 10px;
+ text-align: center;
+ width: 1.5em;
+ border: 1px solid #93D1FF;
+ background-color: green;
+  color: white;
 }
 
 .pivot {
-  font-size: 30px;
-  color: blue;
+  border-radius: 0.8em;
+ -moz-border-radius: 0.8em;
+ -webkit-border-radius: 0.8em;
+ display: inline-block;
+ font-weight: bold;
+ line-height: 1.5em;
+ margin-right: 10px;
+ text-align: center;
+ width: 1.5em;
+ border: 1px solid #93D1FF;
+ background-color: blue;
+  color: white;
 }
 
 .pivotShow {
-  font-size: 30px;
-  color:black;
+  border-radius: 0.8em;
+ -moz-border-radius: 0.8em;
+ -webkit-border-radius: 0.8em;
+ display: inline-block;
+ font-weight: bold;
+ line-height: 1.5em;
+ margin-right: 10px;
+ text-align: center;
+ width: 1.5em;
+ border: 1px solid #93D1FF;
+ background-color: blue;
+  color: white;
 }
 .pivotShowExercise {
-  font-size: 30px;
-  color:black;
+  border-radius: 0.8em;
+ -moz-border-radius: 0.8em;
+ -webkit-border-radius: 0.8em;
+ display: inline-block;
+ font-weight: bold;
+ line-height: 1.5em;
+ margin-right: 10px;
+ text-align: center;
+ width: 1.5em;
+ border: 1px solid #93D1FF;
+ background-color: blue;
+  color: white;
 }
 
 .smallerShow {
-  font-size: 30px;
-  color: black;
+  border-radius: 0.8em;
+ -moz-border-radius: 0.8em;
+ -webkit-border-radius: 0.8em;
+ display: inline-block;
+ font-weight: bold;
+ line-height: 1.5em;
+ margin-right: 10px;
+ text-align: center;
+ width: 1.5em;
+ border: 1px solid #93D1FF;
+ background-color: purple;
+  color: white;
 }
 .smallerShowExercise {
-  font-size: 30px;
-  color: black;
+  border-radius: 0.8em;
+ -moz-border-radius: 0.8em;
+ -webkit-border-radius: 0.8em;
+ display: inline-block;
+ font-weight: bold;
+ line-height: 1.5em;
+ margin-right: 10px;
+ text-align: center;
+ width: 1.5em;
+ border: 1px solid #93D1FF;
+ background-color: purple;
+  color: white;
 }
 
 .largerShow {
-  font-size: 30px;
-  color: black;
+  border-radius: 0.8em;
+ -moz-border-radius: 0.8em;
+ -webkit-border-radius: 0.8em;
+ display: inline-block;
+ font-weight: bold;
+ line-height: 1.5em;
+ margin-right: 10px;
+ text-align: center;
+ width: 1.5em;
+ border: 1px solid #93D1FF;
+ background-color: red;
+  color: white;
 }
 .largerShowExercise {
-  font-size: 30px;
-  color: black;
+  border-radius: 0.8em;
+ -moz-border-radius: 0.8em;
+ -webkit-border-radius: 0.8em;
+ display: inline-block;
+ font-weight: bold;
+ line-height: 1.5em;
+ margin-right: 10px;
+ text-align: center;
+ width: 1.5em;
+ border: 1px solid #93D1FF;
+ background-color: red;
+  color: white;
 }
 
 .pivotHidden {
-  font-size: 30px;
+  border-radius: 0.8em;
+ -moz-border-radius: 0.8em;
+ -webkit-border-radius: 0.8em;
+ display: inline-block;
+ font-weight: bold;
+ line-height: 1.5em;
+ margin-right: 10px;
+ text-align: center;
+ width: 1.5em;
+ border: 1px solid transparent;
+ background-color: transparent;
   color: transparent;
 }
 .pivotHiddenExercise {
-  font-size: 30px;
+  border-radius: 0.8em;
+ -moz-border-radius: 0.8em;
+ -webkit-border-radius: 0.8em;
+ display: inline-block;
+ font-weight: bold;
+ line-height: 1.5em;
+ margin-right: 10px;
+ text-align: center;
+ width: 1.5em;
+ border: 1px solid transparent;
+ background-color: transparent;
   color: transparent;
 }
 .smallerHidden {
-  font-size: 30px;
+  border-radius: 0.8em;
+ -moz-border-radius: 0.8em;
+ -webkit-border-radius: 0.8em;
+ display: inline-block;
+ font-weight: bold;
+ line-height: 1.5em;
+ margin-right: 10px;
+ text-align: center;
+ width: 1.5em;
+ border: 1px solid transparent;
+ background-color: transparent;
   color: transparent;
 }
 .smallerHiddenExercise {
-  font-size: 30px;
+  border-radius: 0.8em;
+ -moz-border-radius: 0.8em;
+ -webkit-border-radius: 0.8em;
+ display: inline-block;
+ font-weight: bold;
+ line-height: 1.5em;
+ margin-right: 10px;
+ text-align: center;
+ width: 1.5em;
+ border: 1px solid transparent;
+ background-color: transparent;
   color: transparent;
 }
 .smallerExercise {
-  font-size: 30px;
-  color: transparent;
+  border-radius: 0.8em;
+ -moz-border-radius: 0.8em;
+ -webkit-border-radius: 0.8em;
+ display: inline-block;
+ font-weight: bold;
+ line-height: 1.5em;
+ margin-right: 10px;
+ text-align: center;
+ width: 1.5em;
+ border: 1px solid #93D1FF;
+ background-color: purple;
+  color: white;
 }
 .largerHidden {
-  font-size: 30px;
+  border-radius: 0.8em;
+ -moz-border-radius: 0.8em;
+ -webkit-border-radius: 0.8em;
+ display: inline-block;
+ font-weight: bold;
+ line-height: 1.5em;
+ margin-right: 10px;
+ text-align: center;
+ width: 1.5em;
+ border: 1px solid transparent;
+ background-color: transparent;
   color: transparent;
 }
 .largerHiddenExercise {
-  font-size: 30px;
+  border-radius: 0.8em;
+ -moz-border-radius: 0.8em;
+ -webkit-border-radius: 0.8em;
+ display: inline-block;
+ font-weight: bold;
+ line-height: 1.5em;
+ margin-right: 10px;
+ text-align: center;
+ width: 1.5em;
+ border: 1px solid transparent;
+ background-color: transparent;
   color: transparent;
+}
+.pivotExercise {
+  border-radius: 0.8em;
+ -moz-border-radius: 0.8em;
+ -webkit-border-radius: 0.8em;
+ display: inline-block;
+ font-weight: bold;
+ line-height: 1.5em;
+ margin-right: 10px;
+ text-align: center;
+ width: 1.5em;
+ border: 1px solid transparent;
+ background-color: blue;
+  color: white;
 }

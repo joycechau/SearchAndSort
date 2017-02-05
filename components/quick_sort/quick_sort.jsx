@@ -33,11 +33,13 @@ export default class QuickSort extends React.Component {
 
   randomArray(){
     const newArr = []
-    const arrLength = Math.floor(Math.random()*10 + 10)
+    const arrLength = Math.floor(Math.random()*4 + 8)
     for (let i = 0; i < arrLength; i++){
       let newNum = Math.floor(Math.random()*20)
       if (!newArr.includes(newNum)){
         newArr.push(newNum)
+      } else {
+        i--
       }
     }
     return newArr
@@ -387,23 +389,24 @@ export default class QuickSort extends React.Component {
     }
     console.log(this.result[this.state.iterationCounter + 1][3]);
     if (this.result[this.state.iterationCounter + 1][3].length > 0){
-      debugger
+      this.setState({demoStarted: true})
       this.addClassName()
     } else {
       var counter = 0
+      this.handleArrayShuffle()
+      debugger
       this.resetSort = setInterval( ()=> {
         switch(counter){
           case 1:
-          this.handleArrayShuffle()
+          this.setState({demoStarted: true})
           case 3:
           this.addClassName()
           clearInterval(this.resetSort)
           return
         }
         counter += 1
-      },1000 )
+      },400 )
     }
-    this.setState({demoStarted: true})
   }
 
   focusAll(){
@@ -447,7 +450,8 @@ export default class QuickSort extends React.Component {
           this.forceUpdate()
       }
       counter += 1
-    }, this.addClassIntervalSpeed)
+    }, 1)
+    this.setState({demoStarted: false})
   }
 
   resetArray(){
