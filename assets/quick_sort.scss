@@ -3,6 +3,18 @@
   justify-content: center;
   align-items: center;
 }
+
+.quicksort-text {
+  background-color: red;
+  color: black;
+}
+
+.quicksort-exercise {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 .subarray-container {
   display: flex;
   flex-direction: row;
@@ -23,6 +35,34 @@
 .subarray {
   display: flex;
   flex-direction: row
+}
+
+.quicksortIdle {
+  border-radius: 0.8em;
+ -moz-border-radius: 0.8em;
+ -webkit-border-radius: 0.8em;
+ display: inline-block;
+ font-weight: bold;
+ line-height: 1.5em;
+ margin-right: 10px;
+ text-align: center;
+ width: 1.5em;
+ border: 1px solid rgba(184,184,184,.5);
+ background-color: rgba(184,184,184,.5);
+}
+
+.quicksortIdleExercise {
+  border-radius: 0.8em;
+ -moz-border-radius: 0.8em;
+ -webkit-border-radius: 0.8em;
+ display: inline-block;
+ font-weight: bold;
+ line-height: 1.5em;
+ margin-right: 10px;
+ text-align: center;
+ width: 1.5em;
+ border: 1px solid rgba(184,184,184,.5);
+ background-color: rgba(184,184,184,.5);
 }
 
 .active {
@@ -92,8 +132,9 @@
  margin-right: 10px;
  text-align: center;
  width: 1.5em;
- border: 1px solid #93D1FF;
- background-color: gray;
+ border: 1px solid rgba(184,184,184,.2);
+ background-color: rgba(184,184,184,.2);
+ color: rgba(0,0,0,.3)
 }
 
 .unfocusedExercise {
@@ -106,8 +147,9 @@
  margin-right: 10px;
  text-align: center;
  width: 1.5em;
- border: 1px solid #93D1FF;
- background-color: gray;
+ border: 1px solid rgba(184,184,184,.2);
+ background-color: rgba(184,184,184,.2);
+ color: rgba(0,0,0,.3)
 }
 
 .smaller {
@@ -120,9 +162,9 @@
  margin-right: 10px;
  text-align: center;
  width: 1.5em;
- border: 1px solid #93D1FF;
- background-color: purple;
-  color: white;
+ border: 1px solid #C4DEFF;
+ background-color: #C4DEFF;
+  color: black;
 }
 
 .smallerExercise {
@@ -135,9 +177,9 @@
  margin-right: 10px;
  text-align: center;
  width: 1.5em;
- border: 1px solid #93D1FF;
- background-color: purple;
-  color: white;
+ border: 1px solid #C4DEFF;
+ background-color: #C4DEFF;
+  color: black;
 }
 
 
@@ -152,8 +194,8 @@
  text-align: center;
  width: 1.5em;
  border: 1px solid #93D1FF;
- background-color: red;
-  color: white;
+ background-color: #417BB2;
+  color: black;
 }
 
 .sorted {
@@ -166,9 +208,9 @@
  margin-right: 10px;
  text-align: center;
  width: 1.5em;
- border: 1px solid #93D1FF;
- background-color: green;
-  color: white;
+ border: 1px solid rgba(45, 166, 36, 0.2);
+ background-color: rgba(45, 166, 36, 0.2);
+  color: black;
 }
 
 .correct {
@@ -181,9 +223,9 @@
  margin-right: 10px;
  text-align: center;
  width: 1.5em;
- border: 1px solid transparent;
- background-color: green;
-  color: white;
+ border: 1px solid rgba(45, 166, 36, 0.2);
+ background-color: rgba(45, 166, 36, 0.2);
+  color: black;
 }
 
 .hiddenExercise {
@@ -211,9 +253,9 @@
  margin-right: 10px;
  text-align: center;
  width: 1.5em;
- border: 1px solid transparent;
- background-color: red;
-  color: white;
+ border: 1px solid rgba(196, 61, 61, 0.5);
+ background-color: rgba(196, 61, 61, 0.5);
+  color: black;
 }
 
 .sortedExercise {
@@ -226,9 +268,9 @@
  margin-right: 10px;
  text-align: center;
  width: 1.5em;
- border: 1px solid #93D1FF;
- background-color: green;
-  color: white;
+ border: 1px solid rgba(45, 166, 36, 0.2);
+ background-color:rgba(45, 166, 36, 0.2);
+  color: black;
 }
 
 .pivot {
@@ -241,9 +283,9 @@
  margin-right: 10px;
  text-align: center;
  width: 1.5em;
- border: 1px solid #93D1FF;
- background-color: blue;
-  color: white;
+ border: 1px solid #91C9FF;
+ background-color: #91C9FF;
+  color: black;
 }
 
 .pivotShow {
@@ -256,10 +298,44 @@
  margin-right: 10px;
  text-align: center;
  width: 1.5em;
- border: 1px solid #93D1FF;
- background-color: blue;
-  color: white;
+ border: 1px solid #91C9FF;
+ background-color: #91C9FF;
+  color: black;
 }
+
+.pivotTextShow {
+  color: black;
+  font-size: 13px;
+  background-color: transparent;
+}
+.pivotTextHidden {
+  color: transparent;
+  background-color: transparent;
+}
+
+.largerTextShow {
+  color: black;
+  font-size: 13px;
+  background-color: transparent;
+}
+
+.largerTextHidden {
+  color: transparent;
+  background-color: transparent;
+}
+
+
+.smallerTextShow {
+  color: black;
+  font-size: 13px;
+  background-color: transparent;
+}
+
+.smallerTextHidden {
+  color: transparent;
+  background-color: transparent;
+}
+
 .pivotShowExercise {
   border-radius: 0.8em;
  -moz-border-radius: 0.8em;
@@ -270,9 +346,9 @@
  margin-right: 10px;
  text-align: center;
  width: 1.5em;
- border: 1px solid #93D1FF;
- background-color: blue;
-  color: white;
+ border: 1px solid #91C9FF;
+ background-color: #91C9FF;
+  color: black;
 }
 
 .smallerShow {
@@ -285,9 +361,9 @@
  margin-right: 10px;
  text-align: center;
  width: 1.5em;
- border: 1px solid #93D1FF;
- background-color: purple;
-  color: white;
+ border: 1px solid  #C4DEFF;
+ background-color:  #C4DEFF;
+  color: black;
 }
 .smallerShowExercise {
   border-radius: 0.8em;
@@ -299,9 +375,9 @@
  margin-right: 10px;
  text-align: center;
  width: 1.5em;
- border: 1px solid #93D1FF;
- background-color: purple;
-  color: white;
+ border: 1px solid #C4DEFF;
+ background-color: #C4DEFF;
+  color: black;
 }
 
 .largerShow {
@@ -314,9 +390,9 @@
  margin-right: 10px;
  text-align: center;
  width: 1.5em;
- border: 1px solid #93D1FF;
- background-color: red;
-  color: white;
+ border: 1px solid #417BB2;
+ background-color: #417BB2;
+  color: black;
 }
 .largerShowExercise {
   border-radius: 0.8em;
@@ -328,9 +404,9 @@
  margin-right: 10px;
  text-align: center;
  width: 1.5em;
- border: 1px solid #93D1FF;
- background-color: red;
-  color: white;
+ border: 1px solid #417BB2;
+ background-color: #417BB2;
+  color: black;
 }
 
 .pivotHidden {
@@ -399,9 +475,9 @@
  margin-right: 10px;
  text-align: center;
  width: 1.5em;
- border: 1px solid #93D1FF;
- background-color: purple;
-  color: white;
+ border: 1px solid #C4DEFF;
+ background-color: #C4DEFF;
+  color: black;
 }
 .largerHidden {
   border-radius: 0.8em;
@@ -442,6 +518,6 @@
  text-align: center;
  width: 1.5em;
  border: 1px solid transparent;
- background-color: blue;
-  color: white;
+ background-color: #91C9FF;
+  color: black;
 }
