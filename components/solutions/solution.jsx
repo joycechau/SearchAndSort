@@ -53,8 +53,6 @@ export default class Solution extends React.Component{
   }
 
   handleJavaScriptButton(e) {
-
-    console.log(this.props);
     e.preventDefault();
     $(".javascript-button").addClass("selected-solution-button");
     $(".ruby-button").removeClass("selected-solution-button");

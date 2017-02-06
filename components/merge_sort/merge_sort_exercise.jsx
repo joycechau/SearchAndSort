@@ -58,7 +58,6 @@ export default class MergeSortExercise extends React.Component {
       this.setState({
         message: 3
       });
-      console.log('you did it!!');
     }
   }
 
@@ -91,7 +90,6 @@ export default class MergeSortExercise extends React.Component {
           this.setState({
             message: 2
           });
-          console.log('the number clicked is not the smallest');
         } else {
           if (showTopArray[compareIdx].length === 0) {
             botSubArray.push(showTopArray[idx].splice(0, 1)[0]);
@@ -126,7 +124,6 @@ export default class MergeSortExercise extends React.Component {
       this.setState({
         message: 2
       });
-      console.log('not yet');
     }
   }
 
