@@ -1,7 +1,6 @@
 
 def merge_sort
 	return array if count < 2
-
 	middle = count / 2
 
 	left, right = array.take(middle), array.drop(middle)

@@ -68,7 +68,8 @@
   padding: 30px;
   font-size: 14px;
 	height: 92%;
-	overflow-y: scroll;
+	display: flex;
+	justify-content: center;
 	box-sizing: border-box;
 }
 
@@ -76,7 +77,11 @@
 	width: 100%;
 }
 
+.solution-image-div {
+}
+
 .solution-div div img {
 	width: 100%;
 	height: auto;
+
 }
