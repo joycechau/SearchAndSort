@@ -10,6 +10,23 @@ export default class Header extends React.Component{
     this.handleMergeSortButton = this.handleMergeSortButton.bind(this);
   }
 
+  componentDidMount() {
+    let path = window.location.hash;
+    if (path === "#/bsearch") {
+      $(".bsearch-button").addClass("selected-button");
+      $(".quicksort-button").removeClass("selected-button");
+      $(".mergesort-button").removeClass("selected-button");
+    } else if (path === "#/quicksort") {
+      $(".quicksort-button").addClass("selected-button");
+      $(".bsearch-button").removeClass("selected-button");
+      $(".mergesort-button").removeClass("selected-button");
+    } else if (path === "#/mergesort") {
+      $(".mergesort-button").addClass("selected-button");
+      $(".bsearch-button").removeClass("selected-button");
+      $(".quicksort-button").removeClass("selected-button");
+    }
+  }
+
   handleBinarySearchButton(e) {
     e.preventDefault();
     $(".bsearch-button").addClass("selected-button");
@@ -109,7 +126,7 @@ export default class Header extends React.Component{
         <div className="header-nav">
           <button
             onClick={this.handleBinarySearchButton}
-            className="bsearch-button selected-button">
+            className="bsearch-button">
             Binary Search
           </button>
           <button
