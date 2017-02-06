@@ -108,7 +108,7 @@ export default class Solution extends React.Component{
                   {`${line}`}
                 </p>
             </div>
-          )
+          );
         })
       );
     }
