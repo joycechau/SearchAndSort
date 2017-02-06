@@ -35,7 +35,7 @@ export default class QuickSort extends React.Component {
 
   randomArray(){
     const newArr = []
-    const arrLength = Math.floor(Math.random()*3 + 8)
+    const arrLength = Math.floor(Math.random()*3 + 6)
     for (let i = 0; i < arrLength; i++){
       let newNum = Math.floor(Math.random()*20)
       if (!newArr.includes(newNum)){
@@ -492,20 +492,21 @@ export default class QuickSort extends React.Component {
       <div className="main-container">
         <div className="demo-and-exercise">
           <div className="quicksort-demo">
-            <div>
-              {this.state.exerciseStarted ? null :
+              <div className="quicksort-demo-buttons">
                 <div>
-                  <button onClick={this.handleClickStart}>
-                    start
-                  </button>
-                  <button onClick={this.handleArrayShuffle}>
-                    new array
+                  <button onClick={this.handleClickStart} className="quicksort-demo-start">
+                    Start
                   </button>
                 </div>
-              }
-              quicksort
-              <br/>
-              {this.trueArray()}
+                <div>
+                  <button onClick={this.handleArrayShuffle} className="quicksort-demo-newarray">
+                    New Array
+                  </button>
+                </div>
+              </div>
+              <div className="quicksort-demo-array">
+                {this.trueArray()}
+              </div>
               {this.state.solved ? this.focusAll() : null}
               <div className="subarray-container">
                 <div className="subarray-output">
@@ -533,7 +534,6 @@ export default class QuickSort extends React.Component {
                   </div>
                 </div>
               </div>
-            </div>
           </div>
           <div className="quicksort-exercise">
           {<QuickSortExercise demoState={this.handleChildClick}/> }

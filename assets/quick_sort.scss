@@ -2,6 +2,79 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  flex-direction: column;
+  border-bottom: 2px solid
+}
+
+.quicksort-try {
+  margin-top:15px;
+  font-size: 25px;
+  margin-bottom: 15px;
+}
+
+.quicksort-start-exercise {
+  font-size: 20px;
+  margin-bottom: 20px;
+  padding: 5px;
+  border-radius: 5px;
+}
+
+.quicksort-start-exercise:hover {
+  font-size: 20px;
+  margin-bottom: 20px;
+  padding: 5px;
+  border-radius: 5px;
+  background-color: #93D1FF;
+}
+
+.quicksort-exercise-subarray {
+  margin-top: 20px;
+}
+
+// .quicksort-exercise-buttons {
+//   margin-bottom: 20px;
+// }
+
+.quicksort-demo-buttons {
+  display: flex;
+}
+
+.quicksort-demo-start {
+  font-size: 20px;
+  margin-right: 50px;
+  padding: 5px;
+  border-radius: 5px;
+}
+
+.quicksort-demo-start:hover {
+  background-color: #91C9FF;
+  padding: 5px;
+  border-radius: 5px;
+}
+
+.quicksort-demo-array {
+  margin-top: 20px;
+  padding: 5px;
+  border-radius: 5px;
+}
+
+.quicksort-demo-newarray:hover {
+  background-color: #91C9FF;
+  padding: 5px;
+  border-radius: 5px;
+}
+
+.quicksort-demo-newarray {
+  font-size: 20px;
+  padding: 5px;
+  border-radius: 5px;
+}
+
+.quicksort-exercise-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
 .quicksort-text {
@@ -16,6 +89,7 @@
 }
 
 .subarray-container {
+  margin-top: 20px;
   display: flex;
   flex-direction: row;
   justify-content: center

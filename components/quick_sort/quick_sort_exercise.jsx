@@ -124,7 +124,7 @@ export default class QuickSortExercise extends React.Component{
 
   randomArray(){
     const newArr = []
-    const arrLength = Math.floor(Math.random()*3 + 8)
+    const arrLength = Math.floor(Math.random()*3 + 6)
     for (let i = 0; i < arrLength; i++){
       let newNum = Math.floor(Math.random()*20)
       if (!newArr.includes(newNum)){
@@ -198,9 +198,11 @@ export default class QuickSortExercise extends React.Component{
     return(
       this.startArray.map((num,i) => {
         return (
-          <button key={i} value={num} onClick={this.handleClick} className="quicksortIdleExercise">
-            {num}
-          </button>
+          <span>
+            <button key={i} value={num} onClick={this.handleClick} className="quicksortIdleExercise">
+              {num}
+            </button>
+          </span>
         )
       })
     )
@@ -209,7 +211,9 @@ export default class QuickSortExercise extends React.Component{
     return(
       this.result[this.state.iterationCounter1][1].map( (el, i) => {
         return(
-          <button key={i} value={el} className="largerHiddenExercise"> {el} </button>
+          <span>
+            <button key={i} value={el} className="largerHiddenExercise"> {el} </button>
+          </span>
         )
       })
     )
@@ -218,7 +222,9 @@ export default class QuickSortExercise extends React.Component{
     return(
       this.result[this.state.iterationCounter1][2].map( (el, i) => {
         return(
-          <button key={i} value={el} className="smallerHiddenExercise"> {el} </button>
+          <span>
+            <button key={i} value={el} className="smallerHiddenExercise"> {el} </button>
+          </span>
         )
       })
     )
@@ -226,9 +232,11 @@ export default class QuickSortExercise extends React.Component{
   pivotButton(){
     console.log(this.state.iterationCounter1);
     return (
-      <button value={this.result[this.state.iterationCounter1][3]} className="pivotHiddenExercise">
-        {this.result[this.state.iterationCounter1][3].toString()}
-      </button>
+      <span>
+        <button value={this.result[this.state.iterationCounter1][3]} className="pivotHiddenExercise">
+          {this.result[this.state.iterationCounter1][3].toString()}
+        </button>
+      </span>
     )
   }
 
@@ -496,25 +504,25 @@ export default class QuickSortExercise extends React.Component{
 
   render(){
     return (
-      <div>
-        Quicksort Exercise
-        <button onClick={this.startGameClick}>
-          Start "Game"
-        </button>
-
-        <br/>
-        { this.fullArrayButtons()}
+      <div className="quicksort-exercise-container">
+        <div className="quicksort-try">
+          Try it out yourself!
+        </div>
         <div>
+          <button onClick={this.startGameClick} className="quicksort-start-exercise">
+            Start Exercise
+          </button>
+        </div>
+        <div className="quicksort-exercise-buttons">
+          { this.fullArrayButtons()}
+        </div>
 
-        <div className="quicksort-exercise">
+        <div className="quicksort-exercise-subarray">
           {this.smallerThanPivotButtons()}
-          <br/>
           {this.pivotButton()}
-          <br/>
           {this.largerThanPivotButtons()}
         </div>
       </div>
-    </div>
     )
   }
 }
