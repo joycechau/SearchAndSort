@@ -21519,19 +21519,19 @@
 	
 	var _app2 = _interopRequireDefault(_app);
 	
-	var _binary_search = __webpack_require__(235);
+	var _binary_search = __webpack_require__(236);
 	
 	var _binary_search2 = _interopRequireDefault(_binary_search);
 	
-	var _bubble_sort = __webpack_require__(237);
+	var _bubble_sort = __webpack_require__(239);
 	
 	var _bubble_sort2 = _interopRequireDefault(_bubble_sort);
 	
-	var _merge_sort = __webpack_require__(238);
+	var _merge_sort = __webpack_require__(240);
 	
 	var _merge_sort2 = _interopRequireDefault(_merge_sort);
 	
-	var _quick_sort = __webpack_require__(239);
+	var _quick_sort = __webpack_require__(338);
 	
 	var _quick_sort2 = _interopRequireDefault(_quick_sort);
 	
@@ -26605,7 +26605,7 @@
 	
 	var _reactRouter = __webpack_require__(179);
 	
-	var _header = __webpack_require__(241);
+	var _header = __webpack_require__(235);
 	
 	var _header2 = _interopRequireDefault(_header);
 	
@@ -26659,11 +26659,251 @@
 	
 	var _react2 = _interopRequireDefault(_react);
 	
-	var _solution = __webpack_require__(245);
+	var _reactRouter = __webpack_require__(179);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+	
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+	
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+	
+	var Header = function (_React$Component) {
+	  _inherits(Header, _React$Component);
+	
+	  function Header(props) {
+	    _classCallCheck(this, Header);
+	
+	    var _this = _possibleConstructorReturn(this, (Header.__proto__ || Object.getPrototypeOf(Header)).call(this, props));
+	
+	    _this.handleBinarySearchButton = _this.handleBinarySearchButton.bind(_this);
+	    _this.handleQuickSortButton = _this.handleQuickSortButton.bind(_this);
+	    _this.handleMergeSortButton = _this.handleMergeSortButton.bind(_this);
+	    return _this;
+	  }
+	
+	  _createClass(Header, [{
+	    key: 'componentDidMount',
+	    value: function componentDidMount() {
+	      var path = window.location.hash;
+	      if (path === "#/bsearch") {
+	        $(".bsearch-button").addClass("selected-button");
+	        $(".quicksort-button").removeClass("selected-button");
+	        $(".mergesort-button").removeClass("selected-button");
+	      } else if (path === "#/quicksort") {
+	        $(".quicksort-button").addClass("selected-button");
+	        $(".bsearch-button").removeClass("selected-button");
+	        $(".mergesort-button").removeClass("selected-button");
+	      } else if (path === "#/mergesort") {
+	        $(".mergesort-button").addClass("selected-button");
+	        $(".bsearch-button").removeClass("selected-button");
+	        $(".quicksort-button").removeClass("selected-button");
+	      }
+	    }
+	  }, {
+	    key: 'handleBinarySearchButton',
+	    value: function handleBinarySearchButton(e) {
+	      e.preventDefault();
+	      $(".bsearch-button").addClass("selected-button");
+	      $(".quicksort-button").removeClass("selected-button");
+	      $(".mergesort-button").removeClass("selected-button");
+	      _reactRouter.hashHistory.push('/bsearch');
+	    }
+	  }, {
+	    key: 'handleQuickSortButton',
+	    value: function handleQuickSortButton(e) {
+	      e.preventDefault();
+	      $(".quicksort-button").addClass("selected-button");
+	      $(".bsearch-button").removeClass("selected-button");
+	      $(".mergesort-button").removeClass("selected-button");
+	      _reactRouter.hashHistory.push('/quicksort');
+	    }
+	  }, {
+	    key: 'handleMergeSortButton',
+	    value: function handleMergeSortButton(e) {
+	      e.preventDefault();
+	      $(".mergesort-button").addClass("selected-button");
+	      $(".bsearch-button").removeClass("selected-button");
+	      $(".quicksort-button").removeClass("selected-button");
+	      _reactRouter.hashHistory.push('/mergesort');
+	    }
+	  }, {
+	    key: 'render',
+	    value: function render() {
+	      return _react2.default.createElement(
+	        'div',
+	        null,
+	        _react2.default.createElement(
+	          'div',
+	          { className: 'header-main' },
+	          _react2.default.createElement(
+	            'div',
+	            { className: 'header-title' },
+	            'Search and Sort Visualizer'
+	          ),
+	          _react2.default.createElement(
+	            'div',
+	            { className: 'collaborators' },
+	            _react2.default.createElement(
+	              'div',
+	              { className: 'collaborators-title' },
+	              'Collaborators:'
+	            ),
+	            _react2.default.createElement(
+	              'div',
+	              { className: 'authors' },
+	              _react2.default.createElement(
+	                'div',
+	                { className: 'andrew' },
+	                _react2.default.createElement(
+	                  'div',
+	                  null,
+	                  'Andrew Yueh'
+	                ),
+	                _react2.default.createElement(
+	                  'div',
+	                  { className: 'links' },
+	                  _react2.default.createElement(
+	                    'a',
+	                    { href: 'https://www.linkedin.com/in/andrewyueh/',
+	                      target: '_blank',
+	                      className: 'linkedin-link' },
+	                    _react2.default.createElement('img', { src: 'https://res.cloudinary.com/joycechau/image/upload/v1486025481/linkedin2.png',
+	                      alt: 'linkedin',
+	                      className: 'linkedin-image' })
+	                  ),
+	                  _react2.default.createElement(
+	                    'a',
+	                    { href: 'https://github.com/andrew1007',
+	                      target: '_blank',
+	                      className: 'github-link' },
+	                    _react2.default.createElement('img', { src: 'https://res.cloudinary.com/joycechau/image/upload/c_scale,w_20/v1485282244/github.png',
+	                      alt: 'github',
+	                      className: 'github-image' })
+	                  )
+	                )
+	              ),
+	              _react2.default.createElement(
+	                'div',
+	                { className: 'jeffrey' },
+	                _react2.default.createElement(
+	                  'div',
+	                  null,
+	                  'Jeffrey Fan'
+	                ),
+	                _react2.default.createElement(
+	                  'div',
+	                  { className: 'links' },
+	                  _react2.default.createElement(
+	                    'a',
+	                    { href: 'https://www.linkedin.com/in/jeffrey-fan',
+	                      target: '_blank',
+	                      className: 'linkedin-link' },
+	                    _react2.default.createElement('img', { src: 'https://res.cloudinary.com/joycechau/image/upload/v1486025481/linkedin2.png',
+	                      alt: 'linkedin',
+	                      className: 'linkedin-image' })
+	                  ),
+	                  _react2.default.createElement(
+	                    'a',
+	                    { href: 'https://github.com/jeffreyfan93',
+	                      target: '_blank',
+	                      className: 'github-link' },
+	                    _react2.default.createElement('img', { src: 'https://res.cloudinary.com/joycechau/image/upload/c_scale,w_20/v1485282244/github.png',
+	                      alt: 'github',
+	                      className: 'github-image' })
+	                  )
+	                )
+	              ),
+	              _react2.default.createElement(
+	                'div',
+	                { className: 'joyce' },
+	                _react2.default.createElement(
+	                  'div',
+	                  null,
+	                  'Joyce Chau'
+	                ),
+	                _react2.default.createElement(
+	                  'div',
+	                  { className: 'links' },
+	                  _react2.default.createElement(
+	                    'a',
+	                    { href: 'https://www.linkedin.com/in/joycechau/',
+	                      target: '_blank',
+	                      className: 'linkedin-link' },
+	                    _react2.default.createElement('img', { src: 'https://res.cloudinary.com/joycechau/image/upload/v1486025481/linkedin2.png',
+	                      alt: 'linkedin',
+	                      className: 'linkedin-image' })
+	                  ),
+	                  _react2.default.createElement(
+	                    'a',
+	                    { href: 'https://github.com/joycechau',
+	                      target: '_blank',
+	                      className: 'github-link' },
+	                    _react2.default.createElement('img', { src: 'https://res.cloudinary.com/joycechau/image/upload/c_scale,w_20/v1485282244/github.png',
+	                      alt: 'github',
+	                      className: 'github-image' })
+	                  )
+	                )
+	              )
+	            )
+	          )
+	        ),
+	        _react2.default.createElement(
+	          'div',
+	          { className: 'header-nav' },
+	          _react2.default.createElement(
+	            'button',
+	            {
+	              onClick: this.handleBinarySearchButton,
+	              className: 'bsearch-button' },
+	            'Binary Search'
+	          ),
+	          _react2.default.createElement(
+	            'button',
+	            {
+	              onClick: this.handleQuickSortButton,
+	              className: 'quicksort-button' },
+	            'Quick Sort'
+	          ),
+	          _react2.default.createElement(
+	            'button',
+	            {
+	              onClick: this.handleMergeSortButton,
+	              className: 'mergesort-button' },
+	            'Merge Sort'
+	          )
+	        )
+	      );
+	    }
+	  }]);
+	
+	  return Header;
+	}(_react2.default.Component);
+	
+	exports.default = Header;
+
+/***/ },
+/* 236 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+	
+	var _react = __webpack_require__(1);
+	
+	var _react2 = _interopRequireDefault(_react);
+	
+	var _solution = __webpack_require__(237);
 	
 	var _solution2 = _interopRequireDefault(_solution);
 	
-	var _binary_search_exercise = __webpack_require__(342);
+	var _binary_search_exercise = __webpack_require__(238);
 	
 	var _binary_search_exercise2 = _interopRequireDefault(_binary_search_exercise);
 	
@@ -26879,8 +27119,432 @@
 	exports.default = BinarySearch;
 
 /***/ },
-/* 236 */,
 /* 237 */
+/***/ function(module, exports, __webpack_require__) {
+
+	"use strict";
+	
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+	
+	var _react = __webpack_require__(1);
+	
+	var _react2 = _interopRequireDefault(_react);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+	
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+	
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+	
+	var Solution = function (_React$Component) {
+	  _inherits(Solution, _React$Component);
+	
+	  function Solution(props) {
+	    _classCallCheck(this, Solution);
+	
+	    var _this = _possibleConstructorReturn(this, (Solution.__proto__ || Object.getPrototypeOf(Solution)).call(this, props));
+	
+	    _this.state = {
+	      showJavaScriptSolution: false,
+	      showRubySolution: false,
+	      showPythonSolution: false,
+	      showInfo: true,
+	      bsearch: {
+	        javascript: "https://res.cloudinary.com/joycechau/image/upload/v1485979449/bsearch_js.png",
+	        ruby: "https://res.cloudinary.com/joycechau/image/upload/v1485979562/bsearch_ruby.png",
+	        python: "https://res.cloudinary.com/joycechau/image/upload/v1485988171/bsearch_python.png",
+	        info: ["A binary search divides a range of values into halves, and continues to narrow down the field of search until the unknown value is found. It is the classic example of a \"divide and conquer\" algorithm. As an analogy, consider the children's game \"guess a number.\" The scorer has a secret number, and will only tell the player if their guessed number is higher than, lower than, or equal to the secret number. The player then uses this information to guess a new number. As the player, an optimal strategy for the general case is to start by choosing the range's midpoint as the guess, and then asking whether the guess was higher, lower, or equal to the secret number. If the guess was too high, one would select the point exactly between the range midpoint and the beginning of the range. If the original guess was too low, one would ask about the point exactly between the range midpoint and the end of the range. This process repeats until one has reached the secret number. "]
+	      },
+	      quicksort: {
+	        javascript: "https://res.cloudinary.com/joycechau/image/upload/v1486143608/quicksort_javascript.png",
+	        ruby: "https://res.cloudinary.com/joycechau/image/upload/v1486143675/quicksort_ruby.png",
+	        python: "https://res.cloudinary.com/joycechau/image/upload/v1486143886/quicksort_python.png",
+	        info: [["Sort an array (or list) elements using the quicksort algorithm.The elements must have a strict weak order and the index of the array can be of any discrete type. Quicksort, also known as partition-exchange sort, uses these steps. Choose any element of the array to be the pivot. Divide all other elements (except the pivot) into two partitions."], ["All elements less than the pivot must be in the first partition."], ["All elements greater than the pivot must be in the second partition. Use recursion to sort both partitions."], ["Join the first sorted partition, the pivot, and the second sorted partition."], ["The best pivot creates partitions of equal length (or lengths differing by 1).The worst pivot creates an empty partition (for example, if the pivot is the first or last element of a sorted array).The run-time of Quicksort ranges from O(n log n) with the best pivots, to O(n2) with the worst pivots, where n is the number of elements in the array."]]
+	      },
+	      mergesort: {
+	        javascript: "https://res.cloudinary.com/joycechau/image/upload/v1486332550/mergesort_javascript.png",
+	        ruby: "https://res.cloudinary.com/joycechau/image/upload/v1486147603/mergesort_ruby.png",
+	        python: "https://res.cloudinary.com/joycechau/image/upload/v1486147626/mergesort_python.png",
+	        info: ["The merge sort is a recursive sort of order n*log(n). It is notable for having a worst case and average complexity of O(n*log(n)), and a best case complexity of O(n) (for pre-sorted input). The basic idea is to split the collection into smaller groups by halving it until the groups only have one element or no elements (which are both entirely sorted groups). Then merge the groups back together so that their elements are in order. This is how the algorithm gets its divide and conquer description."]
+	      }
+	    };
+	    _this.handleInfoButton = _this.handleInfoButton.bind(_this);
+	    _this.handleJavaScriptButton = _this.handleJavaScriptButton.bind(_this);
+	    _this.handleRubyButton = _this.handleRubyButton.bind(_this);
+	    _this.handlePythonButton = _this.handlePythonButton.bind(_this);
+	    return _this;
+	  }
+	
+	  _createClass(Solution, [{
+	    key: "handleInfoButton",
+	    value: function handleInfoButton(e) {
+	      e.preventDefault();
+	      $(".javascript-button").removeClass("selected-solution-button");
+	      $(".ruby-button").removeClass("selected-solution-button");
+	      $(".python-button").removeClass("selected-solution-button");
+	      $(".info-button").addClass("selected-solution-button");
+	      this.setState({
+	        showJavaScriptSolution: false,
+	        showRubySolution: false,
+	        showPythonSolution: false,
+	        showInfo: true
+	      });
+	    }
+	  }, {
+	    key: "handleJavaScriptButton",
+	    value: function handleJavaScriptButton(e) {
+	
+	      console.log(this.props);
+	      e.preventDefault();
+	      $(".javascript-button").addClass("selected-solution-button");
+	      $(".ruby-button").removeClass("selected-solution-button");
+	      $(".python-button").removeClass("selected-solution-button");
+	      $(".info-button").removeClass("selected-solution-button");
+	      this.setState({
+	        showJavaScriptSolution: true,
+	        showRubySolution: false,
+	        showPythonSolution: false,
+	        showInfo: false
+	      });
+	    }
+	  }, {
+	    key: "handleRubyButton",
+	    value: function handleRubyButton(e) {
+	      e.preventDefault();
+	      $(".ruby-button").addClass("selected-solution-button");
+	      $(".javascript-button").removeClass("selected-solution-button");
+	      $(".python-button").removeClass("selected-solution-button");
+	      $(".info-button").removeClass("selected-solution-button");
+	      this.setState({
+	        showJavaScriptSolution: false,
+	        showRubySolution: true,
+	        showPythonSolution: false,
+	        showInfo: false
+	      });
+	    }
+	  }, {
+	    key: "handlePythonButton",
+	    value: function handlePythonButton(e) {
+	      e.preventDefault();
+	      $(".python-button").addClass("selected-solution-button");
+	      $(".javascript-button").removeClass("selected-solution-button");
+	      $(".ruby-button").removeClass("selected-solution-button");
+	      $(".info-button").removeClass("selected-solution-button");
+	      this.setState({
+	        showJavaScriptSolution: false,
+	        showRubySolution: false,
+	        showPythonSolution: true,
+	        showInfo: false
+	      });
+	    }
+	  }, {
+	    key: "info",
+	    value: function info() {
+	      if (this.state.showInfo) {
+	        var info = this.state[this.props.algorithm].info;
+	        return info.map(function (line) {
+	          return _react2.default.createElement(
+	            "div",
+	            { className: "solution-info" },
+	            _react2.default.createElement(
+	              "p",
+	              null,
+	              "" + line
+	            )
+	          );
+	        });
+	      }
+	    }
+	  }, {
+	    key: "javaScriptSolution",
+	    value: function javaScriptSolution() {
+	      if (this.state.showJavaScriptSolution) {
+	        var src = this.state[this.props.algorithm].javascript;
+	        return _react2.default.createElement(
+	          "div",
+	          { className: "solution-image-div" },
+	          _react2.default.createElement("img", { src: src, alt: "javascript-solution" })
+	        );
+	      }
+	    }
+	  }, {
+	    key: "rubySolution",
+	    value: function rubySolution() {
+	      if (this.state.showRubySolution) {
+	        var src = this.state[this.props.algorithm].ruby;
+	        return _react2.default.createElement(
+	          "div",
+	          { className: "solution-image-div" },
+	          _react2.default.createElement("img", { src: src, alt: "ruby-solution" })
+	        );
+	      }
+	    }
+	  }, {
+	    key: "pythonSolution",
+	    value: function pythonSolution() {
+	      if (this.state.showPythonSolution) {
+	        var src = this.state[this.props.algorithm].python;
+	        return _react2.default.createElement(
+	          "div",
+	          { className: "solution-image-div" },
+	          _react2.default.createElement("img", { src: src, alt: "python-solution" })
+	        );
+	      }
+	    }
+	  }, {
+	    key: "render",
+	    value: function render() {
+	      return _react2.default.createElement(
+	        "div",
+	        { className: "solution" },
+	        _react2.default.createElement(
+	          "div",
+	          { className: "solution-button-div" },
+	          _react2.default.createElement(
+	            "button",
+	            {
+	              onClick: this.handleInfoButton,
+	              className: "info-button selected-solution-button" },
+	            "Info"
+	          ),
+	          _react2.default.createElement(
+	            "button",
+	            {
+	              onClick: this.handleJavaScriptButton,
+	              className: "javascript-button" },
+	            "JavaScript"
+	          ),
+	          _react2.default.createElement(
+	            "button",
+	            {
+	              onClick: this.handleRubyButton,
+	              className: "ruby-button" },
+	            "Ruby"
+	          ),
+	          _react2.default.createElement(
+	            "button",
+	            {
+	              onClick: this.handlePythonButton,
+	              className: "python-button" },
+	            "Python"
+	          )
+	        ),
+	        _react2.default.createElement(
+	          "div",
+	          { className: "solution-div" },
+	          this.javaScriptSolution(),
+	          this.rubySolution(),
+	          this.pythonSolution(),
+	          this.info()
+	        )
+	      );
+	    }
+	  }]);
+	
+	  return Solution;
+	}(_react2.default.Component);
+	
+	exports.default = Solution;
+
+/***/ },
+/* 238 */
+/***/ function(module, exports, __webpack_require__) {
+
+	"use strict";
+	
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+	
+	var _react = __webpack_require__(1);
+	
+	var _react2 = _interopRequireDefault(_react);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+	
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+	
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+	
+	var BinarySearchExercise = function (_React$Component) {
+	  _inherits(BinarySearchExercise, _React$Component);
+	
+	  function BinarySearchExercise(props) {
+	    _classCallCheck(this, BinarySearchExercise);
+	
+	    var _this = _possibleConstructorReturn(this, (BinarySearchExercise.__proto__ || Object.getPrototypeOf(BinarySearchExercise)).call(this, props));
+	
+	    var target = Math.floor(Math.random() * 10 + 1);
+	
+	    _this.state = {
+	      target: target,
+	      array: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10],
+	      hiddenArray: ["?", "?", "?", "?", "?", "?", "?", "?", "?", "?"],
+	      showArray: ["?", "?", "?", "?", "?", "?", "?", "?", "?", "?"],
+	      currentArrayLength: 10,
+	      currentBaseIdx: 0,
+	      currentEndIdx: 9,
+	      message: 1
+	    };
+	
+	    _this.generateNewExercise = _this.generateNewExercise.bind(_this);
+	    _this.revealNumber = _this.revealNumber.bind(_this);
+	    return _this;
+	  }
+	
+	  _createClass(BinarySearchExercise, [{
+	    key: "generateNewExercise",
+	    value: function generateNewExercise() {
+	      var target = Math.floor(Math.random() * 10 + 1);
+	      if (document.getElementById("bsearch-found-midpoint")) {
+	        document.getElementById("bsearch-found-midpoint").removeAttribute("id");
+	      }
+	
+	      this.setState({
+	        target: target,
+	        array: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10],
+	        hiddenArray: ["?", "?", "?", "?", "?", "?", "?", "?", "?", "?"],
+	        showArray: ["?", "?", "?", "?", "?", "?", "?", "?", "?", "?"],
+	        currentArrayLength: 10,
+	        currentBaseIdx: 0,
+	        currentEndIdx: 9,
+	        message: 1
+	      });
+	    }
+	  }, {
+	    key: "revealNumber",
+	    value: function revealNumber(e) {
+	      e.preventDefault();
+	      var idx = parseInt(e.target.id);
+	      var _state = this.state,
+	          target = _state.target,
+	          array = _state.array,
+	          hiddenArray = _state.hiddenArray,
+	          showArray = _state.showArray,
+	          currentArrayLength = _state.currentArrayLength,
+	          currentBaseIdx = _state.currentBaseIdx,
+	          currentEndIdx = _state.currentEndIdx,
+	          message = _state.message;
+	
+	
+	      if (idx === Math.floor(currentArrayLength / 2) + currentBaseIdx) {
+	        showArray[idx] = array[idx];
+	
+	        if (target === array[idx]) {
+	          message = 3;
+	          e.target.id = "bsearch-found-midpoint";
+	        } else if (target > array[idx]) {
+	          currentBaseIdx = idx + 1;
+	          currentArrayLength = currentEndIdx - idx;
+	          message = 1;
+	        } else {
+	          currentEndIdx = idx - 1;
+	          currentArrayLength = idx - currentBaseIdx;
+	          message = 1;
+	        }
+	        this.setState({
+	          showArray: showArray,
+	          target: target,
+	          array: array,
+	          hiddenArray: hiddenArray,
+	          currentArrayLength: currentArrayLength,
+	          currentBaseIdx: currentBaseIdx,
+	          currentEndIdx: currentEndIdx,
+	          message: message
+	        });
+	      } else {
+	        message = 2;
+	        this.setState({
+	          message: message
+	        });
+	      }
+	    }
+	  }, {
+	    key: "message",
+	    value: function message() {
+	      if (this.state.message === 1) {
+	        return _react2.default.createElement(
+	          "div",
+	          null,
+	          "Reveal the midpoint"
+	        );
+	      } else if (this.state.message === 2) {
+	        return _react2.default.createElement(
+	          "div",
+	          null,
+	          "Incorrect midpoint"
+	        );
+	      } else {
+	        return _react2.default.createElement(
+	          "div",
+	          null,
+	          "Target found!"
+	        );
+	      }
+	    }
+	  }, {
+	    key: "render",
+	    value: function render() {
+	      var _this2 = this;
+	
+	      return _react2.default.createElement(
+	        "div",
+	        { className: "bsearch-exercise-container" },
+	        "Try it out yourself!",
+	        _react2.default.createElement(
+	          "button",
+	          {
+	            onClick: this.generateNewExercise,
+	            className: "bsearch-new-exercise-button" },
+	          "New Exercise"
+	        ),
+	        _react2.default.createElement(
+	          "div",
+	          { className: "bsearch-exercise-find-target" },
+	          "Find: ",
+	          this.state.target
+	        ),
+	        _react2.default.createElement(
+	          "div",
+	          { className: "bsearch-exercise-buttons" },
+	          this.state.showArray.map(function (num, idx) {
+	            return _react2.default.createElement(
+	              "button",
+	              {
+	                key: idx,
+	                id: "" + idx,
+	                className: "bsearch-exercise-button",
+	                onClick: _this2.revealNumber },
+	              num
+	            );
+	          })
+	        ),
+	        _react2.default.createElement(
+	          "div",
+	          { className: "bsearch-message" },
+	          this.message()
+	        )
+	      );
+	    }
+	  }]);
+	
+	  return BinarySearchExercise;
+	}(_react2.default.Component);
+	
+	exports.default = BinarySearchExercise;
+
+/***/ },
+/* 239 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -26981,7 +27645,7 @@
 	exports.default = BubbleSort;
 
 /***/ },
-/* 238 */
+/* 240 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -26996,15 +27660,15 @@
 	
 	var _react2 = _interopRequireDefault(_react);
 	
-	var _merge = __webpack_require__(246);
+	var _merge = __webpack_require__(241);
 	
 	var _merge2 = _interopRequireDefault(_merge);
 	
-	var _solution = __webpack_require__(245);
+	var _solution = __webpack_require__(237);
 	
 	var _solution2 = _interopRequireDefault(_solution);
 	
-	var _merge_sort_exercise = __webpack_require__(344);
+	var _merge_sort_exercise = __webpack_require__(337);
 	
 	var _merge_sort_exercise2 = _interopRequireDefault(_merge_sort_exercise);
 	
@@ -27314,1778 +27978,11 @@
 	exports.default = MergeSort;
 
 /***/ },
-/* 239 */
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-	
-	Object.defineProperty(exports, "__esModule", {
-	  value: true
-	});
-	
-	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-	
-	var _react = __webpack_require__(1);
-	
-	var _react2 = _interopRequireDefault(_react);
-	
-	var _quick_sort_class = __webpack_require__(243);
-	
-	var _quick_sort_class2 = _interopRequireDefault(_quick_sort_class);
-	
-	var _solution = __webpack_require__(245);
-	
-	var _solution2 = _interopRequireDefault(_solution);
-	
-	var _quick_sort_exercise = __webpack_require__(244);
-	
-	var _quick_sort_exercise2 = _interopRequireDefault(_quick_sort_exercise);
-	
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-	
-	function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
-	
-	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-	
-	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-	
-	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-	
-	var QuickSort = function (_React$Component) {
-	  _inherits(QuickSort, _React$Component);
-	
-	  function QuickSort() {
-	    _classCallCheck(this, QuickSort);
-	
-	    var _this = _possibleConstructorReturn(this, (QuickSort.__proto__ || Object.getPrototypeOf(QuickSort)).call(this));
-	
-	    _this.state = {
-	      iterationCounter: 0,
-	      solved: false,
-	      update: false,
-	      demoStarted: false,
-	      exerciseStarted: false
-	    };
-	    _this.addClassIntervalSpeed = 500;
-	    _this.showDeconsctructedArraySpeed = 500;
-	    _this.resetIterationIntervalSpeed = 500;
-	    _this.switchArrayToSubarraySpeed = 500;
-	    _this.clearSubArraySpeed = 500;
-	    _this.pivot = _this.pivot.bind(_this);
-	    _this.handleArrayShuffle = _this.handleArrayShuffle.bind(_this);
-	    _this.addClassName = _this.addClassName.bind(_this);
-	    _this.renderQuickSortChange = _this.renderQuickSortChange.bind(_this);
-	    _this.handleClickStart = _this.handleClickStart.bind(_this);
-	    _this.classClear = _this.classClear.bind(_this);
-	    _this.handleChildClick = _this.handleChildClick.bind(_this);
-	    // this.startArray = [3, 8, 12, 6, 5, 18, 17, 19, 9]
-	
-	    _this.startArray = _this.randomArray();
-	    var newQuickSort = new _quick_sort_class2.default();
-	    _this.sorting = newQuickSort.quickSort(_this.startArray);
-	    _this.result = newQuickSort.result();
-	    return _this;
-	  }
-	
-	  _createClass(QuickSort, [{
-	    key: 'randomArray',
-	    value: function randomArray() {
-	      var newArr = [];
-	      var arrLength = Math.floor(Math.random() * 4 + 8);
-	      for (var i = 0; i < arrLength; i++) {
-	        var newNum = Math.floor(Math.random() * 20);
-	        if (!newArr.includes(newNum)) {
-	          newArr.push(newNum);
-	        } else {
-	          i--;
-	        }
-	      }
-	      return newArr;
-	    }
-	  }, {
-	    key: 'update',
-	    value: function update(input) {
-	      var _this2 = this;
-	
-	      return function (e) {
-	        return _this2.setState(_defineProperty({}, input, e.currentTarget.value));
-	      };
-	    }
-	  }, {
-	    key: 'clearDeconstructedArray',
-	    value: function clearDeconstructedArray() {
-	      ["pivot", "smaller", "larger"].forEach(function (el) {
-	        var i = document.getElementsByClassName(el + 'Show');
-	        while (i.length) {
-	          i[0].className = el + 'Hidden';
-	        }
-	      });
-	    }
-	  }, {
-	    key: 'classClear',
-	    value: function classClear() {
-	      var _this3 = this;
-	
-	      ["smaller", "larger", "active", "hidden", "unfocused"].forEach(function (el) {
-	        var nums = document.getElementsByClassName(el);
-	        var j = 0;
-	        while (j < nums.length && nums.length > 0) {
-	          var currArray = _this3.result[_this3.state.iterationCounter][0];
-	          var num = parseInt(nums[j].getAttribute("name"));
-	          if (currArray.includes(num)) {
-	            nums[j].className = "active";
-	          } else {
-	            nums[j].className = "unfocused";
-	          }
-	          j += 1;
-	        }
-	      });
-	    }
-	  }, {
-	    key: 'findIndexes',
-	    value: function findIndexes() {
-	      var newArr = [];
-	      var sortedSet = this.result[this.state.iterationCounter][2].concat(this.result[this.state.iterationCounter][3]).concat(this.result[this.state.iterationCounter][1]);
-	      for (var i = 0; i < sortedSet.length; i++) {
-	        var idx = this.startArray.indexOf(sortedSet[i]);
-	        newArr.push(idx);
-	      }
-	      return newArr.sort(function (a, b) {
-	        return a - b;
-	      });
-	    }
-	  }, {
-	    key: 'insertArrayByIndex',
-	    value: function insertArrayByIndex() {
-	      var indexSet = this.findIndexes();
-	      var sortedSet = this.result[this.state.iterationCounter][2].concat(this.result[this.state.iterationCounter][3]).concat(this.result[this.state.iterationCounter][1]);
-	      for (var i = 0; i < indexSet.length; i++) {
-	        this.startArray[indexSet[i]] = sortedSet[i];
-	      }
-	    }
-	  }, {
-	    key: 'addClassName',
-	    value: function addClassName() {
-	      var _this4 = this;
-	
-	      this.classClear();
-	      var x = document.getElementsByClassName('active');
-	      var count = x.length;
-	      var counter = 0;
-	      var pivotNum = this.result[this.state.iterationCounter][3][0];
-	      this.addClassInterval = setInterval(function () {
-	        if (!x.length) {
-	          clearInterval(_this4.addClassInterval);
-	          _this4.showSmaller();
-	          return;
-	        }
-	        var currNum = parseInt(x[0].getAttribute("name"));
-	        if (currNum === pivotNum) {
-	          x[0].className = "pivot";
-	        } else if (currNum > pivotNum) {
-	          x[0].className = "larger";
-	        } else if (currNum < pivotNum) {
-	          x[0].className = "smaller";
-	        }
-	        counter += 1;
-	      }, this.addClassIntervalSpeed);
-	    }
-	  }, {
-	    key: 'showSmaller',
-	    value: function showSmaller() {
-	      var _this5 = this;
-	
-	      var counter = 0;
-	      this.switchSmaller = setInterval(function () {
-	        switch (counter) {
-	          case 1:
-	            var i = document.getElementsByClassName("smaller");
-	            while (i.length) {
-	              i[0].className = "hidden";
-	            }
-	          case 2:
-	            var i = document.getElementsByClassName("smallerHidden");
-	            if (_this5.result[_this5.state.iterationCounter][2].length > 0) {
-	              while (i.length) {
-	                i[0].className = "smallerShow";
-	              }
-	            }
-	          case 3:
-	            clearInterval(_this5.switchSmaller);
-	            _this5.showPivot();
-	            return;
-	        }
-	        counter += 1;
-	      }, this.switchArrayToSubarraySpeed);
-	    }
-	  }, {
-	    key: 'showPivot',
-	    value: function showPivot() {
-	      var _this6 = this;
-	
-	      var counter = 0;
-	      this.switchPivot = setInterval(function () {
-	        switch (counter) {
-	          case 1:
-	            var i = document.getElementsByClassName("pivot");
-	            while (i.length) {
-	              i[0].className = "hidden";
-	            }
-	          case 2:
-	            var i = document.getElementsByClassName("pivotHidden");
-	            while (i.length) {
-	              i[0].className = "pivotShow";
-	            }
-	          case 3:
-	            clearInterval(_this6.switchPivot);
-	            _this6.showLarger();
-	            return;
-	        }
-	        counter += 1;
-	      }, this.switchArrayToSubarraySpeed);
-	    }
-	  }, {
-	    key: 'showLarger',
-	    value: function showLarger() {
-	      var _this7 = this;
-	
-	      var counter = 0;
-	      this.switchLarger = setInterval(function () {
-	        switch (counter) {
-	          case 1:
-	            var i = document.getElementsByClassName("larger");
-	            while (i.length) {
-	              i[0].className = "hidden";
-	            }
-	          case 2:
-	            var i = document.getElementsByClassName("largerHidden");
-	            if (_this7.result[_this7.state.iterationCounter][1].length > 0) {
-	              while (i.length) {
-	                i[0].className = "largerShow";
-	              }
-	            }
-	          case 3:
-	            clearInterval(_this7.switchLarger);
-	            _this7.renderHiddenSortedAndClearSubArray();
-	            return;
-	        }
-	        counter += 1;
-	      }, this.switchArrayToSubarraySpeed);
-	    }
-	  }, {
-	    key: 'renderHiddenSortedAndClearSubArray',
-	    value: function renderHiddenSortedAndClearSubArray() {
-	      var _this8 = this;
-	
-	      var counter = 0;
-	      this.clearSubArray = setInterval(function () {
-	        var currentArray = _this8.result[_this8.state.iterationCounter][0];
-	        switch (counter) {
-	          case 1:
-	            _this8.insertArrayByIndex();
-	            _this8.forceUpdate();
-	          case 2:
-	            ["pivotShow", "largerShow", "smallerShow"].forEach(function (subArrayClass) {
-	              var i = document.getElementsByClassName(subArrayClass);
-	              while (i.length) {
-	                i[0].className = subArrayClass.replace("Show", "Hidden");
-	              }
-	            });
-	          case 3:
-	            var nums = document.getElementsByClassName("hidden");
-	            var pivotNum = _this8.result[_this8.state.iterationCounter][3][0].toString();
-	            var activeArray = _this8.result[_this8.state.iterationCounter][0];
-	            var pivot = _this8.result[_this8.state.iterationCounter][3];
-	            var smaller = _this8.result[_this8.state.iterationCounter][2];
-	            var larger = _this8.result[_this8.state.iterationCounter][1];
-	            var smallPivot = _this8.result[_this8.state.iterationCounter][2].concat(_this8.result[_this8.state.iterationCounter][3]);
-	            var pivotLarge = _this8.result[_this8.state.iterationCounter][3].concat(_this8.result[_this8.state.iterationCounter][1]);
-	            if (_this8.result[_this8.state.iterationCounter][3].length < 2 && _this8.result[_this8.state.iterationCounter][3].length > 0) {
-	              var largest = document.querySelectorAll('[name="' + _this8.result[_this8.state.iterationCounter][3][0] + '"]');
-	              largest[0].className = "sorted";
-	            }
-	            if (activeArray.length < 3) {
-	              var sorted = document.getElementsByClassName("active");
-	              while (nums[0]) {
-	                nums[0].className = "sorted";
-	              }
-	            }
-	            if (pivot.length === 1 && smaller.length === 1 && larger.length === 1) {
-	              var sorted = document.getElementsByClassName("hidden");
-	              for (var i = 0; i < sorted.length; i++) {
-	                if (sorted[i]) {
-	                  if (smallPivot.includes(parseInt(sorted[i].getAttribute("name")))) {
-	                    sorted[i].className = "sorted";
-	                  }
-	                }
-	              }
-	            }
-	            if (smallPivot.length < 3) {
-	              var sorted = document.getElementsByClassName("hidden");
-	              for (var _i = 0; _i < sorted.length; _i++) {
-	                if (sorted[_i]) {
-	                  if (smallPivot.includes(parseInt(sorted[_i].getAttribute("name")))) {
-	                    sorted[_i].className = "sorted";
-	                  }
-	                }
-	              }
-	            }
-	
-	            if (pivotLarge.length < 3) {
-	              // for (let j=0; j < 3; j++){
-	              var sorted = document.getElementsByClassName("hidden");
-	              for (var _i2 = 0; _i2 < sorted.length; _i2++) {
-	
-	                // if (sorted[i].getAttribute("name")){
-	                if (pivotLarge.includes(parseInt(sorted[_i2].getAttribute("name")))) {
-	                  sorted[_i2].className = "sorted";
-	                }
-	                // }
-	              }
-	              // }
-	            }
-	            clearInterval(_this8.clearSubArray);
-	          case 4:
-	            if (_this8.result[_this8.state.iterationCounter + 1][0].length < 1) {
-	              _this8.setState({ solved: true, demoStarted: false });
-	            } else {
-	              _this8.setState({ iterationCounter: _this8.state.iterationCounter += 1 });
-	              _this8.setNewActiveElements();
-	            }
-	        }
-	        counter += 1;
-	      }, this.clearSubArraySpeed);
-	    }
-	  }, {
-	    key: 'setNewActiveElements',
-	    value: function setNewActiveElements() {
-	      var currentArray = this.result[this.state.iterationCounter][0];
-	      var pivotNum = this.result[this.state.iterationCounter - 1][3][0];
-	      for (var x = 0; x < 20; x++) {
-	        ["hidden", "active", "unfocused"].forEach(function (el) {
-	          var j = document.getElementsByClassName(el);
-	          for (var i = 0; i < j.length; i++) {
-	            var num = parseInt(j[i].getAttribute("name"));
-	            var test = currentArray.includes(num);
-	            if (num === pivotNum) {
-	              j[i].className = "sorted";
-	            } else if (!test) {
-	              j[i].className = "unfocused";
-	            } else if (test) {
-	              j[i].className = "active";
-	            }
-	          }
-	        });
-	      }
-	      this.addClassName();
-	    }
-	  }, {
-	    key: 'showDeconsctructedArray',
-	    value: function showDeconsctructedArray() {
-	      var _this9 = this;
-	
-	      var counter = 0;
-	      this.deconstructArrayInterval = setInterval(function () {
-	        if (counter === 6) {
-	          clearInterval(_this9.deconstructArrayInterval);
-	          _this9.resetIteration();
-	          _this9.reRenderFullArray();
-	          return;
-	        }
-	        if (counter === 1) {
-	          _this9.showPivot();
-	        } else if (counter === 2) {
-	          _this9.showSmaller();
-	        } else if (counter === 3) {
-	          _this9.showLarger();
-	        }
-	        counter += 1;
-	      }, this.showDeconsctructedArraySpeed);
-	    }
-	  }, {
-	    key: 'resetIteration',
-	    value: function resetIteration() {
-	      var _this10 = this;
-	
-	      var counter = 0;
-	      this.resetIterationInterval = setInterval(function () {
-	        if (counter === 1) {
-	          _this10.insertArrayByIndex();
-	          _this10.setState({ iterationCounter: _this10.state.iterationCounter += 1 });
-	          _this10.classClear();
-	          if (_this10.result[_this10.state.iterationCounter]) {
-	            _this10.addClassName();
-	          } else {
-	            _this10.setState({ demoStarted: false });
-	            return;
-	          }
-	        } else if (counter === 2) {
-	          _this10.clearDeconstructedArray();
-	        } else if (counter === 3) {
-	          clearInterval(_this10.resetIterationInterval);
-	        }
-	        counter += 1;
-	      }, this.resetIterationIntervalSpeed);
-	    }
-	  }, {
-	    key: 'renderQuickSortChange',
-	    value: function renderQuickSortChange() {
-	      this.addClassName();
-	    }
-	  }, {
-	    key: 'reRenderFullArray',
-	    value: function reRenderFullArray() {
-	      ["pivot", "smaller", "larger"].forEach(function (el) {
-	        var i = document.getElementsByClassName(el);
-	        while (i.length) {
-	          i[0].className = 'active';
-	        }
-	      });
-	    }
-	  }, {
-	    key: 'pivot',
-	    value: function pivot() {
-	      return _react2.default.createElement(
-	        'span',
-	        { className: 'pivotHidden' },
-	        this.result[this.state.iterationCounter][3].toString()
-	      );
-	    }
-	  }, {
-	    key: 'largerThanPivot',
-	    value: function largerThanPivot() {
-	      return this.result[this.state.iterationCounter][1].map(function (el, i) {
-	        return _react2.default.createElement(
-	          'span',
-	          { key: i, className: 'largerHidden' },
-	          ' ',
-	          el,
-	          ' '
-	        );
-	      });
-	    }
-	  }, {
-	    key: 'smallerThanPivot',
-	    value: function smallerThanPivot() {
-	      return this.result[this.state.iterationCounter][2].map(function (el, i) {
-	        return _react2.default.createElement(
-	          'span',
-	          { key: i, className: 'smallerHidden' },
-	          ' ',
-	          el,
-	          ' '
-	        );
-	      });
-	    }
-	  }, {
-	    key: 'handleClickStart',
-	    value: function handleClickStart() {
-	      var _this11 = this;
-	
-	      console.log(this.result[this.state.iterationCounter + 1]);
-	      if (this.result[this.state.iterationCounter + 1][3].length > 0 && this.state.demoStarted) {
-	        return;
-	      }
-	      console.log(this.result[this.state.iterationCounter + 1][3]);
-	      if (this.result[this.state.iterationCounter + 1][3].length > 0) {
-	        this.setState({ demoStarted: true });
-	        this.addClassName();
-	      } else {
-	        var counter = 0;
-	        this.handleArrayShuffle();
-	        debugger;
-	        this.resetSort = setInterval(function () {
-	          switch (counter) {
-	            case 1:
-	              _this11.setState({ demoStarted: true });
-	            case 3:
-	              _this11.addClassName();
-	              clearInterval(_this11.resetSort);
-	              return;
-	          }
-	          counter += 1;
-	        }, 400);
-	      }
-	    }
-	  }, {
-	    key: 'focusAll',
-	    value: function focusAll() {
-	      for (var i = 0; i < 8; i++) {
-	        ["unfocused", "hidden", "smaller", "larger"].forEach(function (el) {
-	          var nums = document.getElementsByClassName(el);
-	          while (nums.length) {
-	            nums[0].className = "sorted";
-	          }
-	        });
-	      }
-	    }
-	  }, {
-	    key: 'trueArray',
-	    value: function trueArray() {
-	      return this.startArray.map(function (el, i) {
-	        return _react2.default.createElement(
-	          'span',
-	          { name: el, id: i, key: i, className: 'active' },
-	          ' ',
-	          el
-	        );
-	      });
-	    }
-	  }, {
-	    key: 'handleArrayShuffle',
-	    value: function handleArrayShuffle() {
-	      var _this12 = this;
-	
-	      var counter = 0;
-	      if (this.result[this.state.iterationCounter + 1][2].length > 0 && this.state.demoStarted) {
-	        return;
-	      }
-	      this.shuffleArray = setInterval(function () {
-	        switch (counter) {
-	          case 1:
-	            _this12.setState({ iterationCounter: 0, solved: false });
-	            _this12.startArray = _this12.randomArray();
-	            var newQuickSort = new _quick_sort_class2.default();
-	            _this12.sorting = newQuickSort.quickSort(_this12.startArray);
-	            _this12.result = newQuickSort.result();
-	          case 2:
-	            _this12.resetArray();
-	          case 3:
-	            clearInterval(_this12.shuffleArray);
-	            _this12.forceUpdate();
-	        }
-	        counter += 1;
-	      }, 1);
-	      this.setState({ demoStarted: false });
-	    }
-	  }, {
-	    key: 'resetArray',
-	    value: function resetArray() {
-	      ["unfocused", "hidden", "smaller", "larger", "sorted"].forEach(function (el) {
-	        var nums = document.getElementsByClassName(el);
-	        while (nums.length) {
-	          nums[0].className = "active";
-	        }
-	      });
-	    }
-	  }, {
-	    key: 'handleChildClick',
-	    value: function handleChildClick() {
-	      if (this.state.exerciseStarted) {
-	        this.setState({ exerciseStarted: false });
-	      } else {
-	        this.setState({ exerciseStarted: true });
-	      }
-	    }
-	  }, {
-	    key: 'render',
-	    value: function render() {
-	      return _react2.default.createElement(
-	        'div',
-	        { className: 'main-container' },
-	        _react2.default.createElement(
-	          'div',
-	          { className: 'demo-and-exercise' },
-	          _react2.default.createElement(
-	            'div',
-	            { className: 'quicksort-demo' },
-	            _react2.default.createElement(
-	              'div',
-	              null,
-	              this.state.exerciseStarted ? null : _react2.default.createElement(
-	                'div',
-	                null,
-	                _react2.default.createElement(
-	                  'button',
-	                  { onClick: this.handleClickStart },
-	                  'start'
-	                ),
-	                _react2.default.createElement(
-	                  'button',
-	                  { onClick: this.handleArrayShuffle },
-	                  'new array'
-	                )
-	              ),
-	              'quicksort',
-	              _react2.default.createElement('br', null),
-	              this.trueArray(),
-	              this.state.solved ? this.focusAll() : null,
-	              _react2.default.createElement(
-	                'div',
-	                { className: 'subarray-container' },
-	                _react2.default.createElement(
-	                  'div',
-	                  { className: 'subarray-output' },
-	                  _react2.default.createElement(
-	                    'div',
-	                    { className: 'subarray' },
-	                    this.smallerThanPivot()
-	                  ),
-	                  _react2.default.createElement(
-	                    'div',
-	                    { className: 'smallerHidden' },
-	                    'smaller'
-	                  )
-	                ),
-	                _react2.default.createElement(
-	                  'div',
-	                  { className: 'subarray-output' },
-	                  _react2.default.createElement(
-	                    'div',
-	                    { className: 'subarray' },
-	                    this.pivot()
-	                  ),
-	                  _react2.default.createElement(
-	                    'div',
-	                    { className: 'pivotHidden' },
-	                    'pivot'
-	                  )
-	                ),
-	                _react2.default.createElement(
-	                  'div',
-	                  { className: 'subarray-output' },
-	                  _react2.default.createElement(
-	                    'div',
-	                    { className: 'subarray' },
-	                    this.largerThanPivot()
-	                  ),
-	                  _react2.default.createElement(
-	                    'div',
-	                    { className: 'largerHidden' },
-	                    'larger'
-	                  )
-	                )
-	              )
-	            )
-	          ),
-	          _react2.default.createElement(
-	            'div',
-	            { className: 'quicksort-exercise' },
-	            'Quick Sort Exercise',
-	            this.state.demoStarted ? null : _react2.default.createElement(_quick_sort_exercise2.default, { demoState: this.handleChildClick })
-	          )
-	        ),
-	        _react2.default.createElement(
-	          'div',
-	          { className: 'solution-container' },
-	          _react2.default.createElement(_solution2.default, { algorithm: 'quicksort' })
-	        )
-	      );
-	    }
-	  }]);
-	
-	  return QuickSort;
-	}(_react2.default.Component);
-	
-	exports.default = QuickSort;
-
-/***/ },
-/* 240 */,
 /* 241 */
 /***/ function(module, exports, __webpack_require__) {
 
-	'use strict';
-	
-	Object.defineProperty(exports, "__esModule", {
-	  value: true
-	});
-	
-	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-	
-	var _react = __webpack_require__(1);
-	
-	var _react2 = _interopRequireDefault(_react);
-	
-	var _reactRouter = __webpack_require__(179);
-	
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-	
-	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-	
-	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-	
-	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-	
-	var Header = function (_React$Component) {
-	  _inherits(Header, _React$Component);
-	
-	  function Header(props) {
-	    _classCallCheck(this, Header);
-	
-	    var _this = _possibleConstructorReturn(this, (Header.__proto__ || Object.getPrototypeOf(Header)).call(this, props));
-	
-	    _this.handleBinarySearchButton = _this.handleBinarySearchButton.bind(_this);
-	    _this.handleQuickSortButton = _this.handleQuickSortButton.bind(_this);
-	    _this.handleMergeSortButton = _this.handleMergeSortButton.bind(_this);
-	    return _this;
-	  }
-	
-	  _createClass(Header, [{
-	    key: 'componentDidMount',
-	    value: function componentDidMount() {
-	      var path = window.location.hash;
-	      if (path === "#/bsearch") {
-	        $(".bsearch-button").addClass("selected-button");
-	        $(".quicksort-button").removeClass("selected-button");
-	        $(".mergesort-button").removeClass("selected-button");
-	      } else if (path === "#/quicksort") {
-	        $(".quicksort-button").addClass("selected-button");
-	        $(".bsearch-button").removeClass("selected-button");
-	        $(".mergesort-button").removeClass("selected-button");
-	      } else if (path === "#/mergesort") {
-	        $(".mergesort-button").addClass("selected-button");
-	        $(".bsearch-button").removeClass("selected-button");
-	        $(".quicksort-button").removeClass("selected-button");
-	      }
-	    }
-	  }, {
-	    key: 'handleBinarySearchButton',
-	    value: function handleBinarySearchButton(e) {
-	      e.preventDefault();
-	      $(".bsearch-button").addClass("selected-button");
-	      $(".quicksort-button").removeClass("selected-button");
-	      $(".mergesort-button").removeClass("selected-button");
-	      _reactRouter.hashHistory.push('/bsearch');
-	    }
-	  }, {
-	    key: 'handleQuickSortButton',
-	    value: function handleQuickSortButton(e) {
-	      e.preventDefault();
-	      $(".quicksort-button").addClass("selected-button");
-	      $(".bsearch-button").removeClass("selected-button");
-	      $(".mergesort-button").removeClass("selected-button");
-	      _reactRouter.hashHistory.push('/quicksort');
-	    }
-	  }, {
-	    key: 'handleMergeSortButton',
-	    value: function handleMergeSortButton(e) {
-	      e.preventDefault();
-	      $(".mergesort-button").addClass("selected-button");
-	      $(".bsearch-button").removeClass("selected-button");
-	      $(".quicksort-button").removeClass("selected-button");
-	      _reactRouter.hashHistory.push('/mergesort');
-	    }
-	  }, {
-	    key: 'render',
-	    value: function render() {
-	      return _react2.default.createElement(
-	        'div',
-	        null,
-	        _react2.default.createElement(
-	          'div',
-	          { className: 'header-main' },
-	          _react2.default.createElement(
-	            'div',
-	            { className: 'header-title' },
-	            'Search and Sort Visualizer'
-	          ),
-	          _react2.default.createElement(
-	            'div',
-	            { className: 'collaborators' },
-	            _react2.default.createElement(
-	              'div',
-	              { className: 'collaborators-title' },
-	              'Collaborators:'
-	            ),
-	            _react2.default.createElement(
-	              'div',
-	              { className: 'authors' },
-	              _react2.default.createElement(
-	                'div',
-	                { className: 'andrew' },
-	                _react2.default.createElement(
-	                  'div',
-	                  null,
-	                  'Andrew Yueh'
-	                ),
-	                _react2.default.createElement(
-	                  'div',
-	                  { className: 'links' },
-	                  _react2.default.createElement(
-	                    'a',
-	                    { href: 'https://www.linkedin.com/in/andrewyueh/',
-	                      target: '_blank',
-	                      className: 'linkedin-link' },
-	                    _react2.default.createElement('img', { src: 'https://res.cloudinary.com/joycechau/image/upload/v1486025481/linkedin2.png',
-	                      alt: 'linkedin',
-	                      className: 'linkedin-image' })
-	                  ),
-	                  _react2.default.createElement(
-	                    'a',
-	                    { href: 'https://github.com/andrew1007',
-	                      target: '_blank',
-	                      className: 'github-link' },
-	                    _react2.default.createElement('img', { src: 'https://res.cloudinary.com/joycechau/image/upload/c_scale,w_20/v1485282244/github.png',
-	                      alt: 'github',
-	                      className: 'github-image' })
-	                  )
-	                )
-	              ),
-	              _react2.default.createElement(
-	                'div',
-	                { className: 'jeffrey' },
-	                _react2.default.createElement(
-	                  'div',
-	                  null,
-	                  'Jeffrey Fan'
-	                ),
-	                _react2.default.createElement(
-	                  'div',
-	                  { className: 'links' },
-	                  _react2.default.createElement(
-	                    'a',
-	                    { href: 'https://www.linkedin.com/in/jeffrey-fan',
-	                      target: '_blank',
-	                      className: 'linkedin-link' },
-	                    _react2.default.createElement('img', { src: 'https://res.cloudinary.com/joycechau/image/upload/v1486025481/linkedin2.png',
-	                      alt: 'linkedin',
-	                      className: 'linkedin-image' })
-	                  ),
-	                  _react2.default.createElement(
-	                    'a',
-	                    { href: 'https://github.com/jeffreyfan93',
-	                      target: '_blank',
-	                      className: 'github-link' },
-	                    _react2.default.createElement('img', { src: 'https://res.cloudinary.com/joycechau/image/upload/c_scale,w_20/v1485282244/github.png',
-	                      alt: 'github',
-	                      className: 'github-image' })
-	                  )
-	                )
-	              ),
-	              _react2.default.createElement(
-	                'div',
-	                { className: 'joyce' },
-	                _react2.default.createElement(
-	                  'div',
-	                  null,
-	                  'Joyce Chau'
-	                ),
-	                _react2.default.createElement(
-	                  'div',
-	                  { className: 'links' },
-	                  _react2.default.createElement(
-	                    'a',
-	                    { href: 'https://www.linkedin.com/in/joycechau/',
-	                      target: '_blank',
-	                      className: 'linkedin-link' },
-	                    _react2.default.createElement('img', { src: 'https://res.cloudinary.com/joycechau/image/upload/v1486025481/linkedin2.png',
-	                      alt: 'linkedin',
-	                      className: 'linkedin-image' })
-	                  ),
-	                  _react2.default.createElement(
-	                    'a',
-	                    { href: 'https://github.com/joycechau',
-	                      target: '_blank',
-	                      className: 'github-link' },
-	                    _react2.default.createElement('img', { src: 'https://res.cloudinary.com/joycechau/image/upload/c_scale,w_20/v1485282244/github.png',
-	                      alt: 'github',
-	                      className: 'github-image' })
-	                  )
-	                )
-	              )
-	            )
-	          )
-	        ),
-	        _react2.default.createElement(
-	          'div',
-	          { className: 'header-nav' },
-	          _react2.default.createElement(
-	            'button',
-	            {
-	              onClick: this.handleBinarySearchButton,
-	              className: 'bsearch-button' },
-	            'Binary Search'
-	          ),
-	          _react2.default.createElement(
-	            'button',
-	            {
-	              onClick: this.handleQuickSortButton,
-	              className: 'quicksort-button' },
-	            'Quick Sort'
-	          ),
-	          _react2.default.createElement(
-	            'button',
-	            {
-	              onClick: this.handleMergeSortButton,
-	              className: 'mergesort-button' },
-	            'Merge Sort'
-	          )
-	        )
-	      );
-	    }
-	  }]);
-	
-	  return Header;
-	}(_react2.default.Component);
-	
-	exports.default = Header;
-
-/***/ },
-/* 242 */,
-/* 243 */
-/***/ function(module, exports) {
-
-	"use strict";
-	
-	Object.defineProperty(exports, "__esModule", {
-	  value: true
-	});
-	
-	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-	
-	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-	
-	var QuickSortSolve = function () {
-	  function QuickSortSolve() {
-	    _classCallCheck(this, QuickSortSolve);
-	
-	    this.solution = {};
-	    this.iteration = 0;
-	    this.quickSort = this.quickSort.bind(this);
-	  }
-	
-	  _createClass(QuickSortSolve, [{
-	    key: "quickSort",
-	    value: function quickSort(array) {
-	      if (array.length < 2) {
-	        return array;
-	      }
-	      var pivot = array[0];
-	      var array = array.slice(1);
-	      var larger = array.filter(function (x) {
-	        return x > pivot;
-	      });
-	      var smaller = array.filter(function (x) {
-	        return x <= pivot;
-	      });
-	      this.solution[this.iteration] = [[pivot].concat(smaller).concat(larger), larger, smaller, [pivot]];
-	      this.iteration += 1;
-	      return this.quickSort(smaller).concat([pivot]).concat(this.quickSort(larger));
-	    }
-	  }, {
-	    key: "result",
-	    value: function result() {
-	      this.solution[this.iteration] = [[], [], [], [], []];
-	      return this.solution;
-	    }
-	  }]);
-	
-	  return QuickSortSolve;
-	}();
-	
-	exports.default = QuickSortSolve;
-
-/***/ },
-/* 244 */
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-	
-	Object.defineProperty(exports, "__esModule", {
-	  value: true
-	});
-	
-	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-	
-	var _react = __webpack_require__(1);
-	
-	var _react2 = _interopRequireDefault(_react);
-	
-	var _quick_sort_class = __webpack_require__(243);
-	
-	var _quick_sort_class2 = _interopRequireDefault(_quick_sort_class);
-	
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-	
-	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-	
-	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-	
-	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-	
-	var QuickSortExercise = function (_React$Component) {
-	  _inherits(QuickSortExercise, _React$Component);
-	
-	  function QuickSortExercise() {
-	    _classCallCheck(this, QuickSortExercise);
-	
-	    // this.startArray = [9,1,3,14,17,12,10,2]
-	    var _this = _possibleConstructorReturn(this, (QuickSortExercise.__proto__ || Object.getPrototypeOf(QuickSortExercise)).call(this));
-	
-	    _this.state = {
-	      iterationCounter1: 0,
-	      rounds: 0,
-	      gameActive: false,
-	      gameState: "",
-	      correctButtonCount: 0,
-	      exerciseStarted: false
-	    };
-	    _this.animationTimeout = 1000;
-	    _this.fullArrayButtons = _this.fullArrayButtons.bind(_this);
-	    _this.pivotButton = _this.pivotButton.bind(_this);
-	    _this.smallerThanPivotButtons = _this.smallerThanPivotButtons.bind(_this);
-	    _this.largerThanPivotButtons = _this.largerThanPivotButtons.bind(_this);
-	    _this.pivotButtonShow = _this.pivotButtonShow.bind(_this);
-	    _this.pivotButtonHide = _this.pivotButtonHide.bind(_this);
-	    _this.startGameClick = _this.startGameClick.bind(_this);
-	    _this.handleClick = _this.handleClick.bind(_this);
-	    _this.insertArrayByIndex = _this.insertArrayByIndex.bind(_this);
-	    _this.ifHigherOrLowerIsEmpty = _this.ifHigherOrLowerIsEmpty.bind(_this);
-	    _this.unfocusNotInCurrentSelection = _this.unfocusNotInCurrentSelection.bind(_this);
-	    _this.hideAllSubarray = _this.hideAllSubarray.bind(_this);
-	    _this.setSorted = _this.setSorted.bind(_this);
-	    _this.reRenderAndActivateAllButtonsInFullArray = _this.reRenderAndActivateAllButtonsInFullArray.bind(_this);
-	    _this.setPivot = _this.setPivot.bind(_this);
-	    _this.startArray = _this.randomArray();
-	    // this.startArray = [15,9,3,5,12,17,10,6,4]
-	    var newQuickSort = new _quick_sort_class2.default();
-	    _this.sorting = newQuickSort.quickSort(_this.startArray);
-	    _this.result = newQuickSort.result();
-	    return _this;
-	  }
-	
-	  _createClass(QuickSortExercise, [{
-	    key: 'componentDidUpdate',
-	    value: function componentDidUpdate() {
-	      var _this2 = this;
-	
-	      // this.ifHigherOrLowerIsEmpty()
-	      console.log("checking life cycle");
-	      if (this.state.gameState === "newRound") {
-	        var counter = 0;
-	        this.reRender = setInterval(function () {
-	          switch (counter) {
-	            case 1:
-	              _this2.insertArrayByIndex();
-	            case 2:
-	              _this2.hideAllSubarray();
-	            case 3:
-	              console.log(_this2.state.iterationCounter1);
-	            case 4:
-	              _this2.reRenderAndActivateAllButtonsInFullArray();
-	            case 5:
-	              console.log("case6");
-	              _this2.setState({
-	                gameState: "selectLower",
-	                iterationCounter1: _this2.state.iterationCounter1 += 1
-	              });
-	              _this2.setSorted();
-	            case 6:
-	              _this2.unfocusNotInCurrentSelection();
-	              if (_this2.result[_this2.state.iterationCounter1][3].length < 1) {
-	                debugger;
-	                _this2.setState({ gameState: "",
-	                  exerciseStarted: false
-	                });
-	                _this2.props.demoState();
-	              } else {
-	                console.log("setPivot");
-	                _this2.setPivot();
-	              }
-	              clearInterval(_this2.reRender);
-	              return;
-	          }
-	          counter += 1;
-	        }, 1000);
-	        console.log(this.result);
-	        console.log("hit life cycle");
-	      }
-	    }
-	  }, {
-	    key: 'setSorted',
-	    value: function setSorted() {
-	      this.setState({
-	        iterationCounter1: this.state.iterationCounter1 -= 1
-	      });
-	      var pivotNum = this.pivotArray()[0];
-	      var pivot = document.querySelectorAll('[value="' + pivotNum + '"]');
-	      pivot[0].className = "sortedExercise";
-	      var sorted = document.getElementsByClassName("activeExercise");
-	
-	      var smaller = this.smallerThanPivotArray();
-	      var larger = this.largerThanPivotArray();
-	
-	      if (smaller.length < 2 && larger.length < 2) {
-	        debugger;
-	        var currentArray = smaller.concat(larger);
-	        for (var j = 0; j < 3; j++) {
-	          for (var i = 0; i < sorted.length; i++) {
-	            var currentNumber = parseInt(sorted[i].getAttribute("value"));
-	            if (currentArray.includes(currentNumber)) {
-	              sorted[i].className = "sortedExercise";
-	            }
-	          }
-	        }
-	      } else if (smaller.length < 2 && smaller.length > 0) {
-	        for (var i = 0; i < sorted.length; i++) {
-	          var currentNumber = parseInt(sorted[i].getAttribute("value"));
-	          if (smaller.includes(currentNumber)) {
-	            sorted[i].className = "sortedExercise";
-	          }
-	        }
-	      } else if (larger.length < 2 && larger.length > 0) {
-	        for (var i = 0; i < sorted.length; i++) {
-	          var currentNumber = parseInt(sorted[i].getAttribute("value"));
-	          if (larger.includes(currentNumber)) {
-	            sorted[i].className = "sortedExercise";
-	          }
-	        }
-	      }
-	      this.setState({
-	        iterationCounter1: this.state.iterationCounter1 += 1
-	      });
-	      return;
-	    }
-	  }, {
-	    key: 'randomArray',
-	    value: function randomArray() {
-	      var newArr = [];
-	      var arrLength = Math.floor(Math.random() * 4 + 5);
-	      for (var i = 0; i < arrLength; i++) {
-	        var newNum = Math.floor(Math.random() * 20);
-	        if (!newArr.includes(newNum)) {
-	          newArr.push(newNum);
-	        }
-	      }
-	      return newArr;
-	    }
-	  }, {
-	    key: 'findIndexes',
-	    value: function findIndexes() {
-	      var newArr = [];
-	      var sortedSet = this.result[this.state.iterationCounter1][2].concat(this.result[this.state.iterationCounter1][3]).concat(this.result[this.state.iterationCounter1][1]);
-	      for (var i = 0; i < sortedSet.length; i++) {
-	        var idx = this.startArray.indexOf(sortedSet[i]);
-	        newArr.push(idx);
-	      }
-	      return newArr.sort(function (a, b) {
-	        return a - b;
-	      });
-	    }
-	  }, {
-	    key: 'insertArrayByIndex',
-	    value: function insertArrayByIndex() {
-	      var indexSet = this.findIndexes();
-	      var sortedSet = this.result[this.state.iterationCounter1][2].concat(this.result[this.state.iterationCounter1][3]).concat(this.result[this.state.iterationCounter1][1]);
-	      for (var i = 0; i < indexSet.length; i++) {
-	        this.startArray[indexSet[i]] = sortedSet[i];
-	      }
-	    }
-	  }, {
-	    key: 'hideAllSubarray',
-	    value: function hideAllSubarray() {
-	      ["pivotShowExercise", "largerShowExercise", "smallerShowExercise"].forEach(function (subArrayClass) {
-	        var i = document.getElementsByClassName(subArrayClass);
-	        while (i.length) {
-	          i[0].className = subArrayClass.replace("Show", "Hidden");
-	        }
-	      });
-	    }
-	  }, {
-	    key: 'incorrectToActiveClassChange',
-	    value: function incorrectToActiveClassChange() {
-	      var incorrects = document.getElementsByClassName("incorrect");
-	      while (incorrects.length) {
-	        incorrects[0].className = "activeExercise";
-	      }
-	      return;
-	    }
-	  }, {
-	    key: 'currentSelectionArray',
-	    value: function currentSelectionArray() {
-	      return this.result[this.state.iterationCounter1][0];
-	    }
-	  }, {
-	    key: 'largerThanPivotArray',
-	    value: function largerThanPivotArray() {
-	      return this.result[this.state.iterationCounter1][1];
-	    }
-	  }, {
-	    key: 'smallerThanPivotArray',
-	    value: function smallerThanPivotArray() {
-	      return this.result[this.state.iterationCounter1][2];
-	    }
-	  }, {
-	    key: 'pivotArray',
-	    value: function pivotArray() {
-	      return this.result[this.state.iterationCounter1][3];
-	    }
-	  }, {
-	    key: 'addClassNamesToArray',
-	    value: function addClassNamesToArray() {
-	      this.reRenderAndActivateAllButtonsInFullArray();
-	      this.unfocusNotInCurrentSelection();
-	      var currentPivot = this.pivotArray()[0];
-	      var actives = document.getElementsByClassName("activeExercise");
-	    }
-	  }, {
-	    key: 'fullArrayButtons',
-	    value: function fullArrayButtons() {
-	      var _this3 = this;
-	
-	      return this.startArray.map(function (num, i) {
-	        return _react2.default.createElement(
-	          'button',
-	          { key: i, value: num, onClick: _this3.handleClick, className: 'activeExercise' },
-	          num
-	        );
-	      });
-	    }
-	  }, {
-	    key: 'largerThanPivotButtons',
-	    value: function largerThanPivotButtons() {
-	      return this.result[this.state.iterationCounter1][1].map(function (el, i) {
-	        return _react2.default.createElement(
-	          'button',
-	          { key: i, value: el, className: 'largerHiddenExercise' },
-	          ' ',
-	          el,
-	          ' '
-	        );
-	      });
-	    }
-	  }, {
-	    key: 'smallerThanPivotButtons',
-	    value: function smallerThanPivotButtons() {
-	      return this.result[this.state.iterationCounter1][2].map(function (el, i) {
-	        return _react2.default.createElement(
-	          'button',
-	          { key: i, value: el, className: 'smallerHiddenExercise' },
-	          ' ',
-	          el,
-	          ' '
-	        );
-	      });
-	    }
-	  }, {
-	    key: 'pivotButton',
-	    value: function pivotButton() {
-	      console.log(this.state.iterationCounter1);
-	      return _react2.default.createElement(
-	        'button',
-	        { value: this.result[this.state.iterationCounter1][3], className: 'pivotHiddenExercise' },
-	        this.result[this.state.iterationCounter1][3].toString()
-	      );
-	    }
-	  }, {
-	    key: 'smallerThanPivotButtonsShow',
-	    value: function smallerThanPivotButtonsShow() {
-	      var i = document.getElementsByClassName("smallerHiddenExercise");
-	      while (i.length) {
-	        i[0].className = "smallerShowExercise";
-	      }
-	    }
-	  }, {
-	    key: 'smallerThanPivotButtonsHide',
-	    value: function smallerThanPivotButtonsHide() {
-	      var i = document.getElementsByClassName("smallerShowExercise");
-	      while (i.length) {
-	        i[0].className = "smallerHiddenExercise";
-	      }
-	    }
-	  }, {
-	    key: 'largerThanPivotButtonsShow',
-	    value: function largerThanPivotButtonsShow() {
-	      var i = document.getElementsByClassName("largerHiddenExercise");
-	      while (i.length) {
-	        i[0].className = "largerShowExercise";
-	      }
-	    }
-	  }, {
-	    key: 'largerThanPivotButtonsHide',
-	    value: function largerThanPivotButtonsHide() {
-	      var i = document.getElementsByClassName("largerShowExercise");
-	      while (i.length) {
-	        i[0].className = "largerHide";
-	      }
-	    }
-	  }, {
-	    key: 'pivotButtonShow',
-	    value: function pivotButtonShow() {
-	      var i = document.getElementsByClassName("pivotHiddenExercise");
-	      while (i.length) {
-	        i[0].className = "pivotShowExercise";
-	      }
-	    }
-	  }, {
-	    key: 'pivotButtonHide',
-	    value: function pivotButtonHide() {
-	      var i = document.getElementsByClassName("pivotShowExercise");
-	      while (i.length) {
-	        i[0].className = "pivotHideExercise";
-	      }
-	    }
-	  }, {
-	    key: 'reRenderAndActivateAllButtonsInFullArray',
-	    value: function reRenderAndActivateAllButtonsInFullArray() {
-	      for (var i = 0; i < 20; i++) {
-	        ["pivot", "smaller", "larger", "hiddenExercise"].forEach(function (el) {
-	          var button = document.getElementsByClassName(el);
-	          while (button.length) {
-	            button[0].className = "activeExercise";
-	          }
-	        });
-	      }
-	    }
-	  }, {
-	    key: 'hideActiveClass',
-	    value: function hideActiveClass() {
-	      var num = document.getElementsByClassName("activeExercise");
-	      while (num.length) {
-	        num[0].className = "hiddenExercise";
-	      }
-	    }
-	  }, {
-	    key: 'showPivotsubarray',
-	    value: function showPivotsubarray() {
-	      var pivot = document.getElementsByClassName("pivotHiddenExercise");
-	      while (pivot.length) {
-	        pivot[0].className = "pivotShowExercise";
-	      }
-	    }
-	  }, {
-	    key: 'hidePivotSubarray',
-	    value: function hidePivotSubarray() {
-	      var pivot = document.getElementsByClassName("pivotShowExercise");
-	      while (pivot.length) {
-	        pivot[0].className = "pivotHiddenExercise";
-	      }
-	    }
-	  }, {
-	    key: 'showSmallerSubarray',
-	    value: function showSmallerSubarray() {
-	      var smaller = document.getElementsByClassName("smallerHiddenExercise");
-	      while (smaller.length) {
-	        smaller[0].className = "smallerShowExercise";
-	      }
-	    }
-	  }, {
-	    key: 'hideSmallerSubarray',
-	    value: function hideSmallerSubarray() {
-	      var smaller = document.getElementsByClassName("smallerShowExercise");
-	      while (smaller.length) {
-	        smaller[0].className = "smallerHiddenExercise";
-	      }
-	    }
-	  }, {
-	    key: 'showLargerSubarray',
-	    value: function showLargerSubarray() {
-	      var larger = document.getElementsByClassName("largerHiddenExercise");
-	      while (larger.length) {
-	        larger[0].className = "largerShowExercise";
-	      }
-	    }
-	  }, {
-	    key: 'hideLargerSubarray',
-	    value: function hideLargerSubarray() {
-	      var larger = document.getElementsByClassName("largerShowExercise");
-	      while (larger.length) {
-	        larger[0].className = "largerHiddenExercise";
-	      }
-	    }
-	  }, {
-	    key: 'unfocusNotInCurrentSelection',
-	    value: function unfocusNotInCurrentSelection() {
-	      var _this4 = this;
-	
-	      var notInCurrentSelection = this.startArray.filter(function (el) {
-	        return !_this4.currentSelectionArray().includes(el);
-	      });
-	      debugger;
-	      for (var j = 0; j < 10; j++) {
-	        ["activeExercise", "unfocusedExercise"].forEach(function (className) {
-	          var currentButtonSet = document.getElementsByClassName(className);
-	          for (var i = 0; i < currentButtonSet.length; i++) {
-	            if (notInCurrentSelection.includes(parseInt(currentButtonSet[i].value))) {
-	              currentButtonSet[i].className = "unfocusedExercise";
-	            } else {
-	              currentButtonSet[i].className = "activeExercise";
-	            }
-	          }
-	        });
-	      }
-	      return;
-	    }
-	  }, {
-	    key: 'startGameClick',
-	    value: function startGameClick() {
-	      console.log(this.result[this.state.iterationCounter1]);
-	      if (this.state.exerciseStarted) {
-	        return;
-	      }
-	      if (this.result[this.state.iterationCounter1 + 1][3].length > 0) {
-	        this.props.demoState();
-	        this.setState({ exerciseStarted: true });
-	        this.setPivot();
-	      }
-	    }
-	  }, {
-	    key: 'setPivot',
-	    value: function setPivot() {
-	      var _this5 = this;
-	
-	      var currArray = document.getElementsByClassName("activeExercise");
-	      currArray[0].className = "pivotExercise";
-	      var counter = 0;
-	      this.startPivotShow = setInterval(function () {
-	        switch (counter) {
-	          case 1:
-	            var pivot = document.getElementsByClassName("pivotExercise");
-	            pivot[0].className = "hiddenExercise";
-	            _this5.pivotButtonShow();
-	          case 2:
-	            if (_this5.smallerThanPivotArray().length > 0) {
-	              _this5.setState({ gameState: "selectLower" });
-	            } else {
-	              console.log("starting with selectHigher");
-	              _this5.setState({ gameState: "selectHigher" });
-	            }
-	            clearInterval(_this5.startPivotShow);
-	            return;
-	        }
-	        counter += 1;
-	      }, this.animationTimeout);
-	    }
-	  }, {
-	    key: 'handleClick',
-	    value: function handleClick(e) {
-	      var _this6 = this;
-	
-	      e.preventDefault();
-	      e.persist();
-	      var currentClass = e.currentTarget.className;
-	      this.value = parseInt(e.currentTarget.value);
-	      if (!this.state.exerciseStarted || currentClass == "unfocusedExercise" || currentClass == "hiddenExercise") {
-	        return;
-	      }
-	      switch (this.state.gameState) {
-	        case "selectLower":
-	          console.log("selecitng lower");
-	          if (this.smallerThanPivotArray().includes(this.value)) {
-	            console.log("selecting includes lower");
-	            e.currentTarget.className = "correct";
-	            setTimeout(function () {
-	              e.target.className = "hiddenExercise";
-	              var value = e.target.value;
-	              _this6.correctSelectionHandler(value, "smaller");
-	            }, this.animationTimeout);
-	          } else {
-	            e.currentTarget.className = "incorrect";
-	          }
-	          return;
-	        case "selectHigher":
-	          console.log("selecting higher");
-	          if (this.largerThanPivotArray().includes(this.value) || this.largerThanPivotArray().length < 1) {
-	            console.log("selecting includes higher");
-	            e.currentTarget.className = "correct";
-	            setTimeout(function () {
-	              e.target.className = "hiddenExercise";
-	              var value = e.target.value;
-	              _this6.correctSelectionHandler(value, "larger");
-	            }, this.animationTimeout);
-	          }
-	          return;
-	      }
-	    }
-	  }, {
-	    key: 'ifHigherOrLowerIsEmpty',
-	    value: function ifHigherOrLowerIsEmpty() {
-	      if (this.smallerThanPivotArray().length < 1) {
-	        this.setState({ gameState: "selectHigher" });
-	      } else if (this.largerThanPivotArray().length < 1) {
-	        this.setState({ gameState: "newRound" });
-	      }
-	    }
-	  }, {
-	    key: 'correctSelectionHandler',
-	    value: function correctSelectionHandler(value, string) {
-	      var button = document.querySelectorAll('[value="' + value + '"]');
-	      button[1].className = string + 'ShowExercise';
-	      console.log("hit correcthandler");
-	      this.setState({
-	        correctButtonCount: this.state.correctButtonCount += 1
-	      });
-	      switch (string) {
-	        case "smaller":
-	          if (this.state.correctButtonCount >= this.smallerThanPivotArray().length) {
-	            if (this.largerThanPivotArray().length < 1) {
-	              this.setState({ gameState: "newRound", correctButtonCount: 0 });
-	            } else {
-	              this.incorrectToActiveClassChange();
-	              this.setState({ gameState: "selectHigher", correctButtonCount: 0 });
-	            }
-	          }
-	          return;
-	        case "larger":
-	          if (this.state.correctButtonCount >= this.largerThanPivotArray().length) {
-	            this.setState({ gameState: "newRound", correctButtonCount: 0 });
-	          }
-	          return;
-	        default:
-	          return string;
-	      }
-	    }
-	  }, {
-	    key: 'render',
-	    value: function render() {
-	      return _react2.default.createElement(
-	        'div',
-	        null,
-	        _react2.default.createElement(
-	          'button',
-	          { onClick: this.startGameClick },
-	          'Start "Game"'
-	        ),
-	        _react2.default.createElement('br', null),
-	        this.fullArrayButtons(),
-	        _react2.default.createElement('br', null),
-	        this.pivotButton(),
-	        _react2.default.createElement('br', null),
-	        this.smallerThanPivotButtons(),
-	        _react2.default.createElement('br', null),
-	        this.largerThanPivotButtons()
-	      );
-	    }
-	  }]);
-	
-	  return QuickSortExercise;
-	}(_react2.default.Component);
-	
-	exports.default = QuickSortExercise;
-
-/***/ },
-/* 245 */
-/***/ function(module, exports, __webpack_require__) {
-
-	"use strict";
-	
-	Object.defineProperty(exports, "__esModule", {
-	  value: true
-	});
-	
-	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-	
-	var _react = __webpack_require__(1);
-	
-	var _react2 = _interopRequireDefault(_react);
-	
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-	
-	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-	
-	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-	
-	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-	
-	var Solution = function (_React$Component) {
-	  _inherits(Solution, _React$Component);
-	
-	  function Solution(props) {
-	    _classCallCheck(this, Solution);
-	
-	    var _this = _possibleConstructorReturn(this, (Solution.__proto__ || Object.getPrototypeOf(Solution)).call(this, props));
-	
-	    _this.state = {
-	      showJavaScriptSolution: false,
-	      showRubySolution: false,
-	      showPythonSolution: false,
-	      showInfo: true,
-	      bsearch: {
-	        javascript: "https://res.cloudinary.com/joycechau/image/upload/v1485979449/bsearch_js.png",
-	        ruby: "https://res.cloudinary.com/joycechau/image/upload/v1485979562/bsearch_ruby.png",
-	        python: "https://res.cloudinary.com/joycechau/image/upload/v1485988171/bsearch_python.png",
-	        info: ""
-	      },
-	      quicksort: {
-	        javascript: "https://res.cloudinary.com/joycechau/image/upload/v1486143608/quicksort_javascript.png",
-	        ruby: "https://res.cloudinary.com/joycechau/image/upload/v1486143675/quicksort_ruby.png",
-	        python: "https://res.cloudinary.com/joycechau/image/upload/v1486143886/quicksort_python.png",
-	        info: ""
-	      },
-	      mergesort: {
-	        javascript: "https://res.cloudinary.com/joycechau/image/upload/v1486332550/mergesort_javascript.png",
-	        ruby: "https://res.cloudinary.com/joycechau/image/upload/v1486147603/mergesort_ruby.png",
-	        python: "https://res.cloudinary.com/joycechau/image/upload/v1486147626/mergesort_python.png",
-	        info: ""
-	      }
-	    };
-	    _this.handleInfoButton = _this.handleInfoButton.bind(_this);
-	    _this.handleJavaScriptButton = _this.handleJavaScriptButton.bind(_this);
-	    _this.handleRubyButton = _this.handleRubyButton.bind(_this);
-	    _this.handlePythonButton = _this.handlePythonButton.bind(_this);
-	    return _this;
-	  }
-	
-	  _createClass(Solution, [{
-	    key: "handleInfoButton",
-	    value: function handleInfoButton(e) {
-	      e.preventDefault();
-	      $(".javascript-button").removeClass("selected-solution-button");
-	      $(".ruby-button").removeClass("selected-solution-button");
-	      $(".python-button").removeClass("selected-solution-button");
-	      $(".info-button").addClass("selected-solution-button");
-	      this.setState({
-	        showJavaScriptSolution: false,
-	        showRubySolution: false,
-	        showPythonSolution: false,
-	        showInfo: true
-	      });
-	    }
-	  }, {
-	    key: "handleJavaScriptButton",
-	    value: function handleJavaScriptButton(e) {
-	
-	      console.log(this.props);
-	      e.preventDefault();
-	      $(".javascript-button").addClass("selected-solution-button");
-	      $(".ruby-button").removeClass("selected-solution-button");
-	      $(".python-button").removeClass("selected-solution-button");
-	      $(".info-button").removeClass("selected-solution-button");
-	      this.setState({
-	        showJavaScriptSolution: true,
-	        showRubySolution: false,
-	        showPythonSolution: false,
-	        showInfo: false
-	      });
-	    }
-	  }, {
-	    key: "handleRubyButton",
-	    value: function handleRubyButton(e) {
-	      e.preventDefault();
-	      $(".ruby-button").addClass("selected-solution-button");
-	      $(".javascript-button").removeClass("selected-solution-button");
-	      $(".python-button").removeClass("selected-solution-button");
-	      $(".info-button").removeClass("selected-solution-button");
-	      this.setState({
-	        showJavaScriptSolution: false,
-	        showRubySolution: true,
-	        showPythonSolution: false,
-	        showInfo: false
-	      });
-	    }
-	  }, {
-	    key: "handlePythonButton",
-	    value: function handlePythonButton(e) {
-	      e.preventDefault();
-	      $(".python-button").addClass("selected-solution-button");
-	      $(".javascript-button").removeClass("selected-solution-button");
-	      $(".ruby-button").removeClass("selected-solution-button");
-	      $(".info-button").removeClass("selected-solution-button");
-	      this.setState({
-	        showJavaScriptSolution: false,
-	        showRubySolution: false,
-	        showPythonSolution: true,
-	        showInfo: false
-	      });
-	    }
-	  }, {
-	    key: "info",
-	    value: function info() {
-	      if (this.state.showInfo) {
-	        var info = this.state[this.props.algorithm].info;
-	        return _react2.default.createElement(
-	          "div",
-	          { className: "solution-image-div" },
-	          info
-	        );
-	      }
-	    }
-	  }, {
-	    key: "javaScriptSolution",
-	    value: function javaScriptSolution() {
-	      if (this.state.showJavaScriptSolution) {
-	        var src = this.state[this.props.algorithm].javascript;
-	        return _react2.default.createElement(
-	          "div",
-	          { className: "solution-image-div" },
-	          _react2.default.createElement("img", { src: src, alt: "javascript-solution" })
-	        );
-	      }
-	    }
-	  }, {
-	    key: "rubySolution",
-	    value: function rubySolution() {
-	      if (this.state.showRubySolution) {
-	        var src = this.state[this.props.algorithm].ruby;
-	        return _react2.default.createElement(
-	          "div",
-	          { className: "solution-image-div" },
-	          _react2.default.createElement("img", { src: src, alt: "ruby-solution" })
-	        );
-	      }
-	    }
-	  }, {
-	    key: "pythonSolution",
-	    value: function pythonSolution() {
-	      if (this.state.showPythonSolution) {
-	        var src = this.state[this.props.algorithm].python;
-	        return _react2.default.createElement(
-	          "div",
-	          { className: "solution-image-div" },
-	          _react2.default.createElement("img", { src: src, alt: "python-solution" })
-	        );
-	      }
-	    }
-	  }, {
-	    key: "render",
-	    value: function render() {
-	      return _react2.default.createElement(
-	        "div",
-	        { className: "solution" },
-	        _react2.default.createElement(
-	          "div",
-	          { className: "solution-button-div" },
-	          _react2.default.createElement(
-	            "button",
-	            {
-	              onClick: this.handleInfoButton,
-	              className: "info-button selected-solution-button" },
-	            "Info"
-	          ),
-	          _react2.default.createElement(
-	            "button",
-	            {
-	              onClick: this.handleJavaScriptButton,
-	              className: "javascript-button" },
-	            "JavaScript"
-	          ),
-	          _react2.default.createElement(
-	            "button",
-	            {
-	              onClick: this.handleRubyButton,
-	              className: "ruby-button" },
-	            "Ruby"
-	          ),
-	          _react2.default.createElement(
-	            "button",
-	            {
-	              onClick: this.handlePythonButton,
-	              className: "python-button" },
-	            "Python"
-	          )
-	        ),
-	        _react2.default.createElement(
-	          "div",
-	          { className: "solution-div" },
-	          this.javaScriptSolution(),
-	          this.rubySolution(),
-	          this.pythonSolution()
-	        )
-	      );
-	    }
-	  }]);
-	
-	  return Solution;
-	}(_react2.default.Component);
-	
-	exports.default = Solution;
-
-/***/ },
-/* 246 */
-/***/ function(module, exports, __webpack_require__) {
-
-	var baseMerge = __webpack_require__(247),
-	    createAssigner = __webpack_require__(332);
+	var baseMerge = __webpack_require__(242),
+	    createAssigner = __webpack_require__(327);
 	
 	/**
 	 * This method is like `_.assign` except that it recursively merges own and
@@ -29126,15 +28023,15 @@
 
 
 /***/ },
-/* 247 */
+/* 242 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var Stack = __webpack_require__(248),
-	    assignMergeValue = __webpack_require__(292),
-	    baseFor = __webpack_require__(295),
-	    baseMergeDeep = __webpack_require__(297),
-	    isObject = __webpack_require__(272),
-	    keysIn = __webpack_require__(326);
+	var Stack = __webpack_require__(243),
+	    assignMergeValue = __webpack_require__(287),
+	    baseFor = __webpack_require__(290),
+	    baseMergeDeep = __webpack_require__(292),
+	    isObject = __webpack_require__(267),
+	    keysIn = __webpack_require__(321);
 	
 	/**
 	 * The base implementation of `_.merge` without support for multiple sources.
@@ -29173,15 +28070,15 @@
 
 
 /***/ },
-/* 248 */
+/* 243 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var ListCache = __webpack_require__(249),
-	    stackClear = __webpack_require__(257),
-	    stackDelete = __webpack_require__(258),
-	    stackGet = __webpack_require__(259),
-	    stackHas = __webpack_require__(260),
-	    stackSet = __webpack_require__(261);
+	var ListCache = __webpack_require__(244),
+	    stackClear = __webpack_require__(252),
+	    stackDelete = __webpack_require__(253),
+	    stackGet = __webpack_require__(254),
+	    stackHas = __webpack_require__(255),
+	    stackSet = __webpack_require__(256);
 	
 	/**
 	 * Creates a stack cache object to store key-value pairs.
@@ -29206,14 +28103,14 @@
 
 
 /***/ },
-/* 249 */
+/* 244 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var listCacheClear = __webpack_require__(250),
-	    listCacheDelete = __webpack_require__(251),
-	    listCacheGet = __webpack_require__(254),
-	    listCacheHas = __webpack_require__(255),
-	    listCacheSet = __webpack_require__(256);
+	var listCacheClear = __webpack_require__(245),
+	    listCacheDelete = __webpack_require__(246),
+	    listCacheGet = __webpack_require__(249),
+	    listCacheHas = __webpack_require__(250),
+	    listCacheSet = __webpack_require__(251);
 	
 	/**
 	 * Creates an list cache object.
@@ -29244,7 +28141,7 @@
 
 
 /***/ },
-/* 250 */
+/* 245 */
 /***/ function(module, exports) {
 
 	/**
@@ -29263,10 +28160,10 @@
 
 
 /***/ },
-/* 251 */
+/* 246 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var assocIndexOf = __webpack_require__(252);
+	var assocIndexOf = __webpack_require__(247);
 	
 	/** Used for built-in method references. */
 	var arrayProto = Array.prototype;
@@ -29304,10 +28201,10 @@
 
 
 /***/ },
-/* 252 */
+/* 247 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var eq = __webpack_require__(253);
+	var eq = __webpack_require__(248);
 	
 	/**
 	 * Gets the index at which the `key` is found in `array` of key-value pairs.
@@ -29331,7 +28228,7 @@
 
 
 /***/ },
-/* 253 */
+/* 248 */
 /***/ function(module, exports) {
 
 	/**
@@ -29374,10 +28271,10 @@
 
 
 /***/ },
-/* 254 */
+/* 249 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var assocIndexOf = __webpack_require__(252);
+	var assocIndexOf = __webpack_require__(247);
 	
 	/**
 	 * Gets the list cache value for `key`.
@@ -29399,10 +28296,10 @@
 
 
 /***/ },
-/* 255 */
+/* 250 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var assocIndexOf = __webpack_require__(252);
+	var assocIndexOf = __webpack_require__(247);
 	
 	/**
 	 * Checks if a list cache value for `key` exists.
@@ -29421,10 +28318,10 @@
 
 
 /***/ },
-/* 256 */
+/* 251 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var assocIndexOf = __webpack_require__(252);
+	var assocIndexOf = __webpack_require__(247);
 	
 	/**
 	 * Sets the list cache `key` to `value`.
@@ -29453,10 +28350,10 @@
 
 
 /***/ },
-/* 257 */
+/* 252 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var ListCache = __webpack_require__(249);
+	var ListCache = __webpack_require__(244);
 	
 	/**
 	 * Removes all key-value entries from the stack.
@@ -29474,7 +28371,7 @@
 
 
 /***/ },
-/* 258 */
+/* 253 */
 /***/ function(module, exports) {
 
 	/**
@@ -29498,7 +28395,7 @@
 
 
 /***/ },
-/* 259 */
+/* 254 */
 /***/ function(module, exports) {
 
 	/**
@@ -29518,7 +28415,7 @@
 
 
 /***/ },
-/* 260 */
+/* 255 */
 /***/ function(module, exports) {
 
 	/**
@@ -29538,12 +28435,12 @@
 
 
 /***/ },
-/* 261 */
+/* 256 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var ListCache = __webpack_require__(249),
-	    Map = __webpack_require__(262),
-	    MapCache = __webpack_require__(277);
+	var ListCache = __webpack_require__(244),
+	    Map = __webpack_require__(257),
+	    MapCache = __webpack_require__(272);
 	
 	/** Used as the size to enable large array optimizations. */
 	var LARGE_ARRAY_SIZE = 200;
@@ -29578,11 +28475,11 @@
 
 
 /***/ },
-/* 262 */
+/* 257 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var getNative = __webpack_require__(263),
-	    root = __webpack_require__(268);
+	var getNative = __webpack_require__(258),
+	    root = __webpack_require__(263);
 	
 	/* Built-in method references that are verified to be native. */
 	var Map = getNative(root, 'Map');
@@ -29591,11 +28488,11 @@
 
 
 /***/ },
-/* 263 */
+/* 258 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var baseIsNative = __webpack_require__(264),
-	    getValue = __webpack_require__(276);
+	var baseIsNative = __webpack_require__(259),
+	    getValue = __webpack_require__(271);
 	
 	/**
 	 * Gets the native function at `key` of `object`.
@@ -29614,13 +28511,13 @@
 
 
 /***/ },
-/* 264 */
+/* 259 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var isFunction = __webpack_require__(265),
-	    isMasked = __webpack_require__(273),
-	    isObject = __webpack_require__(272),
-	    toSource = __webpack_require__(275);
+	var isFunction = __webpack_require__(260),
+	    isMasked = __webpack_require__(268),
+	    isObject = __webpack_require__(267),
+	    toSource = __webpack_require__(270);
 	
 	/**
 	 * Used to match `RegExp`
@@ -29667,11 +28564,11 @@
 
 
 /***/ },
-/* 265 */
+/* 260 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var baseGetTag = __webpack_require__(266),
-	    isObject = __webpack_require__(272);
+	var baseGetTag = __webpack_require__(261),
+	    isObject = __webpack_require__(267);
 	
 	/** `Object#toString` result references. */
 	var asyncTag = '[object AsyncFunction]',
@@ -29710,12 +28607,12 @@
 
 
 /***/ },
-/* 266 */
+/* 261 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var Symbol = __webpack_require__(267),
-	    getRawTag = __webpack_require__(270),
-	    objectToString = __webpack_require__(271);
+	var Symbol = __webpack_require__(262),
+	    getRawTag = __webpack_require__(265),
+	    objectToString = __webpack_require__(266);
 	
 	/** `Object#toString` result references. */
 	var nullTag = '[object Null]',
@@ -29744,10 +28641,10 @@
 
 
 /***/ },
-/* 267 */
+/* 262 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var root = __webpack_require__(268);
+	var root = __webpack_require__(263);
 	
 	/** Built-in value references. */
 	var Symbol = root.Symbol;
@@ -29756,10 +28653,10 @@
 
 
 /***/ },
-/* 268 */
+/* 263 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var freeGlobal = __webpack_require__(269);
+	var freeGlobal = __webpack_require__(264);
 	
 	/** Detect free variable `self`. */
 	var freeSelf = typeof self == 'object' && self && self.Object === Object && self;
@@ -29771,7 +28668,7 @@
 
 
 /***/ },
-/* 269 */
+/* 264 */
 /***/ function(module, exports) {
 
 	/* WEBPACK VAR INJECTION */(function(global) {/** Detect free variable `global` from Node.js. */
@@ -29782,10 +28679,10 @@
 	/* WEBPACK VAR INJECTION */}.call(exports, (function() { return this; }())))
 
 /***/ },
-/* 270 */
+/* 265 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var Symbol = __webpack_require__(267);
+	var Symbol = __webpack_require__(262);
 	
 	/** Used for built-in method references. */
 	var objectProto = Object.prototype;
@@ -29834,7 +28731,7 @@
 
 
 /***/ },
-/* 271 */
+/* 266 */
 /***/ function(module, exports) {
 
 	/** Used for built-in method references. */
@@ -29862,7 +28759,7 @@
 
 
 /***/ },
-/* 272 */
+/* 267 */
 /***/ function(module, exports) {
 
 	/**
@@ -29899,10 +28796,10 @@
 
 
 /***/ },
-/* 273 */
+/* 268 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var coreJsData = __webpack_require__(274);
+	var coreJsData = __webpack_require__(269);
 	
 	/** Used to detect methods masquerading as native. */
 	var maskSrcKey = (function() {
@@ -29925,10 +28822,10 @@
 
 
 /***/ },
-/* 274 */
+/* 269 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var root = __webpack_require__(268);
+	var root = __webpack_require__(263);
 	
 	/** Used to detect overreaching core-js shims. */
 	var coreJsData = root['__core-js_shared__'];
@@ -29937,7 +28834,7 @@
 
 
 /***/ },
-/* 275 */
+/* 270 */
 /***/ function(module, exports) {
 
 	/** Used for built-in method references. */
@@ -29969,7 +28866,7 @@
 
 
 /***/ },
-/* 276 */
+/* 271 */
 /***/ function(module, exports) {
 
 	/**
@@ -29988,14 +28885,14 @@
 
 
 /***/ },
-/* 277 */
+/* 272 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var mapCacheClear = __webpack_require__(278),
-	    mapCacheDelete = __webpack_require__(286),
-	    mapCacheGet = __webpack_require__(289),
-	    mapCacheHas = __webpack_require__(290),
-	    mapCacheSet = __webpack_require__(291);
+	var mapCacheClear = __webpack_require__(273),
+	    mapCacheDelete = __webpack_require__(281),
+	    mapCacheGet = __webpack_require__(284),
+	    mapCacheHas = __webpack_require__(285),
+	    mapCacheSet = __webpack_require__(286);
 	
 	/**
 	 * Creates a map cache object to store key-value pairs.
@@ -30026,12 +28923,12 @@
 
 
 /***/ },
-/* 278 */
+/* 273 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var Hash = __webpack_require__(279),
-	    ListCache = __webpack_require__(249),
-	    Map = __webpack_require__(262);
+	var Hash = __webpack_require__(274),
+	    ListCache = __webpack_require__(244),
+	    Map = __webpack_require__(257);
 	
 	/**
 	 * Removes all key-value entries from the map.
@@ -30053,14 +28950,14 @@
 
 
 /***/ },
-/* 279 */
+/* 274 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var hashClear = __webpack_require__(280),
-	    hashDelete = __webpack_require__(282),
-	    hashGet = __webpack_require__(283),
-	    hashHas = __webpack_require__(284),
-	    hashSet = __webpack_require__(285);
+	var hashClear = __webpack_require__(275),
+	    hashDelete = __webpack_require__(277),
+	    hashGet = __webpack_require__(278),
+	    hashHas = __webpack_require__(279),
+	    hashSet = __webpack_require__(280);
 	
 	/**
 	 * Creates a hash object.
@@ -30091,10 +28988,10 @@
 
 
 /***/ },
-/* 280 */
+/* 275 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var nativeCreate = __webpack_require__(281);
+	var nativeCreate = __webpack_require__(276);
 	
 	/**
 	 * Removes all key-value entries from the hash.
@@ -30112,10 +29009,10 @@
 
 
 /***/ },
-/* 281 */
+/* 276 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var getNative = __webpack_require__(263);
+	var getNative = __webpack_require__(258);
 	
 	/* Built-in method references that are verified to be native. */
 	var nativeCreate = getNative(Object, 'create');
@@ -30124,7 +29021,7 @@
 
 
 /***/ },
-/* 282 */
+/* 277 */
 /***/ function(module, exports) {
 
 	/**
@@ -30147,10 +29044,10 @@
 
 
 /***/ },
-/* 283 */
+/* 278 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var nativeCreate = __webpack_require__(281);
+	var nativeCreate = __webpack_require__(276);
 	
 	/** Used to stand-in for `undefined` hash values. */
 	var HASH_UNDEFINED = '__lodash_hash_undefined__';
@@ -30183,10 +29080,10 @@
 
 
 /***/ },
-/* 284 */
+/* 279 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var nativeCreate = __webpack_require__(281);
+	var nativeCreate = __webpack_require__(276);
 	
 	/** Used for built-in method references. */
 	var objectProto = Object.prototype;
@@ -30212,10 +29109,10 @@
 
 
 /***/ },
-/* 285 */
+/* 280 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var nativeCreate = __webpack_require__(281);
+	var nativeCreate = __webpack_require__(276);
 	
 	/** Used to stand-in for `undefined` hash values. */
 	var HASH_UNDEFINED = '__lodash_hash_undefined__';
@@ -30241,10 +29138,10 @@
 
 
 /***/ },
-/* 286 */
+/* 281 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var getMapData = __webpack_require__(287);
+	var getMapData = __webpack_require__(282);
 	
 	/**
 	 * Removes `key` and its value from the map.
@@ -30265,10 +29162,10 @@
 
 
 /***/ },
-/* 287 */
+/* 282 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var isKeyable = __webpack_require__(288);
+	var isKeyable = __webpack_require__(283);
 	
 	/**
 	 * Gets the data for `map`.
@@ -30289,7 +29186,7 @@
 
 
 /***/ },
-/* 288 */
+/* 283 */
 /***/ function(module, exports) {
 
 	/**
@@ -30310,10 +29207,10 @@
 
 
 /***/ },
-/* 289 */
+/* 284 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var getMapData = __webpack_require__(287);
+	var getMapData = __webpack_require__(282);
 	
 	/**
 	 * Gets the map value for `key`.
@@ -30332,10 +29229,10 @@
 
 
 /***/ },
-/* 290 */
+/* 285 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var getMapData = __webpack_require__(287);
+	var getMapData = __webpack_require__(282);
 	
 	/**
 	 * Checks if a map value for `key` exists.
@@ -30354,10 +29251,10 @@
 
 
 /***/ },
-/* 291 */
+/* 286 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var getMapData = __webpack_require__(287);
+	var getMapData = __webpack_require__(282);
 	
 	/**
 	 * Sets the map `key` to `value`.
@@ -30382,11 +29279,11 @@
 
 
 /***/ },
-/* 292 */
+/* 287 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var baseAssignValue = __webpack_require__(293),
-	    eq = __webpack_require__(253);
+	var baseAssignValue = __webpack_require__(288),
+	    eq = __webpack_require__(248);
 	
 	/**
 	 * This function is like `assignValue` except that it doesn't assign
@@ -30408,10 +29305,10 @@
 
 
 /***/ },
-/* 293 */
+/* 288 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var defineProperty = __webpack_require__(294);
+	var defineProperty = __webpack_require__(289);
 	
 	/**
 	 * The base implementation of `assignValue` and `assignMergeValue` without
@@ -30439,10 +29336,10 @@
 
 
 /***/ },
-/* 294 */
+/* 289 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var getNative = __webpack_require__(263);
+	var getNative = __webpack_require__(258);
 	
 	var defineProperty = (function() {
 	  try {
@@ -30456,10 +29353,10 @@
 
 
 /***/ },
-/* 295 */
+/* 290 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var createBaseFor = __webpack_require__(296);
+	var createBaseFor = __webpack_require__(291);
 	
 	/**
 	 * The base implementation of `baseForOwn` which iterates over `object`
@@ -30478,7 +29375,7 @@
 
 
 /***/ },
-/* 296 */
+/* 291 */
 /***/ function(module, exports) {
 
 	/**
@@ -30509,23 +29406,23 @@
 
 
 /***/ },
-/* 297 */
+/* 292 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var assignMergeValue = __webpack_require__(292),
-	    cloneBuffer = __webpack_require__(298),
-	    cloneTypedArray = __webpack_require__(300),
-	    copyArray = __webpack_require__(303),
-	    initCloneObject = __webpack_require__(304),
-	    isArguments = __webpack_require__(309),
-	    isArray = __webpack_require__(312),
-	    isArrayLikeObject = __webpack_require__(313),
-	    isBuffer = __webpack_require__(316),
-	    isFunction = __webpack_require__(265),
-	    isObject = __webpack_require__(272),
-	    isPlainObject = __webpack_require__(318),
-	    isTypedArray = __webpack_require__(319),
-	    toPlainObject = __webpack_require__(323);
+	var assignMergeValue = __webpack_require__(287),
+	    cloneBuffer = __webpack_require__(293),
+	    cloneTypedArray = __webpack_require__(295),
+	    copyArray = __webpack_require__(298),
+	    initCloneObject = __webpack_require__(299),
+	    isArguments = __webpack_require__(304),
+	    isArray = __webpack_require__(307),
+	    isArrayLikeObject = __webpack_require__(308),
+	    isBuffer = __webpack_require__(311),
+	    isFunction = __webpack_require__(260),
+	    isObject = __webpack_require__(267),
+	    isPlainObject = __webpack_require__(313),
+	    isTypedArray = __webpack_require__(314),
+	    toPlainObject = __webpack_require__(318);
 	
 	/**
 	 * A specialized version of `baseMerge` for arrays and objects which performs
@@ -30608,10 +29505,10 @@
 
 
 /***/ },
-/* 298 */
+/* 293 */
 /***/ function(module, exports, __webpack_require__) {
 
-	/* WEBPACK VAR INJECTION */(function(module) {var root = __webpack_require__(268);
+	/* WEBPACK VAR INJECTION */(function(module) {var root = __webpack_require__(263);
 	
 	/** Detect free variable `exports`. */
 	var freeExports = typeof exports == 'object' && exports && !exports.nodeType && exports;
@@ -30647,10 +29544,10 @@
 	
 	module.exports = cloneBuffer;
 	
-	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(299)(module)))
+	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(294)(module)))
 
 /***/ },
-/* 299 */
+/* 294 */
 /***/ function(module, exports) {
 
 	module.exports = function(module) {
@@ -30666,10 +29563,10 @@
 
 
 /***/ },
-/* 300 */
+/* 295 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var cloneArrayBuffer = __webpack_require__(301);
+	var cloneArrayBuffer = __webpack_require__(296);
 	
 	/**
 	 * Creates a clone of `typedArray`.
@@ -30688,10 +29585,10 @@
 
 
 /***/ },
-/* 301 */
+/* 296 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var Uint8Array = __webpack_require__(302);
+	var Uint8Array = __webpack_require__(297);
 	
 	/**
 	 * Creates a clone of `arrayBuffer`.
@@ -30710,10 +29607,10 @@
 
 
 /***/ },
-/* 302 */
+/* 297 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var root = __webpack_require__(268);
+	var root = __webpack_require__(263);
 	
 	/** Built-in value references. */
 	var Uint8Array = root.Uint8Array;
@@ -30722,7 +29619,7 @@
 
 
 /***/ },
-/* 303 */
+/* 298 */
 /***/ function(module, exports) {
 
 	/**
@@ -30748,12 +29645,12 @@
 
 
 /***/ },
-/* 304 */
+/* 299 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var baseCreate = __webpack_require__(305),
-	    getPrototype = __webpack_require__(306),
-	    isPrototype = __webpack_require__(308);
+	var baseCreate = __webpack_require__(300),
+	    getPrototype = __webpack_require__(301),
+	    isPrototype = __webpack_require__(303);
 	
 	/**
 	 * Initializes an object clone.
@@ -30772,10 +29669,10 @@
 
 
 /***/ },
-/* 305 */
+/* 300 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var isObject = __webpack_require__(272);
+	var isObject = __webpack_require__(267);
 	
 	/** Built-in value references. */
 	var objectCreate = Object.create;
@@ -30808,10 +29705,10 @@
 
 
 /***/ },
-/* 306 */
+/* 301 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var overArg = __webpack_require__(307);
+	var overArg = __webpack_require__(302);
 	
 	/** Built-in value references. */
 	var getPrototype = overArg(Object.getPrototypeOf, Object);
@@ -30820,7 +29717,7 @@
 
 
 /***/ },
-/* 307 */
+/* 302 */
 /***/ function(module, exports) {
 
 	/**
@@ -30841,7 +29738,7 @@
 
 
 /***/ },
-/* 308 */
+/* 303 */
 /***/ function(module, exports) {
 
 	/** Used for built-in method references. */
@@ -30865,11 +29762,11 @@
 
 
 /***/ },
-/* 309 */
+/* 304 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var baseIsArguments = __webpack_require__(310),
-	    isObjectLike = __webpack_require__(311);
+	var baseIsArguments = __webpack_require__(305),
+	    isObjectLike = __webpack_require__(306);
 	
 	/** Used for built-in method references. */
 	var objectProto = Object.prototype;
@@ -30907,11 +29804,11 @@
 
 
 /***/ },
-/* 310 */
+/* 305 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var baseGetTag = __webpack_require__(266),
-	    isObjectLike = __webpack_require__(311);
+	var baseGetTag = __webpack_require__(261),
+	    isObjectLike = __webpack_require__(306);
 	
 	/** `Object#toString` result references. */
 	var argsTag = '[object Arguments]';
@@ -30931,7 +29828,7 @@
 
 
 /***/ },
-/* 311 */
+/* 306 */
 /***/ function(module, exports) {
 
 	/**
@@ -30966,7 +29863,7 @@
 
 
 /***/ },
-/* 312 */
+/* 307 */
 /***/ function(module, exports) {
 
 	/**
@@ -30998,11 +29895,11 @@
 
 
 /***/ },
-/* 313 */
+/* 308 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var isArrayLike = __webpack_require__(314),
-	    isObjectLike = __webpack_require__(311);
+	var isArrayLike = __webpack_require__(309),
+	    isObjectLike = __webpack_require__(306);
 	
 	/**
 	 * This method is like `_.isArrayLike` except that it also checks if `value`
@@ -31037,11 +29934,11 @@
 
 
 /***/ },
-/* 314 */
+/* 309 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var isFunction = __webpack_require__(265),
-	    isLength = __webpack_require__(315);
+	var isFunction = __webpack_require__(260),
+	    isLength = __webpack_require__(310);
 	
 	/**
 	 * Checks if `value` is array-like. A value is considered array-like if it's
@@ -31076,7 +29973,7 @@
 
 
 /***/ },
-/* 315 */
+/* 310 */
 /***/ function(module, exports) {
 
 	/** Used as references for various `Number` constants. */
@@ -31117,11 +30014,11 @@
 
 
 /***/ },
-/* 316 */
+/* 311 */
 /***/ function(module, exports, __webpack_require__) {
 
-	/* WEBPACK VAR INJECTION */(function(module) {var root = __webpack_require__(268),
-	    stubFalse = __webpack_require__(317);
+	/* WEBPACK VAR INJECTION */(function(module) {var root = __webpack_require__(263),
+	    stubFalse = __webpack_require__(312);
 	
 	/** Detect free variable `exports`. */
 	var freeExports = typeof exports == 'object' && exports && !exports.nodeType && exports;
@@ -31159,10 +30056,10 @@
 	
 	module.exports = isBuffer;
 	
-	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(299)(module)))
+	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(294)(module)))
 
 /***/ },
-/* 317 */
+/* 312 */
 /***/ function(module, exports) {
 
 	/**
@@ -31186,12 +30083,12 @@
 
 
 /***/ },
-/* 318 */
+/* 313 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var baseGetTag = __webpack_require__(266),
-	    getPrototype = __webpack_require__(306),
-	    isObjectLike = __webpack_require__(311);
+	var baseGetTag = __webpack_require__(261),
+	    getPrototype = __webpack_require__(301),
+	    isObjectLike = __webpack_require__(306);
 	
 	/** `Object#toString` result references. */
 	var objectTag = '[object Object]';
@@ -31254,12 +30151,12 @@
 
 
 /***/ },
-/* 319 */
+/* 314 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var baseIsTypedArray = __webpack_require__(320),
-	    baseUnary = __webpack_require__(321),
-	    nodeUtil = __webpack_require__(322);
+	var baseIsTypedArray = __webpack_require__(315),
+	    baseUnary = __webpack_require__(316),
+	    nodeUtil = __webpack_require__(317);
 	
 	/* Node.js helper references. */
 	var nodeIsTypedArray = nodeUtil && nodeUtil.isTypedArray;
@@ -31287,12 +30184,12 @@
 
 
 /***/ },
-/* 320 */
+/* 315 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var baseGetTag = __webpack_require__(266),
-	    isLength = __webpack_require__(315),
-	    isObjectLike = __webpack_require__(311);
+	var baseGetTag = __webpack_require__(261),
+	    isLength = __webpack_require__(310),
+	    isObjectLike = __webpack_require__(306);
 	
 	/** `Object#toString` result references. */
 	var argsTag = '[object Arguments]',
@@ -31353,7 +30250,7 @@
 
 
 /***/ },
-/* 321 */
+/* 316 */
 /***/ function(module, exports) {
 
 	/**
@@ -31373,10 +30270,10 @@
 
 
 /***/ },
-/* 322 */
+/* 317 */
 /***/ function(module, exports, __webpack_require__) {
 
-	/* WEBPACK VAR INJECTION */(function(module) {var freeGlobal = __webpack_require__(269);
+	/* WEBPACK VAR INJECTION */(function(module) {var freeGlobal = __webpack_require__(264);
 	
 	/** Detect free variable `exports`. */
 	var freeExports = typeof exports == 'object' && exports && !exports.nodeType && exports;
@@ -31399,14 +30296,14 @@
 	
 	module.exports = nodeUtil;
 	
-	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(299)(module)))
+	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(294)(module)))
 
 /***/ },
-/* 323 */
+/* 318 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var copyObject = __webpack_require__(324),
-	    keysIn = __webpack_require__(326);
+	var copyObject = __webpack_require__(319),
+	    keysIn = __webpack_require__(321);
 	
 	/**
 	 * Converts `value` to a plain object flattening inherited enumerable string
@@ -31440,11 +30337,11 @@
 
 
 /***/ },
-/* 324 */
+/* 319 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var assignValue = __webpack_require__(325),
-	    baseAssignValue = __webpack_require__(293);
+	var assignValue = __webpack_require__(320),
+	    baseAssignValue = __webpack_require__(288);
 	
 	/**
 	 * Copies properties of `source` to `object`.
@@ -31486,11 +30383,11 @@
 
 
 /***/ },
-/* 325 */
+/* 320 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var baseAssignValue = __webpack_require__(293),
-	    eq = __webpack_require__(253);
+	var baseAssignValue = __webpack_require__(288),
+	    eq = __webpack_require__(248);
 	
 	/** Used for built-in method references. */
 	var objectProto = Object.prototype;
@@ -31520,12 +30417,12 @@
 
 
 /***/ },
-/* 326 */
+/* 321 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var arrayLikeKeys = __webpack_require__(327),
-	    baseKeysIn = __webpack_require__(330),
-	    isArrayLike = __webpack_require__(314);
+	var arrayLikeKeys = __webpack_require__(322),
+	    baseKeysIn = __webpack_require__(325),
+	    isArrayLike = __webpack_require__(309);
 	
 	/**
 	 * Creates an array of the own and inherited enumerable property names of `object`.
@@ -31558,15 +30455,15 @@
 
 
 /***/ },
-/* 327 */
+/* 322 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var baseTimes = __webpack_require__(328),
-	    isArguments = __webpack_require__(309),
-	    isArray = __webpack_require__(312),
-	    isBuffer = __webpack_require__(316),
-	    isIndex = __webpack_require__(329),
-	    isTypedArray = __webpack_require__(319);
+	var baseTimes = __webpack_require__(323),
+	    isArguments = __webpack_require__(304),
+	    isArray = __webpack_require__(307),
+	    isBuffer = __webpack_require__(311),
+	    isIndex = __webpack_require__(324),
+	    isTypedArray = __webpack_require__(314);
 	
 	/** Used for built-in method references. */
 	var objectProto = Object.prototype;
@@ -31613,7 +30510,7 @@
 
 
 /***/ },
-/* 328 */
+/* 323 */
 /***/ function(module, exports) {
 
 	/**
@@ -31639,7 +30536,7 @@
 
 
 /***/ },
-/* 329 */
+/* 324 */
 /***/ function(module, exports) {
 
 	/** Used as references for various `Number` constants. */
@@ -31667,12 +30564,12 @@
 
 
 /***/ },
-/* 330 */
+/* 325 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var isObject = __webpack_require__(272),
-	    isPrototype = __webpack_require__(308),
-	    nativeKeysIn = __webpack_require__(331);
+	var isObject = __webpack_require__(267),
+	    isPrototype = __webpack_require__(303),
+	    nativeKeysIn = __webpack_require__(326);
 	
 	/** Used for built-in method references. */
 	var objectProto = Object.prototype;
@@ -31706,7 +30603,7 @@
 
 
 /***/ },
-/* 331 */
+/* 326 */
 /***/ function(module, exports) {
 
 	/**
@@ -31732,11 +30629,11 @@
 
 
 /***/ },
-/* 332 */
+/* 327 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var baseRest = __webpack_require__(333),
-	    isIterateeCall = __webpack_require__(341);
+	var baseRest = __webpack_require__(328),
+	    isIterateeCall = __webpack_require__(336);
 	
 	/**
 	 * Creates a function like `_.assign`.
@@ -31775,12 +30672,12 @@
 
 
 /***/ },
-/* 333 */
+/* 328 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var identity = __webpack_require__(334),
-	    overRest = __webpack_require__(335),
-	    setToString = __webpack_require__(337);
+	var identity = __webpack_require__(329),
+	    overRest = __webpack_require__(330),
+	    setToString = __webpack_require__(332);
 	
 	/**
 	 * The base implementation of `_.rest` which doesn't validate or coerce arguments.
@@ -31798,7 +30695,7 @@
 
 
 /***/ },
-/* 334 */
+/* 329 */
 /***/ function(module, exports) {
 
 	/**
@@ -31825,10 +30722,10 @@
 
 
 /***/ },
-/* 335 */
+/* 330 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var apply = __webpack_require__(336);
+	var apply = __webpack_require__(331);
 	
 	/* Built-in method references for those with the same name as other `lodash` methods. */
 	var nativeMax = Math.max;
@@ -31867,7 +30764,7 @@
 
 
 /***/ },
-/* 336 */
+/* 331 */
 /***/ function(module, exports) {
 
 	/**
@@ -31894,11 +30791,11 @@
 
 
 /***/ },
-/* 337 */
+/* 332 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var baseSetToString = __webpack_require__(338),
-	    shortOut = __webpack_require__(340);
+	var baseSetToString = __webpack_require__(333),
+	    shortOut = __webpack_require__(335);
 	
 	/**
 	 * Sets the `toString` method of `func` to return `string`.
@@ -31914,12 +30811,12 @@
 
 
 /***/ },
-/* 338 */
+/* 333 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var constant = __webpack_require__(339),
-	    defineProperty = __webpack_require__(294),
-	    identity = __webpack_require__(334);
+	var constant = __webpack_require__(334),
+	    defineProperty = __webpack_require__(289),
+	    identity = __webpack_require__(329);
 	
 	/**
 	 * The base implementation of `setToString` without support for hot loop shorting.
@@ -31942,7 +30839,7 @@
 
 
 /***/ },
-/* 339 */
+/* 334 */
 /***/ function(module, exports) {
 
 	/**
@@ -31974,7 +30871,7 @@
 
 
 /***/ },
-/* 340 */
+/* 335 */
 /***/ function(module, exports) {
 
 	/** Used to detect hot functions by number of calls within a span of milliseconds. */
@@ -32017,13 +30914,13 @@
 
 
 /***/ },
-/* 341 */
+/* 336 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var eq = __webpack_require__(253),
-	    isArrayLike = __webpack_require__(314),
-	    isIndex = __webpack_require__(329),
-	    isObject = __webpack_require__(272);
+	var eq = __webpack_require__(248),
+	    isArrayLike = __webpack_require__(309),
+	    isIndex = __webpack_require__(324),
+	    isObject = __webpack_require__(267);
 	
 	/**
 	 * Checks if the given arguments are from an iteratee call.
@@ -32053,199 +30950,7 @@
 
 
 /***/ },
-/* 342 */
-/***/ function(module, exports, __webpack_require__) {
-
-	"use strict";
-	
-	Object.defineProperty(exports, "__esModule", {
-	  value: true
-	});
-	
-	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-	
-	var _react = __webpack_require__(1);
-	
-	var _react2 = _interopRequireDefault(_react);
-	
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-	
-	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-	
-	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-	
-	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-	
-	var BinarySearchExercise = function (_React$Component) {
-	  _inherits(BinarySearchExercise, _React$Component);
-	
-	  function BinarySearchExercise(props) {
-	    _classCallCheck(this, BinarySearchExercise);
-	
-	    var _this = _possibleConstructorReturn(this, (BinarySearchExercise.__proto__ || Object.getPrototypeOf(BinarySearchExercise)).call(this, props));
-	
-	    var target = Math.floor(Math.random() * 10 + 1);
-	
-	    _this.state = {
-	      target: target,
-	      array: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10],
-	      hiddenArray: ["?", "?", "?", "?", "?", "?", "?", "?", "?", "?"],
-	      showArray: ["?", "?", "?", "?", "?", "?", "?", "?", "?", "?"],
-	      currentArrayLength: 10,
-	      currentBaseIdx: 0,
-	      currentEndIdx: 9,
-	      message: 1
-	    };
-	
-	    _this.generateNewExercise = _this.generateNewExercise.bind(_this);
-	    _this.revealNumber = _this.revealNumber.bind(_this);
-	    return _this;
-	  }
-	
-	  _createClass(BinarySearchExercise, [{
-	    key: "generateNewExercise",
-	    value: function generateNewExercise() {
-	      var target = Math.floor(Math.random() * 10 + 1);
-	      if (document.getElementById("bsearch-found-midpoint")) {
-	        document.getElementById("bsearch-found-midpoint").removeAttribute("id");
-	      }
-	
-	      this.setState({
-	        target: target,
-	        array: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10],
-	        hiddenArray: ["?", "?", "?", "?", "?", "?", "?", "?", "?", "?"],
-	        showArray: ["?", "?", "?", "?", "?", "?", "?", "?", "?", "?"],
-	        currentArrayLength: 10,
-	        currentBaseIdx: 0,
-	        currentEndIdx: 9,
-	        message: 1
-	      });
-	    }
-	  }, {
-	    key: "revealNumber",
-	    value: function revealNumber(e) {
-	      e.preventDefault();
-	      var idx = parseInt(e.target.id);
-	      var _state = this.state,
-	          target = _state.target,
-	          array = _state.array,
-	          hiddenArray = _state.hiddenArray,
-	          showArray = _state.showArray,
-	          currentArrayLength = _state.currentArrayLength,
-	          currentBaseIdx = _state.currentBaseIdx,
-	          currentEndIdx = _state.currentEndIdx,
-	          message = _state.message;
-	
-	
-	      if (idx === Math.floor(currentArrayLength / 2) + currentBaseIdx) {
-	        showArray[idx] = array[idx];
-	
-	        if (target === array[idx]) {
-	          message = 3;
-	          e.target.id = "bsearch-found-midpoint";
-	        } else if (target > array[idx]) {
-	          currentBaseIdx = idx + 1;
-	          currentArrayLength = currentEndIdx - idx;
-	          message = 1;
-	        } else {
-	          currentEndIdx = idx - 1;
-	          currentArrayLength = idx - currentBaseIdx;
-	          message = 1;
-	        }
-	        this.setState({
-	          showArray: showArray,
-	          target: target,
-	          array: array,
-	          hiddenArray: hiddenArray,
-	          currentArrayLength: currentArrayLength,
-	          currentBaseIdx: currentBaseIdx,
-	          currentEndIdx: currentEndIdx,
-	          message: message
-	        });
-	      } else {
-	        message = 2;
-	        this.setState({
-	          message: message
-	        });
-	      }
-	    }
-	  }, {
-	    key: "message",
-	    value: function message() {
-	      if (this.state.message === 1) {
-	        return _react2.default.createElement(
-	          "div",
-	          null,
-	          "Reveal the midpoint"
-	        );
-	      } else if (this.state.message === 2) {
-	        return _react2.default.createElement(
-	          "div",
-	          null,
-	          "Incorrect midpoint"
-	        );
-	      } else {
-	        return _react2.default.createElement(
-	          "div",
-	          null,
-	          "Target found!"
-	        );
-	      }
-	    }
-	  }, {
-	    key: "render",
-	    value: function render() {
-	      var _this2 = this;
-	
-	      return _react2.default.createElement(
-	        "div",
-	        { className: "bsearch-exercise-container" },
-	        "Try it out yourself!",
-	        _react2.default.createElement(
-	          "button",
-	          {
-	            onClick: this.generateNewExercise,
-	            className: "bsearch-new-exercise-button" },
-	          "New Exercise"
-	        ),
-	        _react2.default.createElement(
-	          "div",
-	          { className: "bsearch-exercise-find-target" },
-	          "Find: ",
-	          this.state.target
-	        ),
-	        _react2.default.createElement(
-	          "div",
-	          { className: "bsearch-exercise-buttons" },
-	          this.state.showArray.map(function (num, idx) {
-	            return _react2.default.createElement(
-	              "button",
-	              {
-	                key: idx,
-	                id: "" + idx,
-	                className: "bsearch-exercise-button",
-	                onClick: _this2.revealNumber },
-	              num
-	            );
-	          })
-	        ),
-	        _react2.default.createElement(
-	          "div",
-	          { className: "bsearch-message" },
-	          this.message()
-	        )
-	      );
-	    }
-	  }]);
-	
-	  return BinarySearchExercise;
-	}(_react2.default.Component);
-	
-	exports.default = BinarySearchExercise;
-
-/***/ },
-/* 343 */,
-/* 344 */
+/* 337 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -32541,6 +31246,1381 @@
 	}(_react2.default.Component);
 	
 	exports.default = MergeSortExercise;
+
+/***/ },
+/* 338 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+	
+	var _react = __webpack_require__(1);
+	
+	var _react2 = _interopRequireDefault(_react);
+	
+	var _quick_sort_class = __webpack_require__(339);
+	
+	var _quick_sort_class2 = _interopRequireDefault(_quick_sort_class);
+	
+	var _solution = __webpack_require__(237);
+	
+	var _solution2 = _interopRequireDefault(_solution);
+	
+	var _quick_sort_exercise = __webpack_require__(340);
+	
+	var _quick_sort_exercise2 = _interopRequireDefault(_quick_sort_exercise);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+	
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+	
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+	
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+	
+	var QuickSort = function (_React$Component) {
+	  _inherits(QuickSort, _React$Component);
+	
+	  function QuickSort() {
+	    _classCallCheck(this, QuickSort);
+	
+	    var _this = _possibleConstructorReturn(this, (QuickSort.__proto__ || Object.getPrototypeOf(QuickSort)).call(this));
+	
+	    _this.state = {
+	      iterationCounter: 0,
+	      solved: false,
+	      update: false,
+	      demoStarted: false,
+	      exerciseStarted: false
+	    };
+	    _this.addClassIntervalSpeed = 100;
+	    _this.showDeconsctructedArraySpeed = 100;
+	    _this.resetIterationIntervalSpeed = 100;
+	    _this.switchArrayToSubarraySpeed = 100;
+	    _this.clearSubArraySpeed = 100;
+	    _this.pivot = _this.pivot.bind(_this);
+	    _this.handleArrayShuffle = _this.handleArrayShuffle.bind(_this);
+	    _this.addClassName = _this.addClassName.bind(_this);
+	    _this.renderQuickSortChange = _this.renderQuickSortChange.bind(_this);
+	    _this.handleClickStart = _this.handleClickStart.bind(_this);
+	    _this.classClear = _this.classClear.bind(_this);
+	    _this.handleChildClick = _this.handleChildClick.bind(_this);
+	    // this.startArray = [3, 8, 12, 6, 5, 18, 17, 19, 9]
+	
+	    _this.startArray = _this.randomArray();
+	    var newQuickSort = new _quick_sort_class2.default();
+	    _this.sorting = newQuickSort.quickSort(_this.startArray);
+	    _this.result = newQuickSort.result();
+	    return _this;
+	  }
+	
+	  _createClass(QuickSort, [{
+	    key: 'randomArray',
+	    value: function randomArray() {
+	      var newArr = [];
+	      var arrLength = Math.floor(Math.random() * 3 + 6);
+	      for (var i = 0; i < arrLength; i++) {
+	        var newNum = Math.floor(Math.random() * 20);
+	        if (!newArr.includes(newNum)) {
+	          newArr.push(newNum);
+	        } else {
+	          i--;
+	        }
+	      }
+	      return newArr;
+	    }
+	  }, {
+	    key: 'update',
+	    value: function update(input) {
+	      var _this2 = this;
+	
+	      return function (e) {
+	        return _this2.setState(_defineProperty({}, input, e.currentTarget.value));
+	      };
+	    }
+	  }, {
+	    key: 'clearDeconstructedArray',
+	    value: function clearDeconstructedArray() {
+	      ["pivot", "smaller", "larger"].forEach(function (el) {
+	        var i = document.getElementsByClassName(el + 'Show');
+	        while (i.length) {
+	          i[0].className = el + 'Hidden';
+	        }
+	      });
+	    }
+	  }, {
+	    key: 'classClear',
+	    value: function classClear() {
+	      var _this3 = this;
+	
+	      ["smaller", "larger", "active", "hidden", "unfocused"].forEach(function (el) {
+	        var nums = document.getElementsByClassName(el);
+	        var j = 0;
+	        while (j < nums.length && nums.length > 0) {
+	          var currArray = _this3.result[_this3.state.iterationCounter][0];
+	          var num = parseInt(nums[j].getAttribute("name"));
+	          if (currArray.includes(num)) {
+	            nums[j].className = "active";
+	          } else {
+	            nums[j].className = "unfocused";
+	          }
+	          j += 1;
+	        }
+	      });
+	    }
+	  }, {
+	    key: 'findIndexes',
+	    value: function findIndexes() {
+	      var newArr = [];
+	      var sortedSet = this.result[this.state.iterationCounter][2].concat(this.result[this.state.iterationCounter][3]).concat(this.result[this.state.iterationCounter][1]);
+	      for (var i = 0; i < sortedSet.length; i++) {
+	        var idx = this.startArray.indexOf(sortedSet[i]);
+	        newArr.push(idx);
+	      }
+	      return newArr.sort(function (a, b) {
+	        return a - b;
+	      });
+	    }
+	  }, {
+	    key: 'insertArrayByIndex',
+	    value: function insertArrayByIndex() {
+	      var indexSet = this.findIndexes();
+	      var sortedSet = this.result[this.state.iterationCounter][2].concat(this.result[this.state.iterationCounter][3]).concat(this.result[this.state.iterationCounter][1]);
+	      for (var i = 0; i < indexSet.length; i++) {
+	        this.startArray[indexSet[i]] = sortedSet[i];
+	      }
+	    }
+	  }, {
+	    key: 'addClassName',
+	    value: function addClassName() {
+	      var _this4 = this;
+	
+	      this.classClear();
+	      var x = document.getElementsByClassName('active');
+	      var count = x.length;
+	      var counter = 0;
+	      var pivotNum = this.result[this.state.iterationCounter][3][0];
+	      this.addClassInterval = setInterval(function () {
+	        if (!x.length) {
+	          clearInterval(_this4.addClassInterval);
+	          _this4.showSmaller();
+	          return;
+	        }
+	        var currNum = parseInt(x[0].getAttribute("name"));
+	        if (currNum === pivotNum) {
+	          x[0].className = "pivot";
+	        } else if (currNum > pivotNum) {
+	          x[0].className = "larger";
+	        } else if (currNum < pivotNum) {
+	          x[0].className = "smaller";
+	        }
+	        counter += 1;
+	      }, this.addClassIntervalSpeed);
+	    }
+	  }, {
+	    key: 'showSmaller',
+	    value: function showSmaller() {
+	      var _this5 = this;
+	
+	      var counter = 0;
+	      this.switchSmaller = setInterval(function () {
+	        switch (counter) {
+	          case 1:
+	            var i = document.getElementsByClassName("smaller");
+	            while (i.length) {
+	              i[0].className = "hidden";
+	            }
+	          case 2:
+	            var i = document.getElementsByClassName("smallerHidden");
+	            if (_this5.result[_this5.state.iterationCounter][2].length > 0) {
+	              while (i.length) {
+	                i[0].className = "smallerShow";
+	              }
+	              var j = document.getElementsByClassName("smallerTextHidden");
+	              j[0].className = "smallerTextShow";
+	            }
+	          case 3:
+	            clearInterval(_this5.switchSmaller);
+	            _this5.showPivot();
+	            return;
+	        }
+	        counter += 1;
+	      }, this.switchArrayToSubarraySpeed);
+	    }
+	  }, {
+	    key: 'showPivot',
+	    value: function showPivot() {
+	      var _this6 = this;
+	
+	      var counter = 0;
+	      this.switchPivot = setInterval(function () {
+	        switch (counter) {
+	          case 1:
+	            var i = document.getElementsByClassName("pivot");
+	            while (i.length) {
+	              i[0].className = "hidden";
+	            }
+	          case 2:
+	            var i = document.getElementsByClassName("pivotHidden");
+	            while (i.length) {
+	              i[0].className = "pivotShow";
+	              var j = document.getElementsByClassName("pivotTextHidden");
+	              j[0].className = "pivotTextShow";
+	            }
+	          case 3:
+	            clearInterval(_this6.switchPivot);
+	            _this6.showLarger();
+	            return;
+	        }
+	        counter += 1;
+	      }, this.switchArrayToSubarraySpeed);
+	    }
+	  }, {
+	    key: 'showLarger',
+	    value: function showLarger() {
+	      var _this7 = this;
+	
+	      var counter = 0;
+	      this.switchLarger = setInterval(function () {
+	        switch (counter) {
+	          case 1:
+	            var i = document.getElementsByClassName("larger");
+	            while (i.length) {
+	              i[0].className = "hidden";
+	            }
+	          case 2:
+	            var i = document.getElementsByClassName("largerHidden");
+	            if (_this7.result[_this7.state.iterationCounter][1].length > 0) {
+	              while (i.length) {
+	                i[0].className = "largerShow";
+	              }
+	              var j = document.getElementsByClassName("largerTextHidden");
+	              j[0].className = "largerTextShow";
+	            }
+	          case 3:
+	            clearInterval(_this7.switchLarger);
+	            _this7.renderHiddenSortedAndClearSubArray();
+	            return;
+	        }
+	        counter += 1;
+	      }, this.switchArrayToSubarraySpeed);
+	    }
+	  }, {
+	    key: 'renderHiddenSortedAndClearSubArray',
+	    value: function renderHiddenSortedAndClearSubArray() {
+	      var _this8 = this;
+	
+	      var counter = 0;
+	      this.clearSubArray = setInterval(function () {
+	        var currentArray = _this8.result[_this8.state.iterationCounter][0];
+	        switch (counter) {
+	          case 1:
+	            _this8.insertArrayByIndex();
+	            _this8.forceUpdate();
+	          case 2:
+	            ["pivotShow", "largerShow", "smallerShow", "pivotTextShow", "largerTextShow", "smallerTextShow"].forEach(function (subArrayClass) {
+	              var i = document.getElementsByClassName(subArrayClass);
+	              while (i.length) {
+	                i[0].className = subArrayClass.replace("Show", "Hidden");
+	              }
+	            });
+	          case 3:
+	            var nums = document.getElementsByClassName("hidden");
+	            var pivotNum = _this8.result[_this8.state.iterationCounter][3][0].toString();
+	            var activeArray = _this8.result[_this8.state.iterationCounter][0];
+	            var pivot = _this8.result[_this8.state.iterationCounter][3];
+	            var smaller = _this8.result[_this8.state.iterationCounter][2];
+	            var larger = _this8.result[_this8.state.iterationCounter][1];
+	            var smallPivot = _this8.result[_this8.state.iterationCounter][2].concat(_this8.result[_this8.state.iterationCounter][3]);
+	            var pivotLarge = _this8.result[_this8.state.iterationCounter][3].concat(_this8.result[_this8.state.iterationCounter][1]);
+	            if (_this8.result[_this8.state.iterationCounter][3].length < 2 && _this8.result[_this8.state.iterationCounter][3].length > 0) {
+	              var largest = document.querySelectorAll('[name="' + _this8.result[_this8.state.iterationCounter][3][0] + '"]');
+	              largest[0].className = "sorted";
+	            }
+	            if (activeArray.length < 3) {
+	              var sorted = document.getElementsByClassName("active");
+	              while (nums[0]) {
+	                nums[0].className = "sorted";
+	              }
+	            }
+	            if (pivot.length === 1 && smaller.length === 1 && larger.length === 1) {
+	              var sorted = document.getElementsByClassName("hidden");
+	              for (var i = 0; i < sorted.length; i++) {
+	                if (sorted[i]) {
+	                  if (smallPivot.includes(parseInt(sorted[i].getAttribute("name")))) {
+	                    sorted[i].className = "sorted";
+	                  }
+	                }
+	              }
+	            }
+	            if (smallPivot.length < 3) {
+	              var sorted = document.getElementsByClassName("hidden");
+	              for (var _i = 0; _i < sorted.length; _i++) {
+	                if (sorted[_i]) {
+	                  if (smallPivot.includes(parseInt(sorted[_i].getAttribute("name")))) {
+	                    sorted[_i].className = "sorted";
+	                  }
+	                }
+	              }
+	            }
+	
+	            if (pivotLarge.length < 3) {
+	              // for (let j=0; j < 3; j++){
+	              var sorted = document.getElementsByClassName("hidden");
+	              for (var _i2 = 0; _i2 < sorted.length; _i2++) {
+	
+	                // if (sorted[i].getAttribute("name")){
+	                if (pivotLarge.includes(parseInt(sorted[_i2].getAttribute("name")))) {
+	                  sorted[_i2].className = "sorted";
+	                }
+	                // }
+	              }
+	              // }
+	            }
+	            clearInterval(_this8.clearSubArray);
+	          case 4:
+	            if (_this8.result[_this8.state.iterationCounter + 1][0].length < 1) {
+	              _this8.setState({ solved: true, demoStarted: false });
+	            } else {
+	              _this8.setState({ iterationCounter: _this8.state.iterationCounter += 1 });
+	              _this8.setNewActiveElements();
+	            }
+	        }
+	        counter += 1;
+	      }, this.clearSubArraySpeed);
+	    }
+	  }, {
+	    key: 'setNewActiveElements',
+	    value: function setNewActiveElements() {
+	      var currentArray = this.result[this.state.iterationCounter][0];
+	      var pivotNum = this.result[this.state.iterationCounter - 1][3][0];
+	      for (var x = 0; x < 20; x++) {
+	        ["hidden", "active", "unfocused"].forEach(function (el) {
+	          var j = document.getElementsByClassName(el);
+	          for (var i = 0; i < j.length; i++) {
+	            var num = parseInt(j[i].getAttribute("name"));
+	            var test = currentArray.includes(num);
+	            if (num === pivotNum) {
+	              j[i].className = "sorted";
+	            } else if (!test) {
+	              j[i].className = "unfocused";
+	            } else if (test) {
+	              j[i].className = "active";
+	            }
+	          }
+	        });
+	      }
+	      this.addClassName();
+	    }
+	  }, {
+	    key: 'showDeconsctructedArray',
+	    value: function showDeconsctructedArray() {
+	      var _this9 = this;
+	
+	      var counter = 0;
+	      this.deconstructArrayInterval = setInterval(function () {
+	        if (counter === 6) {
+	          clearInterval(_this9.deconstructArrayInterval);
+	          _this9.resetIteration();
+	          _this9.reRenderFullArray();
+	          return;
+	        }
+	        if (counter === 1) {
+	          _this9.showPivot();
+	        } else if (counter === 2) {
+	          _this9.showSmaller();
+	        } else if (counter === 3) {
+	          _this9.showLarger();
+	        }
+	        counter += 1;
+	      }, this.showDeconsctructedArraySpeed);
+	    }
+	  }, {
+	    key: 'resetIteration',
+	    value: function resetIteration() {
+	      var _this10 = this;
+	
+	      var counter = 0;
+	      this.resetIterationInterval = setInterval(function () {
+	        if (counter === 1) {
+	          _this10.insertArrayByIndex();
+	          _this10.setState({ iterationCounter: _this10.state.iterationCounter += 1 });
+	          _this10.classClear();
+	          if (_this10.result[_this10.state.iterationCounter]) {
+	            _this10.addClassName();
+	          } else {
+	            _this10.setState({ demoStarted: false });
+	            return;
+	          }
+	        } else if (counter === 2) {
+	          _this10.clearDeconstructedArray();
+	        } else if (counter === 3) {
+	          clearInterval(_this10.resetIterationInterval);
+	        }
+	        counter += 1;
+	      }, this.resetIterationIntervalSpeed);
+	    }
+	  }, {
+	    key: 'renderQuickSortChange',
+	    value: function renderQuickSortChange() {
+	      this.addClassName();
+	    }
+	  }, {
+	    key: 'reRenderFullArray',
+	    value: function reRenderFullArray() {
+	      ["pivot", "smaller", "larger"].forEach(function (el) {
+	        var i = document.getElementsByClassName(el);
+	        while (i.length) {
+	          i[0].className = 'active';
+	        }
+	      });
+	    }
+	  }, {
+	    key: 'pivot',
+	    value: function pivot() {
+	      return _react2.default.createElement(
+	        'span',
+	        { className: 'pivotHidden' },
+	        this.result[this.state.iterationCounter][3].toString()
+	      );
+	    }
+	  }, {
+	    key: 'largerThanPivot',
+	    value: function largerThanPivot() {
+	      return this.result[this.state.iterationCounter][1].map(function (el, i) {
+	        return _react2.default.createElement(
+	          'span',
+	          { key: i, className: 'largerHidden' },
+	          ' ',
+	          el,
+	          ' '
+	        );
+	      });
+	    }
+	  }, {
+	    key: 'smallerThanPivot',
+	    value: function smallerThanPivot() {
+	      return this.result[this.state.iterationCounter][2].map(function (el, i) {
+	        return _react2.default.createElement(
+	          'span',
+	          { key: i, className: 'smallerHidden' },
+	          ' ',
+	          el,
+	          ' '
+	        );
+	      });
+	    }
+	  }, {
+	    key: 'handleClickStart',
+	    value: function handleClickStart() {
+	      var _this11 = this;
+	
+	      console.log(this.result[this.state.iterationCounter + 1]);
+	      if (this.result[this.state.iterationCounter + 1][3].length > 0 && this.state.demoStarted) {
+	        return;
+	      }
+	      var init = document.getElementsByClassName("quicksortIdle");
+	      while (init.length) {
+	        init[0].className = "active";
+	      }
+	      console.log(this.result[this.state.iterationCounter + 1][3]);
+	      if (this.result[this.state.iterationCounter + 1][3].length > 0) {
+	        this.setState({ demoStarted: true });
+	        this.addClassName();
+	      } else {
+	        var counter = 0;
+	        this.handleArrayShuffle();
+	        this.resetSort = setInterval(function () {
+	          switch (counter) {
+	            case 1:
+	              _this11.setState({ demoStarted: true });
+	            case 3:
+	              _this11.addClassName();
+	              clearInterval(_this11.resetSort);
+	              return;
+	          }
+	          counter += 1;
+	        }, 400);
+	      }
+	    }
+	  }, {
+	    key: 'focusAll',
+	    value: function focusAll() {
+	      for (var i = 0; i < 8; i++) {
+	        ["unfocused", "hidden", "smaller", "larger"].forEach(function (el) {
+	          var nums = document.getElementsByClassName(el);
+	          while (nums.length) {
+	            nums[0].className = "sorted";
+	          }
+	        });
+	      }
+	    }
+	  }, {
+	    key: 'trueArray',
+	    value: function trueArray() {
+	      return this.startArray.map(function (el, i) {
+	        return _react2.default.createElement(
+	          'span',
+	          { name: el, id: i, key: i, className: 'quicksortIdle' },
+	          ' ',
+	          el
+	        );
+	      });
+	    }
+	  }, {
+	    key: 'handleArrayShuffle',
+	    value: function handleArrayShuffle() {
+	      var _this12 = this;
+	
+	      var counter = 0;
+	      if (this.state.demoStarted) {
+	        return;
+	      }
+	      this.shuffleArray = setInterval(function () {
+	        switch (counter) {
+	          case 1:
+	            _this12.setState({ iterationCounter: 0, solved: false });
+	            _this12.startArray = _this12.randomArray();
+	            var newQuickSort = new _quick_sort_class2.default();
+	            _this12.sorting = newQuickSort.quickSort(_this12.startArray);
+	            _this12.result = newQuickSort.result();
+	            var init = document.getElementsByClassName("sorted");
+	            while (init.length) {
+	              init[0].className = "quicksortIdle";
+	            }
+	          case 2:
+	            _this12.resetArray();
+	          case 3:
+	            clearInterval(_this12.shuffleArray);
+	            _this12.setState({ demoStarted: false });
+	            _this12.forceUpdate();
+	        }
+	        counter += 1;
+	      }, 1);
+	    }
+	  }, {
+	    key: 'resetArray',
+	    value: function resetArray() {
+	      ["unfocused", "hidden", "smaller", "larger", "sorted"].forEach(function (el) {
+	        var nums = document.getElementsByClassName(el);
+	        while (nums.length) {
+	          nums[0].className = "active";
+	        }
+	      });
+	    }
+	  }, {
+	    key: 'handleChildClick',
+	    value: function handleChildClick() {
+	      if (this.state.exerciseStarted) {
+	        this.setState({ exerciseStarted: false });
+	      } else {
+	        this.setState({ exerciseStarted: true });
+	      }
+	    }
+	  }, {
+	    key: 'render',
+	    value: function render() {
+	      return _react2.default.createElement(
+	        'div',
+	        { className: 'main-container' },
+	        _react2.default.createElement(
+	          'div',
+	          { className: 'demo-and-exercise' },
+	          _react2.default.createElement(
+	            'div',
+	            { className: 'quicksort-demo' },
+	            _react2.default.createElement(
+	              'div',
+	              { className: 'quicksort-demo-buttons' },
+	              _react2.default.createElement(
+	                'div',
+	                null,
+	                _react2.default.createElement(
+	                  'button',
+	                  { onClick: this.handleClickStart, className: 'quicksort-demo-start' },
+	                  'Start'
+	                )
+	              ),
+	              _react2.default.createElement(
+	                'div',
+	                null,
+	                _react2.default.createElement(
+	                  'button',
+	                  { onClick: this.handleArrayShuffle, className: 'quicksort-demo-newarray' },
+	                  'New Array'
+	                )
+	              )
+	            ),
+	            _react2.default.createElement(
+	              'div',
+	              { className: 'quicksort-demo-array' },
+	              this.trueArray()
+	            ),
+	            this.state.solved ? this.focusAll() : null,
+	            _react2.default.createElement(
+	              'div',
+	              { className: 'subarray-container' },
+	              _react2.default.createElement(
+	                'div',
+	                { className: 'subarray-output' },
+	                _react2.default.createElement(
+	                  'div',
+	                  { className: 'subarray' },
+	                  this.smallerThanPivot()
+	                ),
+	                _react2.default.createElement(
+	                  'div',
+	                  { className: 'smallerTextHidden' },
+	                  'smaller'
+	                )
+	              ),
+	              _react2.default.createElement(
+	                'div',
+	                { className: 'subarray-output' },
+	                _react2.default.createElement(
+	                  'div',
+	                  { className: 'subarray' },
+	                  this.pivot()
+	                ),
+	                _react2.default.createElement(
+	                  'div',
+	                  { className: 'pivotTextHidden' },
+	                  'pivot'
+	                )
+	              ),
+	              _react2.default.createElement(
+	                'div',
+	                { className: 'subarray-output' },
+	                _react2.default.createElement(
+	                  'div',
+	                  { className: 'subarray' },
+	                  this.largerThanPivot()
+	                ),
+	                _react2.default.createElement(
+	                  'div',
+	                  { className: 'largerTextHidden' },
+	                  'larger'
+	                )
+	              )
+	            )
+	          ),
+	          _react2.default.createElement(
+	            'div',
+	            { className: 'quicksort-exercise' },
+	            _react2.default.createElement(_quick_sort_exercise2.default, { demoState: this.handleChildClick })
+	          )
+	        ),
+	        _react2.default.createElement(
+	          'div',
+	          { className: 'solution-container' },
+	          _react2.default.createElement(_solution2.default, { algorithm: 'quicksort' })
+	        )
+	      );
+	    }
+	  }]);
+	
+	  return QuickSort;
+	}(_react2.default.Component);
+	
+	exports.default = QuickSort;
+
+/***/ },
+/* 339 */
+/***/ function(module, exports) {
+
+	"use strict";
+	
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+	
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+	
+	var QuickSortSolve = function () {
+	  function QuickSortSolve() {
+	    _classCallCheck(this, QuickSortSolve);
+	
+	    this.solution = {};
+	    this.iteration = 0;
+	    this.quickSort = this.quickSort.bind(this);
+	  }
+	
+	  _createClass(QuickSortSolve, [{
+	    key: "quickSort",
+	    value: function quickSort(array) {
+	      if (array.length < 2) {
+	        return array;
+	      }
+	      var pivot = array[0];
+	      var array = array.slice(1);
+	      var larger = array.filter(function (x) {
+	        return x > pivot;
+	      });
+	      var smaller = array.filter(function (x) {
+	        return x <= pivot;
+	      });
+	      this.solution[this.iteration] = [[pivot].concat(smaller).concat(larger), larger, smaller, [pivot]];
+	      this.iteration += 1;
+	      return this.quickSort(smaller).concat([pivot]).concat(this.quickSort(larger));
+	    }
+	  }, {
+	    key: "result",
+	    value: function result() {
+	      this.solution[this.iteration] = [[], [], [], [], []];
+	      return this.solution;
+	    }
+	  }]);
+	
+	  return QuickSortSolve;
+	}();
+	
+	exports.default = QuickSortSolve;
+
+/***/ },
+/* 340 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+	
+	var _react = __webpack_require__(1);
+	
+	var _react2 = _interopRequireDefault(_react);
+	
+	var _quick_sort_class = __webpack_require__(339);
+	
+	var _quick_sort_class2 = _interopRequireDefault(_quick_sort_class);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+	
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+	
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+	
+	var QuickSortExercise = function (_React$Component) {
+	  _inherits(QuickSortExercise, _React$Component);
+	
+	  function QuickSortExercise() {
+	    _classCallCheck(this, QuickSortExercise);
+	
+	    // this.startArray = [9,1,3,14,17,12,10,2]
+	    var _this = _possibleConstructorReturn(this, (QuickSortExercise.__proto__ || Object.getPrototypeOf(QuickSortExercise)).call(this));
+	
+	    _this.state = {
+	      iterationCounter1: 0,
+	      rounds: 0,
+	      gameActive: false,
+	      gameState: "",
+	      correctButtonCount: 0,
+	      exerciseStarted: false
+	    };
+	    _this.animationTimeout = 250;
+	    _this.fullArrayButtons = _this.fullArrayButtons.bind(_this);
+	    _this.pivotButton = _this.pivotButton.bind(_this);
+	    _this.smallerThanPivotButtons = _this.smallerThanPivotButtons.bind(_this);
+	    _this.largerThanPivotButtons = _this.largerThanPivotButtons.bind(_this);
+	    _this.pivotButtonShow = _this.pivotButtonShow.bind(_this);
+	    _this.pivotButtonHide = _this.pivotButtonHide.bind(_this);
+	    _this.startGameClick = _this.startGameClick.bind(_this);
+	    _this.handleClick = _this.handleClick.bind(_this);
+	    _this.insertArrayByIndex = _this.insertArrayByIndex.bind(_this);
+	    _this.ifHigherOrLowerIsEmpty = _this.ifHigherOrLowerIsEmpty.bind(_this);
+	    _this.unfocusNotInCurrentSelection = _this.unfocusNotInCurrentSelection.bind(_this);
+	    _this.hideAllSubarray = _this.hideAllSubarray.bind(_this);
+	    _this.setSorted = _this.setSorted.bind(_this);
+	    _this.reRenderAndActivateAllButtonsInFullArray = _this.reRenderAndActivateAllButtonsInFullArray.bind(_this);
+	    _this.setPivot = _this.setPivot.bind(_this);
+	    _this.startArray = _this.randomArray();
+	    // this.startArray = [15,9,3,5,12,17,10,6,4]
+	    var newQuickSort = new _quick_sort_class2.default();
+	    _this.sorting = newQuickSort.quickSort(_this.startArray);
+	    _this.result = newQuickSort.result();
+	    return _this;
+	  }
+	
+	  _createClass(QuickSortExercise, [{
+	    key: 'componentDidUpdate',
+	    value: function componentDidUpdate() {
+	      var _this2 = this;
+	
+	      // this.ifHigherOrLowerIsEmpty()
+	      console.log("checking life cycle");
+	      if (this.state.gameState === "newRound") {
+	        var counter = 0;
+	        this.reRender = setInterval(function () {
+	          switch (counter) {
+	            case 1:
+	              _this2.insertArrayByIndex();
+	            case 2:
+	              _this2.hideAllSubarray();
+	              _this2.reRenderAndActivateAllButtonsInFullArray();
+	            case 3:
+	              console.log("case6");
+	              _this2.setState({
+	                gameState: "selectLower",
+	                iterationCounter1: _this2.state.iterationCounter1 += 1
+	              });
+	              _this2.setSorted();
+	            case 4:
+	              _this2.unfocusNotInCurrentSelection();
+	              if (_this2.result[_this2.state.iterationCounter1][3].length < 1) {
+	                _this2.setState({ gameState: "",
+	                  exerciseStarted: false
+	                });
+	                _this2.props.demoState();
+	              } else {
+	                console.log("setPivot");
+	                _this2.setPivot();
+	              }
+	              clearInterval(_this2.reRender);
+	              return;
+	          }
+	          counter += 1;
+	        }, this.animationTimeout);
+	        console.log(this.result);
+	        console.log("hit life cycle");
+	      }
+	    }
+	  }, {
+	    key: 'setSorted',
+	    value: function setSorted() {
+	      this.setState({
+	        iterationCounter1: this.state.iterationCounter1 -= 1
+	      });
+	      var pivotNum = this.pivotArray()[0];
+	      var pivot = document.querySelectorAll('[value="' + pivotNum + '"]');
+	      pivot[0].className = "sortedExercise";
+	      var sorted = document.getElementsByClassName("activeExercise");
+	
+	      var smaller = this.smallerThanPivotArray();
+	      var larger = this.largerThanPivotArray();
+	
+	      if (smaller.length < 2 && larger.length < 2) {
+	        var currentArray = smaller.concat(larger);
+	        for (var j = 0; j < 3; j++) {
+	          for (var i = 0; i < sorted.length; i++) {
+	            var currentNumber = parseInt(sorted[i].getAttribute("value"));
+	            if (currentArray.includes(currentNumber)) {
+	              sorted[i].className = "sortedExercise";
+	            }
+	          }
+	        }
+	      } else if (smaller.length < 2 && smaller.length > 0) {
+	        for (var i = 0; i < sorted.length; i++) {
+	          var currentNumber = parseInt(sorted[i].getAttribute("value"));
+	          if (smaller.includes(currentNumber)) {
+	            sorted[i].className = "sortedExercise";
+	          }
+	        }
+	      } else if (larger.length < 2 && larger.length > 0) {
+	        for (var i = 0; i < sorted.length; i++) {
+	          var currentNumber = parseInt(sorted[i].getAttribute("value"));
+	          if (larger.includes(currentNumber)) {
+	            sorted[i].className = "sortedExercise";
+	          }
+	        }
+	      }
+	      this.setState({
+	        iterationCounter1: this.state.iterationCounter1 += 1
+	      });
+	      return;
+	    }
+	  }, {
+	    key: 'randomArray',
+	    value: function randomArray() {
+	      var newArr = [];
+	      var arrLength = Math.floor(Math.random() * 3 + 6);
+	      for (var i = 0; i < arrLength; i++) {
+	        var newNum = Math.floor(Math.random() * 20);
+	        if (!newArr.includes(newNum)) {
+	          newArr.push(newNum);
+	        } else {
+	          i--;
+	        }
+	      }
+	      return newArr;
+	    }
+	  }, {
+	    key: 'findIndexes',
+	    value: function findIndexes() {
+	      var newArr = [];
+	      var sortedSet = this.result[this.state.iterationCounter1][2].concat(this.result[this.state.iterationCounter1][3]).concat(this.result[this.state.iterationCounter1][1]);
+	      for (var i = 0; i < sortedSet.length; i++) {
+	        var idx = this.startArray.indexOf(sortedSet[i]);
+	        newArr.push(idx);
+	      }
+	      return newArr.sort(function (a, b) {
+	        return a - b;
+	      });
+	    }
+	  }, {
+	    key: 'insertArrayByIndex',
+	    value: function insertArrayByIndex() {
+	      var indexSet = this.findIndexes();
+	      var sortedSet = this.result[this.state.iterationCounter1][2].concat(this.result[this.state.iterationCounter1][3]).concat(this.result[this.state.iterationCounter1][1]);
+	      for (var i = 0; i < indexSet.length; i++) {
+	        this.startArray[indexSet[i]] = sortedSet[i];
+	      }
+	    }
+	  }, {
+	    key: 'hideAllSubarray',
+	    value: function hideAllSubarray() {
+	      ["pivotShowExercise", "largerShowExercise", "smallerShowExercise"].forEach(function (subArrayClass) {
+	        var i = document.getElementsByClassName(subArrayClass);
+	        while (i.length) {
+	          i[0].className = subArrayClass.replace("Show", "Hidden");
+	        }
+	      });
+	    }
+	  }, {
+	    key: 'incorrectToActiveClassChange',
+	    value: function incorrectToActiveClassChange() {
+	      var incorrects = document.getElementsByClassName("incorrect");
+	      while (incorrects.length) {
+	        incorrects[0].className = "activeExercise";
+	      }
+	      return;
+	    }
+	  }, {
+	    key: 'currentSelectionArray',
+	    value: function currentSelectionArray() {
+	      return this.result[this.state.iterationCounter1][0];
+	    }
+	  }, {
+	    key: 'largerThanPivotArray',
+	    value: function largerThanPivotArray() {
+	      return this.result[this.state.iterationCounter1][1];
+	    }
+	  }, {
+	    key: 'smallerThanPivotArray',
+	    value: function smallerThanPivotArray() {
+	      return this.result[this.state.iterationCounter1][2];
+	    }
+	  }, {
+	    key: 'pivotArray',
+	    value: function pivotArray() {
+	      return this.result[this.state.iterationCounter1][3];
+	    }
+	  }, {
+	    key: 'addClassNamesToArray',
+	    value: function addClassNamesToArray() {
+	      this.reRenderAndActivateAllButtonsInFullArray();
+	      this.unfocusNotInCurrentSelection();
+	      var currentPivot = this.pivotArray()[0];
+	      var actives = document.getElementsByClassName("activeExercise");
+	    }
+	  }, {
+	    key: 'fullArrayButtons',
+	    value: function fullArrayButtons() {
+	      var _this3 = this;
+	
+	      return this.startArray.map(function (num, i) {
+	        return _react2.default.createElement(
+	          'span',
+	          null,
+	          _react2.default.createElement(
+	            'button',
+	            { key: i, value: num, onClick: _this3.handleClick, className: 'quicksortIdleExercise' },
+	            num
+	          )
+	        );
+	      });
+	    }
+	  }, {
+	    key: 'largerThanPivotButtons',
+	    value: function largerThanPivotButtons() {
+	      return this.result[this.state.iterationCounter1][1].map(function (el, i) {
+	        return _react2.default.createElement(
+	          'span',
+	          null,
+	          _react2.default.createElement(
+	            'button',
+	            { key: i, value: el, className: 'largerHiddenExercise' },
+	            ' ',
+	            el,
+	            ' '
+	          )
+	        );
+	      });
+	    }
+	  }, {
+	    key: 'smallerThanPivotButtons',
+	    value: function smallerThanPivotButtons() {
+	      return this.result[this.state.iterationCounter1][2].map(function (el, i) {
+	        return _react2.default.createElement(
+	          'span',
+	          null,
+	          _react2.default.createElement(
+	            'button',
+	            { key: i, value: el, className: 'smallerHiddenExercise' },
+	            ' ',
+	            el,
+	            ' '
+	          )
+	        );
+	      });
+	    }
+	  }, {
+	    key: 'pivotButton',
+	    value: function pivotButton() {
+	      console.log(this.state.iterationCounter1);
+	      return _react2.default.createElement(
+	        'span',
+	        null,
+	        _react2.default.createElement(
+	          'button',
+	          { value: this.result[this.state.iterationCounter1][3], className: 'pivotHiddenExercise' },
+	          this.result[this.state.iterationCounter1][3].toString()
+	        )
+	      );
+	    }
+	  }, {
+	    key: 'smallerThanPivotButtonsShow',
+	    value: function smallerThanPivotButtonsShow() {
+	      var i = document.getElementsByClassName("smallerHiddenExercise");
+	      while (i.length) {
+	        i[0].className = "smallerShowExercise";
+	      }
+	    }
+	  }, {
+	    key: 'smallerThanPivotButtonsHide',
+	    value: function smallerThanPivotButtonsHide() {
+	      var i = document.getElementsByClassName("smallerShowExercise");
+	      while (i.length) {
+	        i[0].className = "smallerHiddenExercise";
+	      }
+	    }
+	  }, {
+	    key: 'largerThanPivotButtonsShow',
+	    value: function largerThanPivotButtonsShow() {
+	      var i = document.getElementsByClassName("largerHiddenExercise");
+	      while (i.length) {
+	        i[0].className = "largerShowExercise";
+	      }
+	    }
+	  }, {
+	    key: 'largerThanPivotButtonsHide',
+	    value: function largerThanPivotButtonsHide() {
+	      var i = document.getElementsByClassName("largerShowExercise");
+	      while (i.length) {
+	        i[0].className = "largerHide";
+	      }
+	    }
+	  }, {
+	    key: 'pivotButtonShow',
+	    value: function pivotButtonShow() {
+	      var i = document.getElementsByClassName("pivotHiddenExercise");
+	      while (i.length) {
+	        i[0].className = "pivotShowExercise";
+	      }
+	    }
+	  }, {
+	    key: 'pivotButtonHide',
+	    value: function pivotButtonHide() {
+	      var i = document.getElementsByClassName("pivotShowExercise");
+	      while (i.length) {
+	        i[0].className = "pivotHideExercise";
+	      }
+	    }
+	  }, {
+	    key: 'reRenderAndActivateAllButtonsInFullArray',
+	    value: function reRenderAndActivateAllButtonsInFullArray() {
+	      for (var i = 0; i < 20; i++) {
+	        ["pivot", "smaller", "larger", "hiddenExercise"].forEach(function (el) {
+	          var button = document.getElementsByClassName(el);
+	          while (button.length) {
+	            button[0].className = "activeExercise";
+	          }
+	        });
+	      }
+	    }
+	  }, {
+	    key: 'hideActiveClass',
+	    value: function hideActiveClass() {
+	      var num = document.getElementsByClassName("activeExercise");
+	      while (num.length) {
+	        num[0].className = "hiddenExercise";
+	      }
+	    }
+	  }, {
+	    key: 'showPivotsubarray',
+	    value: function showPivotsubarray() {
+	      var pivot = document.getElementsByClassName("pivotHiddenExercise");
+	      while (pivot.length) {
+	        pivot[0].className = "pivotShowExercise";
+	      }
+	    }
+	  }, {
+	    key: 'hidePivotSubarray',
+	    value: function hidePivotSubarray() {
+	      var pivot = document.getElementsByClassName("pivotShowExercise");
+	      while (pivot.length) {
+	        pivot[0].className = "pivotHiddenExercise";
+	      }
+	    }
+	  }, {
+	    key: 'showSmallerSubarray',
+	    value: function showSmallerSubarray() {
+	      var smaller = document.getElementsByClassName("smallerHiddenExercise");
+	      while (smaller.length) {
+	        smaller[0].className = "smallerShowExercise";
+	      }
+	    }
+	  }, {
+	    key: 'hideSmallerSubarray',
+	    value: function hideSmallerSubarray() {
+	      var smaller = document.getElementsByClassName("smallerShowExercise");
+	      while (smaller.length) {
+	        smaller[0].className = "smallerHiddenExercise";
+	      }
+	    }
+	  }, {
+	    key: 'showLargerSubarray',
+	    value: function showLargerSubarray() {
+	      var larger = document.getElementsByClassName("largerHiddenExercise");
+	      while (larger.length) {
+	        larger[0].className = "largerShowExercise";
+	      }
+	    }
+	  }, {
+	    key: 'hideLargerSubarray',
+	    value: function hideLargerSubarray() {
+	      var larger = document.getElementsByClassName("largerShowExercise");
+	      while (larger.length) {
+	        larger[0].className = "largerHiddenExercise";
+	      }
+	    }
+	  }, {
+	    key: 'unfocusNotInCurrentSelection',
+	    value: function unfocusNotInCurrentSelection() {
+	      var _this4 = this;
+	
+	      var notInCurrentSelection = this.startArray.filter(function (el) {
+	        return !_this4.currentSelectionArray().includes(el);
+	      });
+	      for (var j = 0; j < 10; j++) {
+	        ["activeExercise", "unfocusedExercise"].forEach(function (className) {
+	          var currentButtonSet = document.getElementsByClassName(className);
+	          for (var i = 0; i < currentButtonSet.length; i++) {
+	            if (notInCurrentSelection.includes(parseInt(currentButtonSet[i].value))) {
+	              currentButtonSet[i].className = "unfocusedExercise";
+	            } else {
+	              currentButtonSet[i].className = "activeExercise";
+	            }
+	          }
+	        });
+	      }
+	      return;
+	    }
+	  }, {
+	    key: 'handleArrayShuffle',
+	    value: function handleArrayShuffle() {
+	      var _this5 = this;
+	
+	      var counter = 0;
+	      if (this.result[this.state.iterationCounter + 1][2].length > 0 && this.state.demoStarted) {
+	        return;
+	      }
+	      this.shuffleArray = setInterval(function () {
+	        switch (counter) {
+	          case 1:
+	            _this5.setState({ iterationCounter: 0, solved: false });
+	            _this5.startArray = _this5.randomArray();
+	            var newQuickSort = new _quick_sort_class2.default();
+	            _this5.sorting = newQuickSort.quickSort(_this5.startArray);
+	            _this5.result = newQuickSort.result();
+	          case 2:
+	            _this5.resetArray();
+	          case 3:
+	            clearInterval(_this5.shuffleArray);
+	            _this5.forceUpdate();
+	        }
+	        counter += 1;
+	      }, 1);
+	      this.setState({ exerciseStarted: false });
+	    }
+	  }, {
+	    key: 'startGameClick',
+	    value: function startGameClick() {
+	      var init = document.getElementsByClassName("quicksortIdleExercise");
+	      while (init.length) {
+	        init[0].className = "activeExercise";
+	      }
+	      console.log(this.result[this.state.iterationCounter1]);
+	      if (this.state.exerciseStarted) {
+	        return;
+	      }
+	      if (this.result[this.state.iterationCounter1 + 1][3].length > 0) {
+	        this.props.demoState();
+	        this.setState({ exerciseStarted: true });
+	        this.setPivot();
+	      } else {
+	        var counter = 0;
+	        this.handleShuffleArray();
+	      }
+	    }
+	  }, {
+	    key: 'setPivot',
+	    value: function setPivot() {
+	      var _this6 = this;
+	
+	      var currArray = document.getElementsByClassName("activeExercise");
+	      currArray[0].className = "pivotExercise";
+	      var counter = 0;
+	      this.startPivotShow = setInterval(function () {
+	        switch (counter) {
+	          case 1:
+	            var pivot = document.getElementsByClassName("pivotExercise");
+	            pivot[0].className = "hiddenExercise";
+	            _this6.pivotButtonShow();
+	          case 2:
+	            if (_this6.smallerThanPivotArray().length > 0) {
+	              _this6.setState({ gameState: "selectLower" });
+	            } else {
+	              console.log("starting with selectHigher");
+	              _this6.setState({ gameState: "selectHigher" });
+	            }
+	            clearInterval(_this6.startPivotShow);
+	            return;
+	        }
+	        counter += 1;
+	      }, this.animationTimeout);
+	    }
+	  }, {
+	    key: 'handleClick',
+	    value: function handleClick(e) {
+	      var _this7 = this;
+	
+	      e.preventDefault();
+	      e.persist();
+	      var currentClass = e.currentTarget.className;
+	      this.value = parseInt(e.currentTarget.value);
+	      if (!this.state.exerciseStarted || currentClass == "unfocusedExercise" || currentClass == "hiddenExercise") {
+	        return;
+	      }
+	      switch (this.state.gameState) {
+	        case "selectLower":
+	          console.log("selecitng lower");
+	          if (this.smallerThanPivotArray().includes(this.value)) {
+	            console.log("selecting includes lower");
+	            e.currentTarget.className = "correct";
+	            setTimeout(function () {
+	              e.target.className = "hiddenExercise";
+	              var value = e.target.value;
+	              _this7.correctSelectionHandler(value, "smaller");
+	            }, this.animationTimeout);
+	          } else {
+	            e.currentTarget.className = "incorrect";
+	          }
+	          return;
+	        case "selectHigher":
+	          console.log("selecting higher");
+	          if (this.largerThanPivotArray().includes(this.value) || this.largerThanPivotArray().length < 1) {
+	            console.log("selecting includes higher");
+	            e.currentTarget.className = "correct";
+	            setTimeout(function () {
+	              e.target.className = "hiddenExercise";
+	              var value = e.target.value;
+	              _this7.correctSelectionHandler(value, "larger");
+	            }, this.animationTimeout);
+	          }
+	          return;
+	      }
+	    }
+	  }, {
+	    key: 'ifHigherOrLowerIsEmpty',
+	    value: function ifHigherOrLowerIsEmpty() {
+	      if (this.smallerThanPivotArray().length < 1) {
+	        this.setState({ gameState: "selectHigher" });
+	      } else if (this.largerThanPivotArray().length < 1) {
+	        this.setState({ gameState: "newRound" });
+	      }
+	    }
+	  }, {
+	    key: 'correctSelectionHandler',
+	    value: function correctSelectionHandler(value, string) {
+	      var button = document.querySelectorAll('[value="' + value + '"]');
+	      button[1].className = string + 'ShowExercise';
+	      console.log("hit correcthandler");
+	      this.setState({
+	        correctButtonCount: this.state.correctButtonCount += 1
+	      });
+	      switch (string) {
+	        case "smaller":
+	          if (this.state.correctButtonCount >= this.smallerThanPivotArray().length) {
+	            if (this.largerThanPivotArray().length < 1) {
+	              this.setState({ gameState: "newRound", correctButtonCount: 0 });
+	            } else {
+	              this.incorrectToActiveClassChange();
+	              this.setState({ gameState: "selectHigher", correctButtonCount: 0 });
+	            }
+	          }
+	          return;
+	        case "larger":
+	          if (this.state.correctButtonCount >= this.largerThanPivotArray().length) {
+	            this.setState({ gameState: "newRound", correctButtonCount: 0 });
+	          }
+	          return;
+	        default:
+	          return string;
+	      }
+	    }
+	  }, {
+	    key: 'render',
+	    value: function render() {
+	      return _react2.default.createElement(
+	        'div',
+	        { className: 'quicksort-exercise-container' },
+	        _react2.default.createElement(
+	          'div',
+	          { className: 'quicksort-try' },
+	          'Try it out yourself!'
+	        ),
+	        _react2.default.createElement(
+	          'div',
+	          null,
+	          _react2.default.createElement(
+	            'button',
+	            { onClick: this.startGameClick, className: 'quicksort-start-exercise' },
+	            'Start Exercise'
+	          )
+	        ),
+	        _react2.default.createElement(
+	          'div',
+	          { className: 'quicksort-exercise-buttons' },
+	          this.fullArrayButtons()
+	        ),
+	        _react2.default.createElement(
+	          'div',
+	          { className: 'quicksort-exercise-subarray' },
+	          this.smallerThanPivotButtons(),
+	          this.pivotButton(),
+	          this.largerThanPivotButtons()
+	        )
+	      );
+	    }
+	  }]);
+	
+	  return QuickSortExercise;
+	}(_react2.default.Component);
+	
+	exports.default = QuickSortExercise;
 
 /***/ }
 /******/ ]);

@@ -108,7 +108,7 @@ export default class Solution extends React.Component{
                   {`${line}`}
                 </p>
             </div>
-          )
+          );
         })
       );
     }
@@ -176,9 +176,7 @@ export default class Solution extends React.Component{
           {this.javaScriptSolution()}
           {this.rubySolution()}
           {this.pythonSolution()}
-          <div className="solution-info">
-            {this.info()}
-          </div>
+          {this.info()}
         </div>
       </div>
     );
