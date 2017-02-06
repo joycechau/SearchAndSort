@@ -59,7 +59,6 @@ export default class QuickSortExercise extends React.Component{
           case 4:
             this.unfocusNotInCurrentSelection()
             if (this.result[this.state.iterationCounter1][3].length < 1){
-              debugger
               this.setState({gameState: "",
                 exerciseStarted: false
               })
@@ -91,7 +90,6 @@ export default class QuickSortExercise extends React.Component{
     var larger = this.largerThanPivotArray()
 
     if (smaller.length < 2 && larger.length < 2){
-      debugger
       var currentArray = smaller.concat(larger)
       for (var j=0; j < 3; j++){
         for (var i = 0; i < sorted.length; i++){
@@ -340,7 +338,6 @@ export default class QuickSortExercise extends React.Component{
       var notInCurrentSelection = this.startArray.filter( (el) => {
         return !this.currentSelectionArray().includes(el);
       });
-      debugger
       for (var j=0; j < 10; j++){
         ["activeExercise", "unfocusedExercise"].forEach((className) => {
           var currentButtonSet = document.getElementsByClassName(className)

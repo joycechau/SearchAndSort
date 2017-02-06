@@ -406,7 +406,6 @@ export default class QuickSort extends React.Component {
     } else {
       var counter = 0
       this.handleArrayShuffle()
-      debugger
       this.resetSort = setInterval( ()=> {
         switch(counter){
           case 1:
