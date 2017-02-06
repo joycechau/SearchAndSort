@@ -21,7 +21,7 @@ export default class Solution extends React.Component{
         info: ""
       },
       mergesort: {
-        javascript: "https://res.cloudinary.com/joycechau/image/upload/v1486147571/mergesort_javascript.png",
+        javascript: "https://res.cloudinary.com/joycechau/image/upload/v1486332550/mergesort_javascript.png",
         ruby: "https://res.cloudinary.com/joycechau/image/upload/v1486147603/mergesort_ruby.png",
         python: "https://res.cloudinary.com/joycechau/image/upload/v1486147626/mergesort_python.png",
         info: ""
@@ -96,7 +96,7 @@ export default class Solution extends React.Component{
     if (this.state.showInfo) {
       let info = this.state[this.props.algorithm].info;
       return (
-        <div>
+        <div className="solution-image-div">
           {info}
         </div>
       );
@@ -107,7 +107,7 @@ export default class Solution extends React.Component{
     if (this.state.showJavaScriptSolution) {
       let src = this.state[this.props.algorithm].javascript;
       return (
-        <div>
+        <div className="solution-image-div">
           <img src={src} alt="javascript-solution"/>
         </div>
       );
@@ -118,7 +118,7 @@ export default class Solution extends React.Component{
     if (this.state.showRubySolution) {
       let src = this.state[this.props.algorithm].ruby;
       return (
-        <div>
+        <div className="solution-image-div">
           <img src={src} alt="ruby-solution"/>
         </div>
       );
@@ -129,7 +129,7 @@ export default class Solution extends React.Component{
     if (this.state.showPythonSolution) {
       let src = this.state[this.props.algorithm].python;
       return (
-        <div>
+        <div className="solution-image-div">
           <img src={src} alt="python-solution"/>
         </div>
       );

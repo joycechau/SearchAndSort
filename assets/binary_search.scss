@@ -10,6 +10,7 @@
 
 .bsearch-static-array,
 .bsearch-active-array {
+  box-sizing: border-box;
   padding: 20px;
   display: flex;
   justify-content: center;
@@ -23,17 +24,18 @@
 }
 
 .bsearch-circle-span {
-   border-radius: 0.8em;
-   -moz-border-radius: 0.8em;
-   -webkit-border-radius: 0.8em;
-   display: inline-block;
-   font-weight: bold;
-   line-height: 1.5em;
-   margin: 0px 5px;
-   text-align: center;
-   width: 1.5em;
-   border: 1px solid #93D1FF;
-   background-color: #93D1FF;
+  font-size: 30px;
+  border-radius: 0.8em;
+  -moz-border-radius: 0.8em;
+  -webkit-border-radius: 0.8em;
+  display: inline-block;
+  font-weight: bold;
+  line-height: 1.5em;
+  margin: 0px 5px;
+  text-align: center;
+  width: 1.5em;
+  border: 1px solid #93D1FF;
+  background-color: #93D1FF;
 }
 
 .bsearch-demo form {
@@ -69,6 +71,7 @@
 }
 
 .midpoint {
+  font-size: 30px;
   border-radius: 0.8em;
   -moz-border-radius: 0.8em;
   -webkit-border-radius: 0.8em;
@@ -125,7 +128,6 @@
 .bsearch-exercise-button {
   margin-bottom: 10px;
   font-size: 30px;
-  background-color: red;
   border-radius: 0.8em;
   -moz-border-radius: 0.8em;
   -webkit-border-radius: 0.8em;

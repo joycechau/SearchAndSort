@@ -1,28 +1,34 @@
-## README
+# Search and Sort Visualizer
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+[Search and Sort Visualizer]() is an algorithm tutorial covering some of the most common search and sorting algorithms.  With this app users will be able to view visualizations, test their knowledge by practicing exercises, and view solutions from common languages.
 
-Things you may want to cover:
+Search and Sort Visualizer was built in 1 week by [Andrew Yueh](https://github.com/andrew1007),
+[Jeffrey Fan](https://github.com/jeffreyfan93), and [Joyce Chau](https://github.com/joycechau).
 
-* Ruby version
+## Architecture and Technologies
+The project was implemented with the following technologies:
+* React for overall structure, exercise logic, and DOM manipulation
+* Vanilla Javascript and ```jQuery``` for additional DOM manipulation
+* Webpack to bundle and serve up the various scripts
 
-* System dependencies
+## Features
+* Algorithm demos
+* Algorithm exercises
+* Solutions in different languages
 
-* Configuration
+#### Example Demos
 
-* Database creation
+Binary Search
 
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+![search-with-map](./assets/bsearch_demo.gif)
 
 
-Please feel free to use a different markup language if you do not plan to run
-<tt>rake doc:app</tt>.
+Merge Sort
+
+![search-with-map](./assets/mergesort_demo.gif)
+
+## Future Implementations
+Additional features to add include:
+* More search and sorting algorithms
+* Allow users to adjust speed of visualizations
+* Add comparison metrics to compare time-complexity of the various searches/sorts

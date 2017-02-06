@@ -1,0 +1,71 @@
+.mergesort-exercise-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.mergesort-exercise-try {
+  font-size: 25px;
+  margin-bottom: 15px;
+}
+
+.mergesort-exercise-new {
+  font-size: 20px;
+  margin-bottom: 20px;
+  padding: 5px;
+  border-radius: 5px;
+}
+
+.mergesort-exercise-new:hover {
+  background-color: #93D1FF
+}
+
+.mergesort-exercise-instructions {
+  width: 100%;
+  font-size: 16px;
+  margin-bottom: 10px;
+
+}
+
+.mergesort-exercise-top-array {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  margin-bottom: 20px;
+
+}
+
+.mergesort-exercise-bracket {
+
+}
+
+.mergesort-exercise-number {
+  border-radius: 0.8em;
+  -moz-border-radius: 0.8em;
+  -webkit-border-radius: 0.8em;
+  display: inline-block;
+  font-weight: bold;
+  line-height: 1.5em;
+  margin: 0px 5px;
+  text-align: center;
+  width: 1.5em;
+  border: 1px solid #93D1FF;
+  background-color: #93D1FF;
+}
+
+.mergesort-exercise-bot-array {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  margin-bottom: 20px;
+
+}
+
+.mergesort-exercise-message-container {
+  width: 100%;
+}
+
+.mergesort-exercise-message {
+  font-size: 16px;
+}
