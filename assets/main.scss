@@ -85,3 +85,12 @@
 	height: auto;
 
 }
+
+.solution-info {
+	display:flex;
+	padding-top: 0px;
+	flex-direction: column;
+}
+ .solution-info p {
+	 margin-bottom: 10px;
+ }
