@@ -65,11 +65,12 @@
 }
 
 .solution-div {
+	display: flex;
+	flex-direction: column;
+	justify-content: flex-start;
   padding: 30px;
   font-size: 14px;
 	height: 92%;
-	display: flex;
-	justify-content: center;
 	box-sizing: border-box;
 }
 
