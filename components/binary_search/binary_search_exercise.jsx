@@ -3,7 +3,7 @@ import React from 'react';
 export default class BinarySearchExercise extends React.Component {
   constructor(props) {
     super(props);
-    let target = Math.floor(Math.random()*10 + 1);
+    let target = Math.floor(Math.random() * 10 + 1);
 
     this.state = {
       target: target,
@@ -21,8 +21,10 @@ export default class BinarySearchExercise extends React.Component {
   }
 
   generateNewExercise() {
-    let target = Math.floor(Math.random()*10 + 1);
-    document.getElementById("bsearch-found-midpoint").removeAttribute("id");
+    let target = Math.floor(Math.random() * 10 + 1);
+    if (document.getElementById("bsearch-found-midpoint")) {
+      document.getElementById("bsearch-found-midpoint").removeAttribute("id");
+    }
 
     this.setState({
       target: target,

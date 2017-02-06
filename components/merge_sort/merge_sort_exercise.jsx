@@ -5,12 +5,12 @@ export default class MergeSortExercise extends React.Component {
     super(props);
 
     this.state = {
-      array: [1, 2, 3, 4, 5, 6, 7, 8],
-      showTopArray: [[2,5], [1], [6], [8], [3], [4], [7]],
+      array: [[1], [2], [3], [4], [5], [6], [7], [8]],
+      showTopArray: [[2], [5], [1], [6], [8], [3], [4], [7]],
       showBotArray: [],
-      iteration: 1,
-      startIdx: 0,
-      endIdx: 2
+      currentBaseIndex: 0,
+      iteration: 0,
+      message: 1
     };
 
     this.generateNewExercise = this.generateNewExercise.bind(this);
@@ -34,75 +34,153 @@ export default class MergeSortExercise extends React.Component {
   }
 
   generateNewExercise() {
-    let showTopArray = this.shuffle(this.state.showTopArray);
+    let array = [[1], [2], [3], [4], [5], [6], [7], [8]];
+    let showTopArray = this.shuffle(array);
     this.setState({
       showTopArray: showTopArray,
-      showBotArray: []
+      showBotArray: [],
+      currentBaseIndex: 0,
+      iteration: 0,
+      message: 1
     });
   }
 
   moveBotToTop() {
     let array = this.state.showBotArray;
+    let iteration = this.state.iteration + 1;
     this.setState({
-      showTopArray: array
+      showTopArray: array,
+      showBotArray: [],
+      currentBaseIndex: 0,
+      iteration: iteration
     });
+    if (this.state.showTopArray.length === 1) {
+      this.setState({
+        message: 3
+      });
+      console.log('you did it!!');
+    }
   }
 
   moveToBotArray(idx, idx2) {
     let {
           showBotArray,
           showTopArray,
-          iteration,
-          startIdx,
-          endIdx
+          currentBaseIndex,
+          iteration
         } = this.state;
-debugger
-    let botSubArray = [];
-    let num = showTopArray[idx];
 
-    if (idx >= startIdx && idx < endIdx) {
-      if (botArray.includes(num)) {
-        console.log('this num is already in the bot array');
+    // make sure user clicks on the first element in one of two arrays currently being merged.
+    if (idx >= currentBaseIndex && idx < currentBaseIndex + 2 && idx2 === 0) {
+      let compareIdx;
+      if (idx === currentBaseIndex) {
+        compareIdx = idx + 1;
       } else {
-        console.log('put num down');
-        botArray.push(num);
+        compareIdx = idx - 1;
+      }
+// make sure theres numbers left in the two arrays being compared.
+      if (showTopArray[idx].length > 0 || showTopArray[compareIdx].length > 0) {
+        if (showTopArray[idx].length === Math.pow(2, iteration) && showTopArray[compareIdx].length === Math.pow(2, iteration)) {
+          var botSubArray = [];
+        } else {
+          var botSubArray = showBotArray[currentBaseIndex / 2];
+        }
 
-        iteration += 1;
-        startIdx = endIdx;
-        endIdx = Math.pow(2, iteration);
+        // compare the two numbers
+        if (showTopArray[compareIdx].length > 0 && (showTopArray[idx][0] > showTopArray[compareIdx][0])) {
+          this.setState({
+            message: 2
+          });
+          console.log('the number clicked is not the smallest');
+        } else {
+          if (showTopArray[compareIdx].length === 0) {
+            botSubArray.push(showTopArray[idx].splice(0, 1)[0]);
+          } else if (showTopArray[idx][0] < showTopArray[compareIdx][0]) {
+            botSubArray.push(showTopArray[idx].splice(0, 1)[0]);
+          }
 
-        this.setState({
-          showBotArray: botArray,
-          iteration: iteration,
-          startIdx: startIdx,
-          endIdx: endIdx
-        });
+          if (botSubArray.length === 1) {
+            showBotArray.push(botSubArray);
+          } else {
+            showBotArray[currentBaseIndex / 2] = botSubArray;
+          }
+
+          if (showTopArray[idx].length === 0 && showTopArray[compareIdx].length === 0) {
+            currentBaseIndex += 2;
+          }
+
+          this.setState({
+            showBotArray: showBotArray,
+            currentBaseIndex: currentBaseIndex,
+            message: 1
+          });
+          setTimeout( () => {
+            if (this.state.showTopArray.every( arr => arr.length === 0)) {
+              this.moveBotToTop();
+            }
+          }, 1000);
+        }
+
       }
     } else {
+      this.setState({
+        message: 2
+      });
       console.log('not yet');
+    }
+  }
+
+  message() {
+    let { message } = this.state;
+    if (message === 1) {
+      return(
+        <div className="mergesort-exercise-message">Select the appropriate number</div>
+      );
+    } else if (message === 2) {
+      return(
+        <div className="mergesort-exercise-message">Incorrect choice. Try again. </div>
+      );
+    } else if (message === 3) {
+      return(
+        <div className="mergesort-exercise-message">Congratulations!! You did it!!</div>
+      );
     }
   }
 
   render() {
     return (
-      <div>
-        <button onClick={this.generateNewExercise}>New Exercise</button>
-        <div>The array has already been split, now it's your turn to merge them!</div>
-        <div>
+      <div className="mergesort-exercise-container">
+        <div className="mergesort-exercise-try">Try it out yourself!</div>
+        <button onClick={this.generateNewExercise} className="mergesort-exercise-new">New Exercise</button>
+        <div className="mergesort-exercise-instructions">The array has already been split, now it's your turn to merge them!</div>
+        <div className="mergesort-exercise-top-array">
           {this.state.showTopArray.map((array, idx) => (
-            <span key={idx}>
-              {array.map((num, idx2) => (
-                <button key={idx2} id={`${idx}`} onClick={() => this.moveToBotArray(idx, idx2)}> {num} </button>
-              ))}
-            </span>
+            <div key={idx}>
+              <span className="mergesort-exercise-bracket">[</span>
+              <span key={idx}>
+                {array.map((num, idx2) => (
+                  <button key={idx2} id={`${idx}`} onClick={() => this.moveToBotArray(idx, idx2)} className="mergesort-exercise-number"> {num} </button>
+                ))}
+              </span>
+              <span className="mergesort-exercise-bracket">]</span>
+            </div>
           ))}
         </div>
-        <div>
-          <span>
-            {this.state.showBotArray.map((array, idx) => (
-              <button key={idx} id={`${idx}`}> {array} </button>
-            ))}
-          </span>
+        <div className="mergesort-exercise-bot-array">
+          {this.state.showBotArray.map((array, idx) => (
+            <div key={idx}>
+              <span className="mergesort-exercise-bracket">[</span>
+              <span>
+                {array.map((num, idx2) => (
+                  <span key={idx2} id={`${idx}`} className="mergesort-exercise-number"> {num} </span>
+                ))}
+              </span>
+              <span className="mergesort-exercise-bracket">]</span>
+            </div>
+          ))}
+        </div>
+        <div className="mergesort-exercise-message-container">
+          {this.message()}
         </div>
       </div>
     );
