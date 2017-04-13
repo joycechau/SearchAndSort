@@ -26755,6 +26755,37 @@
 	              { className: 'authors' },
 	              _react2.default.createElement(
 	                'div',
+	                { className: 'joyce' },
+	                _react2.default.createElement(
+	                  'div',
+	                  null,
+	                  'Joyce Chau'
+	                ),
+	                _react2.default.createElement(
+	                  'div',
+	                  { className: 'links' },
+	                  _react2.default.createElement(
+	                    'a',
+	                    { href: 'https://www.linkedin.com/in/joycechau/',
+	                      target: '_blank',
+	                      className: 'linkedin-link' },
+	                    _react2.default.createElement('img', { src: 'https://res.cloudinary.com/joycechau/image/upload/v1486025481/linkedin2.png',
+	                      alt: 'linkedin',
+	                      className: 'linkedin-image' })
+	                  ),
+	                  _react2.default.createElement(
+	                    'a',
+	                    { href: 'https://github.com/joycechau',
+	                      target: '_blank',
+	                      className: 'github-link' },
+	                    _react2.default.createElement('img', { src: 'https://res.cloudinary.com/joycechau/image/upload/c_scale,w_20/v1485282244/github.png',
+	                      alt: 'github',
+	                      className: 'github-image' })
+	                  )
+	                )
+	              ),
+	              _react2.default.createElement(
+	                'div',
 	                { className: 'andrew' },
 	                _react2.default.createElement(
 	                  'div',
@@ -26807,37 +26838,6 @@
 	                  _react2.default.createElement(
 	                    'a',
 	                    { href: 'https://github.com/jeffreyfan93',
-	                      target: '_blank',
-	                      className: 'github-link' },
-	                    _react2.default.createElement('img', { src: 'https://res.cloudinary.com/joycechau/image/upload/c_scale,w_20/v1485282244/github.png',
-	                      alt: 'github',
-	                      className: 'github-image' })
-	                  )
-	                )
-	              ),
-	              _react2.default.createElement(
-	                'div',
-	                { className: 'joyce' },
-	                _react2.default.createElement(
-	                  'div',
-	                  null,
-	                  'Joyce Chau'
-	                ),
-	                _react2.default.createElement(
-	                  'div',
-	                  { className: 'links' },
-	                  _react2.default.createElement(
-	                    'a',
-	                    { href: 'https://www.linkedin.com/in/joycechau/',
-	                      target: '_blank',
-	                      className: 'linkedin-link' },
-	                    _react2.default.createElement('img', { src: 'https://res.cloudinary.com/joycechau/image/upload/v1486025481/linkedin2.png',
-	                      alt: 'linkedin',
-	                      className: 'linkedin-image' })
-	                  ),
-	                  _react2.default.createElement(
-	                    'a',
-	                    { href: 'https://github.com/joycechau',
 	                      target: '_blank',
 	                      className: 'github-link' },
 	                    _react2.default.createElement('img', { src: 'https://res.cloudinary.com/joycechau/image/upload/c_scale,w_20/v1485282244/github.png',
